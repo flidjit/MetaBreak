@@ -1,8 +1,5 @@
 import pygame as pg
 from pygame.locals import *
-import pickle
-import sys
-import os
 
 
 class Camera:
