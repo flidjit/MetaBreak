@@ -1,17 +1,20 @@
 from gamewindows import ViewPort
 import pygame as pg
 import pickle
+import os
 import sys
 import io
 import base64
-from pillow import Image
+from PIL import Image
 from itertools import product
+
 
 class Sheet:
     def __init__(self, name='~name~'):
         self.name = name
         self.description = ''
         self.artist = ''
+        self.date = ''
         self.cell_size = [0, 0]
         self.cells = []
         self.animations = {}
@@ -27,20 +30,23 @@ class SpriteToolz:
         filename = 'Sprites/New/'+filename+'.png'
         self.sheet_image = pg.image.load(filename).convert_alpha()
 
-    def set_user_input(self, name='name', description='desc...', artist='unknown'):
+    def set_user_input(self, name='name', description='desc...',
+                       artist='unknown', date=''):
         self.sheet.name = name
         self.sheet.description = description
         self.sheet.artist = artist
+        self.sheet.date = date
 
     def calc_dim(self, cols=12, rows=6):
         self.sheet.cell_size[0] = self.sheet_image.get_width() / cols
         self.sheet.cell_size[1] = self.sheet_image.get_width() / rows
 
-    def break_image(filename, dir_in, dir_out, d):
+    def break_image(self, dir_in, dir_out):
+        d = self.sheet.cell_size
+        filename = 'Sprites/New/Ts_1.png'
         name, ext = os.path.splitext(filename)
         img = Image.open(os.path.join(dir_in, filename))
         w, h = img.size
-
         grid = product(range(0, h - h % d, d), range(0, w - w % d, d))
         for i, j in grid:
             box = (j, i, j + d, i + d)
