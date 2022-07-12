@@ -1,5 +1,7 @@
 from gamewindows import ViewPort
 import pygame as pg
+import tkinter as tk
+from tkinter import filedialog
 import pickle
 import os
 import sys
@@ -25,9 +27,13 @@ class SpriteToolz:
         self.view = ViewPort()
         self.sheet = Sheet()
         self.sheet_image = None
+        root = tk.Tk()
+        root.withdraw()
+        self.load_image()
+        self.calc_dim()
 
-    def load_image(self, filename='name'):
-        filename = 'Sprites/New/'+filename+'.png'
+    def load_image(self):
+        filename = filedialog.askopenfilename()
         self.sheet_image = pg.image.load(filename).convert_alpha()
 
     def set_user_input(self, name='name', description='desc...',
@@ -41,17 +47,17 @@ class SpriteToolz:
         self.sheet.cell_size[0] = self.sheet_image.get_width() / cols
         self.sheet.cell_size[1] = self.sheet_image.get_width() / rows
 
-    def break_image(self, dir_in, dir_out):
-        d = self.sheet.cell_size
-        filename = 'Sprites/New/Ts_1.png'
-        name, ext = os.path.splitext(filename)
-        img = Image.open(os.path.join(dir_in, filename))
-        w, h = img.size
-        grid = product(range(0, h - h % d, d), range(0, w - w % d, d))
-        for i, j in grid:
-            box = (j, i, j + d, i + d)
-            out = os.path.join(dir_out, f'{name}_{i}_{j}{ext}')
-            img.crop(box).save(out)
+    # def break_image(self, dir_in, dir_out):
+    #     d = self.sheet.cell_size
+    #     filename = 'Sprites/New/Ts_1.png'
+    #     name, ext = os.path.splitext(filename)
+    #     img = Image.open(os.path.join(dir_in, filename))
+    #     w, h = img.size
+    #     grid = product(range(0, h - h % d, d), range(0, w - w % d, d))
+    #     for i, j in grid:
+    #         box = (j, i, j + d, i + d)
+    #         out = os.path.join(dir_out, f'{name}_{i}_{j}{ext}')
+    #         img.crop(box).save(out)
 
     # def new_sheet(self, filename='Ts_1', cols=12, rows=6):
     #     """ Turn a .png sprite sheet into a .sptx object"""
@@ -74,16 +80,10 @@ class SpriteToolz:
     #     outgoing.close()
 
     def update(self):
-        self.view.scene.fill((20, 0, 20))
-        self.view.scene.blit(self.this_sheet, (0, 0))
-        mg = io.BytesIO(base64.b64decode(photo))
-        pepeImg = pygame.image.load(output)
-        self.view.scene.blit(mg, (40, 40))
         self.view.update()
 
 
 this = SpriteToolz()
-this.new_sheet()
 
 
 while True:
