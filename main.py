@@ -43,7 +43,7 @@ class Sheet:
 
 class SpriteTools:
     @staticmethod
-    def new_sheet(filename='Ts_1', cols=10, rows=10, save=True):
+    def new_sheet(filename='Ts_1', cols=10, rows=10):
         """ Turn a .png sprite sheet into a .sptx object"""
         view = ViewPort()
         filename_ = 'Sprites/' + filename + '.png'
