@@ -7,25 +7,16 @@ import os
 import math
 import pickle
 import base64
+from enum import Enum
 
 
-class TileSheet:
-    def __init__(self, filename='Ts_1', cols=12, rows=6):
-        filename = 'Sprites/' + filename + '.png'
-        self.sheet = pg.image.load(filename).convert_alpha()
-        self.cols = cols
-        self.rows = rows
-        self.celPos = []  # Cell Position List
-        self.tileHeight = self.sheet.get_height() / self.rows
-        self.tileWidth = self.sheet.get_width() / self.cols
-        for i in range(self.cols):
-            for j in range(self.rows):
-                self.celPos.append([int(self.tileWidth * j), int(self.tileHeight * i)])
+class Camera:
+    def __init__(self, x, y):
+        self.location = [x, y]
+        self.target = [x, y]
 
-    def get_cell(self, id):
-        self.sheet.set_clip(
-            pg.Rect(self.celPos[id][0], self.celPos[id][1], self.tileWidth, self.tileHeight))
-        return self.sheet.subsurface(self.sheet.get_clip())
+    def update(self):
+        print('Ease the camera towards the target.')
 
 
 class ViewPort:
@@ -43,12 +34,38 @@ class ViewPort:
         self.clock.tick(self.fps)
 
 
-class Camera():
-    def __init__(self, x, y):
-        self.location = [x, y]
-        self.target = [x, y]
+class Sheet:
+    def __init__(self, name):
+        self.name = name
+        self.size = [0, 0]
+        self.cells = []
 
-    def update(self):
-        print('Ease the camera towards the target.')
+
+class SpriteTools:
+    @staticmethod
+    def new_sheet(filename='Ts_1', cols=10, rows=10, save=True):
+        """ Turn a .png sprite sheet into a .sptx object"""
+        view = ViewPort()
+        filename_ = 'Sprites/' + filename + '.png'
+        sheet_img = pg.image.load(filename_).convert_alpha()
+        sheet = Sheet(filename)
+        sheet.size = [sheet_img.get_width()/cols,
+                      sheet_img.get_height()/rows]
+        for i in range(cols):
+            for j in range(rows):
+                x = j*sheet.size[0]
+                y = i*sheet.size[1]
+                sheet_img.set_clip(pg.Rect(x, y, sheet.size[0], sheet.size[1]))
+                clip = pg.image.tostring(
+                    sheet_img.subsurface(sheet_img.get_clip()), 'RGBA')
+                sheet.cells.append(clip)
+        outgoing = open('Sprites/'+filename+'.sptx', 'wb')
+        pickle.dump(sheet, outgoing)
+        outgoing.close()
+
+
+SpriteTools.new_sheet()
+
+
 
 
