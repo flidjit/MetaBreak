@@ -23,57 +23,67 @@ class Sheet:
 
 
 class InputWindow(tk.Toplevel):
-    def __init__(self):
-        super().__init__()
-        self.name_lbl = tk.Label(text=' Sprite Name: ')
-        self.name_lbl.grid()
-        self.name_ent = tk.Entry()
-        self.name_ent.grid()
-        self.desc_lbl = tk.Label(text=' Description: ')
-        self.desc_lbl.grid()
-        self.desc_ent = tk.Entry()
-        self.desc_ent.grid()
-        self.arts_lbl = tk.Label(text=' Artist Name: ')
-        self.arts_lbl.grid()
-        self.arts_ent = tk.Entry()
-        self.arts_ent.grid()
-        self.grid()
-
-
-class SpriteToolz:
-    def __init__(self):
-        self.view = ViewPort()
+    def __init__(self, master=None):
+        super().__init__(master=master, bg='black')
         self.sheet = Sheet()
         self.sheet_image = None
-        root = tk.Tk()
-        root.withdraw()
+        self.name_lbl = tk.Label(
+            self, text=' Sprite Name: ', bg='black', fg='white')
+        self.name_lbl.grid(column=0, row=0)
+        self.name_ent = tk.Entry(
+            self, bg='black', fg='green')
+        self.name_ent.grid(column=1, row=0)
+        self.arts_lbl = tk.Label(
+            self, text=' Artist Name: ', bg='black', fg='white')
+        self.arts_lbl.grid(column=0, row=1)
+        self.arts_ent = tk.Entry(
+            self, bg='black', fg='green')
+        self.arts_ent.grid(column=1, row=1)
+        self.desc_lbl = tk.Label(
+            self, text=' Description: ', bg='black', fg='white')
+        self.desc_lbl.grid(column=0, row=2)
+        self.desc_ent = tk.Entry(
+            self, bg='black', fg='green')
+        self.desc_ent.grid(column=1, row=2)
+        self.aply_but = tk.Button(
+            self, text=' Apply ', command=self.set_data)
+        self.aply_but.grid(column=1, row=3)
+        self.grid()
         self.load_image()
-        self.set_user_input()
-        self.calc_dim()
 
     def load_image(self):
+        self.withdraw()
         filename = filedialog.askopenfilename()
         self.sheet_image = pg.image.load(filename).convert_alpha()
-
-    def set_user_input(self, name='name', description='desc...',
-                       artist='unknown', date=''):
-        self.sheet.name = name
-        self.sheet.description = description
-        self.sheet.artist = artist
-        self.sheet.date = date
+        self.deiconify()
 
     def calc_dim(self, cols=12, rows=6):
         self.sheet.cell_size[0] = self.sheet_image.get_width() / cols
         self.sheet.cell_size[1] = self.sheet_image.get_width() / rows
 
+    def set_data(self):
+        self.sheet.name = self.name_ent.get()
+        self.sheet.artist = self.arts_ent.get()
+        self.sheet.description = self.desc_ent.get()
+        self.calc_dim()
+
+
+class SpriteToolz:
+    def __init__(self):
+        self.view = ViewPort()
+        self.root = tk.Tk()
+        self.root.withdraw()
+        self.winder = InputWindow(self.root)
+
     def update(self):
+        self.winder.update()
         self.view.scene.fill((10, 0, 10))
-        if self.sheet_image:
-            self.view.scene.blit(self.sheet_image, (0, 0))
+        if self.winder.sheet_image:
+            self.view.scene.blit(self.winder.sheet_image, (0, 0))
         self.view.update()
 
 
-this = SpriteToolz()
+S_T = SpriteToolz()
 
 
 while True:
@@ -81,4 +91,4 @@ while True:
         if event.type == pg.QUIT:
             pg.quit()
             sys.exit()
-    this.update()
+    S_T.update()

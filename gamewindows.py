@@ -19,7 +19,7 @@ class ViewPort:
         pg.display.set_caption("MetaBreak")
         self.scene = pg.display.set_mode((1000, 600))
         self.clock = pg.time.Clock()
-        self.fps = 60
+        self.fps = 30
 
     def update(self):
         pg.display.flip()
