@@ -30,6 +30,7 @@ class SpriteToolz:
         root = tk.Tk()
         root.withdraw()
         self.load_image()
+        self.set_user_input()
         self.calc_dim()
 
     def load_image(self):
@@ -80,6 +81,9 @@ class SpriteToolz:
     #     outgoing.close()
 
     def update(self):
+        self.view.scene.fill((10, 0, 10))
+        if self.sheet_image:
+            self.view.scene.blit(self.sheet_image, (0, 0))
         self.view.update()
 
 
