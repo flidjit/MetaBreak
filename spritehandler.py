@@ -31,7 +31,7 @@ class InputWindow(tk.Toplevel):
         self.squares = []
         self.name_lbl = tk.Label(
             self, text=' Sprite Name: ', bg='black', fg='white')
-        self.name_lbl.grid(column=0, row=0, sticky='e')
+        self.name_lbl.grid(column=0, row=0, sticky='e', padx=5)
         self.name_ent = tk.Entry(
             self, bg='black', fg='green')
         self.name_ent.grid(column=1, row=0, columnspan=2, sticky='w')
