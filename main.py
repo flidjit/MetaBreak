@@ -11,10 +11,8 @@ from enum import Enum
 from gamewindows import ViewPort
 
 
-class MainWindow(Toplevel):
-    def __init__(self, master=None):
-        super().__init__(master=master, bg='black')
-        self.resizable(False, False)
+class MainWindow:
+    def __init__(self):
         self.view = ViewPort()
         self.root = Tk()
         self.root.withdraw()
