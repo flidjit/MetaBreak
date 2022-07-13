@@ -174,9 +174,9 @@ class InputWindow(Toplevel):
 
 class SpriteToolz:
     def __init__(self):
-        self.view = ViewPort()
         self.root = Tk()
         self.root.withdraw()
+        self.view = ViewPort()
         self.input_window = InputWindow(self.root)
 
     def update(self):

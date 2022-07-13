@@ -5,6 +5,7 @@ class Sheet:
         self.description = ' ... '
         self.artist = '_name_'
         self.creation_date = ''
+        self.image = None
         self.image_string = None
         self.type = "Tiles"
         self.cell_size = [1, 1]
