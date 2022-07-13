@@ -4,7 +4,7 @@ class Sheet:
         self.name = name
         self.description = ' ... '
         self.artist = '_name_'
-        self.date = ''
+        self.creation_date = ''
         self.image = None
         self.image_string = None
         self.type = "Tiles"

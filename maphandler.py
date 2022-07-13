@@ -11,11 +11,14 @@ import base64
 
 
 class Map:
-    def __init__(self):
+    def __init__(self, x_size=10, y_size=15):
         self.name = '_name_'
         self.description = ' ... '
+        self.creation_date = ''
         self.tile_sets = []
         self.sprites = []
+        self.size = [x_size, y_size]
+        self.tile_array = [[0 for i in range(x_size)] for j in range(y_size)]
 
 
 class InputWindow(Toplevel):
