@@ -3,7 +3,7 @@ from pygame.locals import *
 
 
 class Camera:
-    def __init__(self, x, y):
+    def __init__(self, x=10, y=10):
         self.location = [x, y]
         self.target = [x, y]
 
@@ -17,6 +17,7 @@ class ViewPort:
         pg.init()
         pg.font.init()
         pg.display.set_caption("MetaBreak")
+        self.camera = Camera()
         self.scene = pg.display.set_mode((1000, 600))
         self.clock = pg.time.Clock()
         self.fps = 30

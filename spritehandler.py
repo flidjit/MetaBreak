@@ -1,43 +1,15 @@
-import pygame.image
+#!/usr/bin/env python
 
 from gamewindows import ViewPort
+from prototyping import Sheet
 import pygame as pg
 import tkinter as tk
 from tkinter import filedialog, scrolledtext, ttk
 import pickle
 from enum import Enum
-import os
 import sys
 import io
 import base64
-from PIL import Image
-from itertools import product
-
-
-class SS(Enum):
-    TILES = 1
-    SPRITE = 2
-    EFFECT = 3
-
-
-class Sheet:
-    def __init__(self, name='_name_'):
-        self.name = name
-        self.description = ''
-        self.artist = ''
-        self.date = ''
-        self.image = None
-        self.image_string = None
-        self.type = SS.TILES
-        self.cell_size = [0, 0]
-        self.contact_point = [0, 0]
-        self.isometric = False
-        self.isometric_offset = [0, 0]
-        self.num_of_cells = 0
-        self.num_of_cols = 0
-        self.num_of_rows = 0
-        self.cells = []
-        self.animations = {}
 
 
 class InputWindow(tk.Toplevel):
@@ -141,7 +113,7 @@ class InputWindow(tk.Toplevel):
         self.sheet = pickle.load(load_file)
         load_file.close()
         tmp_img = io.BytesIO(base64.b64decode(self.sheet.image_string))
-        self.sheet.image = pygame.image.load(tmp_img)
+        self.sheet.image = pg.image.load(tmp_img)
         self.deiconify()
 
     def new_sprite(self):
