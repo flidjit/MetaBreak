@@ -63,3 +63,14 @@ class MapToolz:
     def update(self):
         self.tool_window.update()
         self.view.update()
+
+
+M_T = MapToolz()
+
+
+while True:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            pg.quit()
+            sys.exit()
+    M_T.update()
