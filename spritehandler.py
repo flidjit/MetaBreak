@@ -1,3 +1,5 @@
+import pygame.image
+
 from gamewindows import ViewPort
 import pygame as pg
 import tkinter as tk
@@ -24,6 +26,8 @@ class Sheet:
         self.description = ''
         self.artist = ''
         self.date = ''
+        self.image = None
+        self.image_string = None
         self.type = SS.TILES
         self.cell_size = [0, 0]
         self.contact_point = [0, 0]
@@ -41,8 +45,7 @@ class InputWindow(tk.Toplevel):
         super().__init__(master=master, bg='black')
         self.resizable(False, False)
         self.sheet = Sheet()
-        self.sheet_image = None
-        self.squares = []
+        self.filename = None
         self.name_lbl = tk.Label(
             self, text=' Sprite Name: ', bg='black', fg='white')
         self.name_lbl.grid(column=0, row=0, sticky='e', padx=5)
@@ -80,35 +83,53 @@ class InputWindow(tk.Toplevel):
         self.butt_frm = tk.Frame(self, bg='black')
         self.aply_but = tk.Button(
             self.butt_frm, text=' Apply ', bg='#39114f',
-            fg='#69f002', command=self.set_data)
+            fg='#69f002', command=self.apply)
         self.aply_but.grid(column=0, row=0)
         self.new_but = tk.Button(
-            self.butt_frm, text=' New ', command=self.load_image)
+            self.butt_frm, text=' New ', command=self.new_sprite)
         self.new_but.grid(column=1, row=0)
         self.save_but = tk.Button(
             self.butt_frm, text=' Save ', command=self.save_sprite)
         self.save_but.grid(column=2, row=0)
+        self.load_but = tk.Button(
+            self.butt_frm, text=' load ', command=self.load_sprite)
+        self.load_but.grid(column=3, row=0)
         self.butt_frm.grid(column=1, row=5, columnspan=2)
         self.grid()
-        self.load_image()
+        self.new_sprite()
 
     def save_sprite(self):
-        print('save as .sptx')
+        self.apply()
+        ts = self.sheet.image
+        self.sheet.image = None
+        save_file = open('Sprites/'+self.sheet.name+'.sptx', 'wb')
+        pickle.dump(self.sheet, save_file)
+        save_file.close()
+        self.sheet.image = ts
 
-    def load_image(self):
+    def load_sprite(self):
         self.withdraw()
-        filename = filedialog.askopenfilename()
-        self.sheet_image = pg.image.load(filename).convert_alpha()
+        filename = filedialog.askopenfilename(
+            title="Select A Sprite",
+            initialdir='Sprite/',
+            filetypes=(("sprite files", "*.sptx"), ("sprite files", "*.spx")))
+        load_file = open(filename, 'rb')
+        self.sheet = pickle.load(load_file)
+        load_file.close()
+        tmp_img = io.BytesIO(base64.b64decode(self.sheet.image_string))
+        self.sheet.image = pygame.image.load(tmp_img)
         self.deiconify()
 
-    def calc_dim(self, cols=12, rows=6):
-        self.sheet.cell_size[0] = int(self.sheet_image.get_width() / cols)
-        self.sheet.cell_size[1] = int(self.sheet_image.get_height() / rows)
-        self.sheet.num_of_cols = cols
-        self.sheet.num_of_rows = rows
-        self.sheet.num_of_cells = rows*cols
+    def new_sprite(self):
+        self.withdraw()
+        self.filename = filedialog.askopenfilename()
+        self.sheet.image = pg.image.load(self.filename).convert_alpha()
+        with open(self.filename, 'rb') as img:
+            img = img.read()
+            self.sheet.image_string = base64.b64encode(img)
+        self.deiconify()
 
-    def set_data(self):
+    def apply(self):
         self.sheet.name = self.name_ent.get()
         self.sheet.artist = self.arts_ent.get()
         self.sheet.description = self.desc_ent.get(1.0, tk.END)
@@ -127,11 +148,18 @@ class InputWindow(tk.Toplevel):
     def make_cells(self):
         for i in range(int(self.sheet.num_of_rows)):
             for j in range(int(self.sheet.num_of_cols)):
-                self.squares.append(
+                self.sheet.cells.append(
                     (j*self.sheet.cell_size[0],
                      i*self.sheet.cell_size[1],
                      self.sheet.cell_size[0],
                      self.sheet.cell_size[1]))
+
+    def calc_dim(self, cols=12, rows=6):
+        self.sheet.cell_size[0] = int(self.sheet.image.get_width() / cols)
+        self.sheet.cell_size[1] = int(self.sheet.image.get_height() / rows)
+        self.sheet.num_of_cols = cols
+        self.sheet.num_of_rows = rows
+        self.sheet.num_of_cells = rows*cols
 
 
 class SpriteToolz:
@@ -144,9 +172,9 @@ class SpriteToolz:
     def update(self):
         self.input_window.update()
         self.view.scene.fill((10, 0, 10))
-        if self.input_window.sheet_image:
-            self.view.scene.blit(self.input_window.sheet_image, (0, 0))
-        for square in self.input_window.squares:
+        if self.input_window.sheet.image:
+            self.view.scene.blit(self.input_window.sheet.image, (0, 0))
+        for square in self.input_window.sheet.cells:
             pg.draw.rect(self.view.scene, 'red', square, 1)
         self.view.update()
 
