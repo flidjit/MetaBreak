@@ -11,7 +11,7 @@ class Sheet:
         self.cell_size = [1, 1]
         self.contact_point = [10, 10]
         self.isometric = False
-        self.isometric_offset = [1, 1]
+        self.isometric_offset = [1, 1, 1]
         self.num_of_cells = 1
         self.num_of_cols = 1
         self.num_of_rows = 1
