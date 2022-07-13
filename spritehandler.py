@@ -80,6 +80,30 @@ class InputWindow(tk.Toplevel):
         self.cel_siz_lbl = tk.Label(
             self, bg='black', fg='pink', text=' Cell Size:')
         self.cel_siz_lbl.grid(column=2, row=4, sticky='w')
+        self.cont_frm = tk.Frame(self)
+        self.cont_lbl = tk.Label(
+            self.cont_frm, bg='black', fg='white', text='Contact Point - X:')
+        self.cont_lbl.grid(column=0, row=0)
+        self.cont_x_spb = ttk.Spinbox(self.cont_frm, width=4, from_=1, to=300)
+        self.cont_x_spb.grid(column=1, row=0)
+        self.cont_lbl_2 = tk.Label(
+            self.cont_frm, bg='black', fg='white', text=' Y:')
+        self.cont_lbl_2.grid(column=2, row=0)
+        self.cont_y_spb = ttk.Spinbox(self.cont_frm, width=4, from_=1, to=300)
+        self.cont_y_spb.grid(column=3, row=0, sticky='w')
+        self.cont_frm.grid(column=0, row=5, columnspan=4)
+        self.iso_frm = tk.Frame(self)
+        self.iso_lbl = tk.Label(
+            self.iso_frm, bg='black', fg='white', text='Isometric Offset - X:')
+        self.iso_lbl.grid(column=0, row=0)
+        self.iso_x_spb = ttk.Spinbox(self.iso_frm, width=4, from_=1, to=300)
+        self.iso_x_spb.grid(column=1, row=0)
+        self.iso_lbl_2 = tk.Label(
+            self.iso_frm, bg='black', fg='white', text=' Y:')
+        self.iso_lbl_2.grid(column=2, row=0)
+        self.iso_y_spb = ttk.Spinbox(self.iso_frm, width=4, from_=1, to=300)
+        self.iso_y_spb.grid(column=3, row=0, sticky='w')
+        self.iso_frm.grid(column=0, row=6, columnspan=4)
         self.butt_frm = tk.Frame(self, bg='black')
         self.aply_but = tk.Button(
             self.butt_frm, text=' Apply ', bg='#39114f',
@@ -94,7 +118,7 @@ class InputWindow(tk.Toplevel):
         self.load_but = tk.Button(
             self.butt_frm, text=' load ', command=self.load_sprite)
         self.load_but.grid(column=3, row=0)
-        self.butt_frm.grid(column=1, row=5, columnspan=2)
+        self.butt_frm.grid(column=1, row=7, columnspan=2)
         self.grid()
         self.new_sprite()
 
