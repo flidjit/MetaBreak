@@ -1,3 +1,5 @@
+import pygame.draw
+
 from gamewindows import ViewPort
 import pygame as pg
 import tkinter as tk
@@ -18,6 +20,9 @@ class Sheet:
         self.artist = ''
         self.date = ''
         self.cell_size = [0, 0]
+        self.num_of_cells = 0
+        self.num_of_cols = 0
+        self.num_of_rows = 0
         self.cells = []
         self.animations = {}
 
@@ -29,6 +34,7 @@ class InputWindow(tk.Toplevel):
         self.sheet = Sheet()
         self.sheet_image = None
         self.squares = []
+        self.ready_to_draw_squares = False
         self.name_lbl = tk.Label(
             self, text=' Sprite Name: ', bg='black', fg='white')
         self.name_lbl.grid(column=0, row=0, sticky='e', padx=5)
@@ -50,18 +56,18 @@ class InputWindow(tk.Toplevel):
         self.rows_lbl = tk.Label(
             self, text=' # of rows: ', bg='black', fg='white')
         self.rows_lbl.grid(column=0, row=3, sticky='e')
-        self.rows_spb = ttk.Spinbox(self, width=3)
+        self.rows_spb = ttk.Spinbox(self, width=3, from_=1, to=30)
         self.rows_spb.grid(column=1, row=3, sticky='w')
         self.cel_num_lbl = tk.Label(
-            self, bg='black', fg='pink', text='    Number of Cells:')
+            self, bg='black', fg='pink', text=' # of Cells:')
         self.cel_num_lbl.grid(column=2, row=3, sticky='w')
         self.cols_lbl = tk.Label(
             self, text=' # of columns: ', bg='black', fg='white')
         self.cols_lbl.grid(column=0, row=4, sticky='e')
-        self.cols_spb = ttk.Spinbox(self, width=3)
+        self.cols_spb = ttk.Spinbox(self, width=3, from_=1, to=30)
         self.cols_spb.grid(column=1, row=4, sticky='w')
         self.cel_siz_lbl = tk.Label(
-            self, bg='black', fg='pink', text='    Cell Size:')
+            self, bg='black', fg='pink', text=' Cell Size:')
         self.cel_siz_lbl.grid(column=2, row=4, sticky='w')
         self.butt_frm = tk.Frame(self, bg='black')
         self.aply_but = tk.Button(
@@ -82,14 +88,37 @@ class InputWindow(tk.Toplevel):
         self.deiconify()
 
     def calc_dim(self, cols=12, rows=6):
-        self.sheet.cell_size[0] = self.sheet_image.get_width() / cols
-        self.sheet.cell_size[1] = self.sheet_image.get_width() / rows
+        self.sheet.cell_size[0] = int(self.sheet_image.get_width() / cols)
+        self.sheet.cell_size[1] = int(self.sheet_image.get_height() / rows)
+        self.sheet.num_of_cols = cols
+        self.sheet.num_of_rows = rows
+        self.sheet.num_of_cells = rows*cols
 
     def set_data(self):
         self.sheet.name = self.name_ent.get()
         self.sheet.artist = self.arts_ent.get()
         self.sheet.description = self.desc_ent.get(1.0, tk.END)
+        self.sheet.cell_size[1] = int(self.rows_spb.get())
+        self.sheet.cell_size[0] = int(self.cols_spb.get())
         self.calc_dim()
+        self.set_text()
+        self.make_squares()
+
+    def set_text(self):
+        cs_1 = str(self.sheet.cell_size[0])
+        cs_2 = str(self.sheet.cell_size[1])
+        self.cel_siz_lbl['text'] = ' Cell Size: [ '+cs_1+'x'+cs_2+'px ]'
+        self.cel_num_lbl['text'] = ' # of Cells: '+str(self.sheet.num_of_cells)
+
+    def make_squares(self):
+        for i in range(int(self.sheet.num_of_rows)):
+            for j in range(int(self.sheet.num_of_cols)):
+                self.squares.append(
+                    (j*self.sheet.cell_size[0],
+                     i*self.sheet.cell_size[1],
+                     self.sheet.cell_size[0],
+                     self.sheet.cell_size[1]))
+        self.ready_to_draw_squares = True
 
 
 class SpriteToolz:
@@ -104,6 +133,8 @@ class SpriteToolz:
         self.view.scene.fill((10, 0, 10))
         if self.input_window.sheet_image:
             self.view.scene.blit(self.input_window.sheet_image, (0, 0))
+        for square in self.input_window.squares:
+            pygame.draw.rect(self.view.scene, 'red', square, 1)
         self.view.update()
 
 
