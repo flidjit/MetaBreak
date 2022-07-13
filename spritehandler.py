@@ -107,7 +107,7 @@ class InputWindow(tk.Toplevel):
     def set_text(self):
         cs_1 = str(self.sheet.cell_size[0])
         cs_2 = str(self.sheet.cell_size[1])
-        self.cel_siz_lbl['text'] = ' Cell Size: [ '+cs_1+'x'+cs_2+'px ]'
+        self.cel_siz_lbl['text'] = ' Cell Size: [ '+cs_1+'x'+cs_2+' px ]'
         self.cel_num_lbl['text'] = ' # of Cells: '+str(self.sheet.num_of_cells)
 
     def make_squares(self):
