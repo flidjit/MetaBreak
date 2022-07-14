@@ -6,6 +6,9 @@ class ResourceTBW(MasterMode):
     def __init__(self):
         super().__init__()
 
+    def take_input(self):
+        print('take the input')
+
 
 class ResourceMode(ResourceTBW):
     def __init__(self, user_=User()):
@@ -13,7 +16,4 @@ class ResourceMode(ResourceTBW):
 
     def draw_scene(self):
         print('draw the scene.')
-
-    def take_input(self):
-        print('take the input')
 

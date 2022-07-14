@@ -34,9 +34,6 @@ class MasterMode(tk_.Toplevel):
     def render_iso(self):
         print('render an isometric map')
 
-    def render_ui(self):
-        print('render the ui')
-
 
 class TitleMode(MasterMode):
     def __init__(self, user_=User()):
@@ -54,7 +51,9 @@ class TitleMode(MasterMode):
                 if b.x_1 < pos[1] < b.x_2:
                     if b.y_1 < pos[2] < b.y_2:
                         a = b.action
-            if a == 'Options':
+            if a is None:
+                print('No button pushed...')
+            elif a is 'Options':
                 print('you get an options popup')
             else:
                 self.change_mode = a

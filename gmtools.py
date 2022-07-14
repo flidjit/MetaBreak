@@ -6,6 +6,9 @@ class GmTBW(MasterMode):
     def __init__(self):
         super().__init__()
 
+    def take_input(self):
+        print('take the input')
+
 
 class GmMode(GmTBW):
     def __init__(self, user_=User()):
@@ -13,6 +16,3 @@ class GmMode(GmTBW):
 
     def draw_scene(self):
         print('draw the scene.')
-
-    def take_input(self):
-        print('take the input')

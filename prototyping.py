@@ -41,6 +41,12 @@ class PgUI:
 
 class Character:
     def __init__(self):
+        self.current_animation = None
+        self.animation_index = 0
+        self.frame_timer = 0
+        self.portrait = None
+        self.bust = None
+        self.sprite_sheet = ''
         self.first_name = 'Name'
         self.last_name = 'Name'
         self.scores = {
@@ -58,8 +64,6 @@ class Character:
         self.attack = 2
         self.techniques = {}
         self.skills = {}
-        self.portrait = None
-        self.bust = None
         self.left_hand = None
         self.right_hand = None
         self.gear = {

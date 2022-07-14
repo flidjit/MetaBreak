@@ -43,6 +43,7 @@ class MainGame:
         self.mode_ = TitleMode()
 
     def update(self):
+        self.check_mode()
         self.view.camera.update()
         self.view.scene.fill((10, 0, 10))
         self.mode_.draw_scene(self.view)
@@ -64,6 +65,9 @@ class MainGame:
             if self.mode_.change_mode == 'Title':
                 self.mode_.destroy()
                 self.mode_ = TitleMode(usr)
+            if self.mode_.change_mode == 'Tutorial':
+                self.mode_.destroy()
+                self.mode_ = TutorialMode(usr)
             if self.mode_.change_mode == 'Quit':
                 pg_.quit()
                 sys.exit()

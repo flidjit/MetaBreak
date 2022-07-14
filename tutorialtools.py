@@ -6,6 +6,9 @@ class TutorialTBW(MasterMode):
     def __init__(self):
         super().__init__()
 
+    def take_input(self):
+        print('take the input')
+
 
 class TutorialMode(TutorialTBW):
     def __init__(self, user_=User()):
@@ -13,6 +16,3 @@ class TutorialMode(TutorialTBW):
 
     def draw_scene(self):
         print('draw the scene.')
-
-    def take_input(self):
-        print('take the input')
