@@ -1,6 +1,8 @@
 from prototyping import *
 from resourcetools import ResourceMode
 from gmtools import GmMode
+from playertools import PlayerMode
+from tutorialtools import TutorialMode
 
 
 class Camera:

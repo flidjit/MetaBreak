@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
-from gamewindows import ViewPort
 from prototyping import Sheet
 import pygame as pg
 from tkinter import *
 from tkinter import filedialog, scrolledtext, ttk
 import pickle
-import sys
 import io
 import base64
 

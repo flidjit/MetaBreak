@@ -1,13 +1,9 @@
 #!/usr/bin/env python
 
-from gamewindows import ViewPort
+from Rec.scrap.gamewindows import ViewPort
 import pygame as pg
 from tkinter import *
-from tkinter import filedialog, scrolledtext, ttk
-import pickle
 import sys
-import io
-import base64
 
 
 class Tile:
