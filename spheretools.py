@@ -6,7 +6,7 @@ from modes import MasterMode
 #  * ???.
 
 
-class ResourceTBW(MasterMode):
+class SphereTBW(MasterMode):
     def __init__(self):
         super().__init__()
 
@@ -14,7 +14,7 @@ class ResourceTBW(MasterMode):
         print('take the input')
 
 
-class ResourceMode(ResourceTBW):
+class SphereMode(SphereTBW):
     def __init__(self, user_=User()):
         super().__init__()
 

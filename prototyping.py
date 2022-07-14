@@ -21,14 +21,14 @@ class User:
 
 class PgButton:
     def __init__(self):
-        self.tile_sheet = ''
+        self.tile_sheet = 'Options'
         self.cell_id = 0
-        self.action = None
+        self.action = 'Options'
         self.draw_at = [0, 0]
-        self.click_x_1 = 0
-        self.click_y_1 = 0
-        self.click_x_2 = 0
-        self.click_y_2 = 0
+        self.click_x_1 = 1
+        self.click_y_1 = 1
+        self.click_x_2 = 40
+        self.click_y_2 = 40
 
 
 class PgUI:
@@ -36,7 +36,7 @@ class PgUI:
         self.sprite_list = []
         self.bg_img = None
         self.overlay_img = None
-        self.buttons = []
+        self.buttons = [PgButton()]
         self.tool_bg = None
 
 
