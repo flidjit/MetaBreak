@@ -172,34 +172,34 @@ class InputWindow(Toplevel):
         self.sheet.num_of_cells = rows*cols
 
 
-class SpriteToolz:
-    def __init__(self):
-        self.root = Tk()
-        self.root.withdraw()
-        self.view = ViewPort()
-        self.input_window = InputWindow(self.root)
-
-    def update(self):
-        self.input_window.update()
-        self.view.scene.fill((10, 0, 10))
-        if self.input_window.sheet.image:
-            self.view.scene.blit(self.input_window.sheet.image, (0, 0))
-        for square in self.input_window.sheet.cells:
-            pg.draw.rect(self.view.scene, 'red', square, 1)
-        cp = self.input_window.sheet.contact_point
-        pg.draw.line(self.view.scene, 'yellow', (
-            cp[0]-10, cp[1]), (cp[0]+10, cp[1]), 1)
-        pg.draw.line(self.view.scene, 'yellow', (
-            cp[0], cp[1]-10), (cp[0], cp[1]+10), 1)
-        self.view.update()
-
-
-S_T = SpriteToolz()
-
-
-while True:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            pg.quit()
-            sys.exit()
-    S_T.update()
+# class SpriteToolz:
+#     def __init__(self):
+#         self.root = Tk()
+#         self.root.withdraw()
+#         self.view = ViewPort()
+#         self.input_window = InputWindow(self.root)
+#
+#     def update(self):
+#         self.input_window.update()
+#         self.view.scene.fill((10, 0, 10))
+#         if self.input_window.sheet.image:
+#             self.view.scene.blit(self.input_window.sheet.image, (0, 0))
+#         for square in self.input_window.sheet.cells:
+#             pg.draw.rect(self.view.scene, 'red', square, 1)
+#         cp = self.input_window.sheet.contact_point
+#         pg.draw.line(self.view.scene, 'yellow', (
+#             cp[0]-10, cp[1]), (cp[0]+10, cp[1]), 1)
+#         pg.draw.line(self.view.scene, 'yellow', (
+#             cp[0], cp[1]-10), (cp[0], cp[1]+10), 1)
+#         self.view.update()
+#
+#
+# S_T = SpriteToolz()
+#
+#
+# while True:
+#     for event in pg.event.get():
+#         if event.type == pg.QUIT:
+#             pg.quit()
+#             sys.exit()
+#     S_T.update()
