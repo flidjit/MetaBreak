@@ -1,14 +1,6 @@
-from tkinter import *
-from tkinter import ttk
-import sys
-import pygame as pg
-from pygame.locals import *
-import os
-import math
-import pickle
-import base64
-from enum import Enum
-
+from prototyping import *
+from resourcetools import ResourceMode
+from gmtools import GmMode
 
 
 class Camera:
@@ -23,38 +15,51 @@ class Camera:
 class ViewPort:
     def __init__(self):
         """ This object represents a pygame display window."""
-        pg.init()
-        pg.font.init()
-        pg.display.set_caption("MetaBreak")
+        pg_.init()
+        pg_.font.init()
+        pg_.display.set_caption("MetaBreak")
         self.camera = Camera()
-        self.scene = pg.display.set_mode((1000, 600))
-        self.clock = pg.time.Clock()
+        self.scene = pg_.display.set_mode((1000, 600))
+        self.clock = pg_.time.Clock()
         self.fps = 30
 
     def update(self):
-        pg.display.flip()
+        pg_.display.flip()
         self.clock.tick(self.fps)
+
+
+# --------------------------------------------------
 
 
 class MainGame:
     def __init__(self):
-        self.root = Tk()
+        self.root = tk_.Tk()
         self.root.withdraw()
         self.view = ViewPort()
         self.user_ = None
-        self.tool_bar = None
+        self.mode_ = None
+        self.next_mode = ''
 
     def update(self):
         self.view.camera.update()
         # kill the toolbar when you are done with it.
-        if self.tool_bar.die:
-            self.tool_bar.destroy()
-            self.tool_bar = None
+        if self.mode_.swap_modes:
+            m = self.mode_.swap_modes
+            self.mode_.destroy()
+            if m == "GM":
+                self.mode_ = GmMode()
+            elif m == "Player":
+                self.mode_ = PlayerMode()
+            elif m == "Resource":
+                self.mode_ = ResourceMode()
+            elif m == "Tutorial":
+                self.mode_ = TutorialMode()
+
         # fill the scene with visual information
         # and update the toolbar.
         self.view.scene.fill((10, 0, 10))
-        if self.tool_bar:
-            self.tool_bar.update(self.view)
+        if self.mode_:
+            self.mode_.update(self.view)
         # show the title screen if there is no toolbar.
         else:
             print('draw the title scene.')
