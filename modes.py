@@ -1,6 +1,10 @@
 from prototyping import *
 
 
+# ToDo :
+#  * ???.
+
+
 class MasterMode(tk_.Toplevel):
     def __init__(self, master=None, user_=User(), ui_=PgUI()):
         super().__init__(master=master, bg='black')

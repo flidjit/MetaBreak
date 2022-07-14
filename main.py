@@ -6,6 +6,10 @@ from playertools import PlayerMode
 from tutorialtools import TutorialMode
 
 
+# ToDo :
+#  * ???.
+
+
 class Camera:
     def __init__(self, x=10, y=10):
         self.location = [x, y]

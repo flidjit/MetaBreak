@@ -2,6 +2,10 @@ from prototyping import *
 from modes import MasterMode
 
 
+# ToDo :
+#  * Allow export of characters and such to pdf.
+
+
 class ResourceTBW(MasterMode):
     def __init__(self):
         super().__init__()

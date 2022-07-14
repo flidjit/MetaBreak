@@ -26,17 +26,18 @@ class PgButton:
         self.action = None
         self.draw_at = [0, 0]
         self.click_x_1 = 0
-        self.click_x_2 = 0
         self.click_y_1 = 0
+        self.click_x_2 = 0
         self.click_y_2 = 0
 
 
 class PgUI:
     def __init__(self):
         self.sprite_list = []
-        self.background_img = None
+        self.bg_img = None
         self.overlay_img = None
         self.buttons = []
+        self.tool_bg = None
 
 
 class Character:
