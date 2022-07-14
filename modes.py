@@ -1,3 +1,5 @@
+import pygame.mouse
+
 from prototyping import *
 
 
@@ -9,7 +11,7 @@ class MasterMode(tk_.Toplevel):
         self.ui_ = None
         self.popup = None
         self.art_ = {}
-        self.swap_modes = False
+        self.change_mode = None
         self.user_copy = user_
 
     def prepare_art(self, user_=None):
@@ -36,3 +38,19 @@ class MasterMode(tk_.Toplevel):
 
     def render_ui(self):
         print('render the ui')
+
+
+class TitleMode(MasterMode):
+    def __init__(self):
+        super().__init__()
+        self.intro_image = pg_.image.load('Rec/scrap/main_menu.png')
+        self.intro_image = pg_.transform.scale(self.intro_image, (1000, 600))
+        self.withdraw()
+
+    def take_input(self, event):
+        if event.type == pg_.MOUSEBUTTONUP:
+            pos = pygame.mouse.get_pos()
+            print(str(pos))
+
+    def draw_scene(self, view):
+        view.scene.blit(self.intro_image, (0, 0))

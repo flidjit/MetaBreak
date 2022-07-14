@@ -1,4 +1,5 @@
 from prototyping import *
+from modes import TitleMode
 from resourcetools import ResourceMode
 from gmtools import GmMode
 from playertools import PlayerMode
@@ -11,7 +12,8 @@ class Camera:
         self.target = [x, y]
 
     def update(self):
-        print('Ease the camera towards the target.')
+        if self.location != self.target:
+            print('Ease the camera towards the target.')
 
 
 class ViewPort:
@@ -19,7 +21,7 @@ class ViewPort:
         """ This object represents a pygame display window."""
         pg_.init()
         pg_.font.init()
-        pg_.display.set_caption("MetaBreak")
+        pg_.display.set_caption("Silver Cord Project")
         self.camera = Camera()
         self.scene = pg_.display.set_mode((1000, 600))
         self.clock = pg_.time.Clock()
@@ -39,33 +41,42 @@ class MainGame:
         self.root.withdraw()
         self.view = ViewPort()
         self.user_ = None
-        self.mode_ = None
-        self.next_mode = ''
+        self.mode_ = TitleMode()
 
     def update(self):
         self.view.camera.update()
-        # kill the toolbar when you are done with it.
-        if self.mode_.swap_modes:
-            m = self.mode_.swap_modes
-            self.mode_.destroy()
-            if m == "GM":
-                self.mode_ = GmMode()
-            elif m == "Player":
-                self.mode_ = PlayerMode()
-            elif m == "Resource":
-                self.mode_ = ResourceMode()
-            elif m == "Tutorial":
-                self.mode_ = TutorialMode()
-
-        # fill the scene with visual information
-        # and update the toolbar.
         self.view.scene.fill((10, 0, 10))
-        if self.mode_:
-            self.mode_.update(self.view)
-        # show the title screen if there is no toolbar.
-        else:
-            print('draw the title scene.')
-        # Buttons : Host Game, Join Game,
-        #           Campaign Editor, Sprite Editor, Sphere Editor,
-        #           Options, Quit
+        self.mode_.draw_scene(self.view)
+        self.mode_.update()
         self.view.update()
+
+    def check_mode(self):
+        if self.mode_.change_mode:
+            if self.mode_.change_mode == 'Player':
+                self.mode_.destroy()
+                self.mode_ = PlayerMode()
+            if self.mode_.change_mode == 'GM':
+                self.mode_.destroy()
+                self.mode_ = GmMode()
+            if self.mode_.change_mode == 'Resource':
+                self.mode_.destroy()
+                self.mode_ = ResourceMode()
+            if self.mode_.change_mode == 'Title':
+                self.mode_.destroy()
+                self.mode_ = TitleMode()
+
+            print('change the mode')
+
+
+M_T = MainGame()
+
+
+while True:
+    for event in pg_.event.get():
+        if event.type == QUIT:
+            pg_.quit()
+            sys.exit()
+        else:
+            M_T.mode_.take_input(event)
+    M_T.update()
+

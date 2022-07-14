@@ -110,3 +110,31 @@ class GameMap:
         self.iso_offset = [43, 24]
         self.sprite_list = ['default', 'pawns', 'symbols']
         self.array_ = [[TileStack() for i in range(x_size)] for j in range(y_size)]
+
+
+class Item:
+    def __init__(self):
+        self.name = 'Pebble'
+        self.description = 'A pebble about the side of a marble.'
+        self.personal = False
+        self.material = 'stone'
+        self.volume = 1
+        self.weight = 1
+        self.effect_type = None
+        self.effect = None
+
+
+class Armor(Item):
+    def __init__(self):
+        super().__init__()
+        self.equip_location = 'Head'
+        self.defence_bonus = 0
+
+
+class Weapon(Item):
+    def __init__(self):
+        super().__init__()
+        self.range = 1
+        self.attack_bonus = 1
+        self.concealable = False
+
