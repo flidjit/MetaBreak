@@ -1,10 +1,10 @@
+
 from prototyping import *
 from modes import MasterMode
 
 
 # ToDo :
-#  * Allow export of characters and such to pdf.
-#  * Allow the user to edit: Maps, Sprites, Items, Characters/Groups, and Spheres (maybe seperate modes)
+#  * ???.
 
 
 class ResourceTBW(MasterMode):
@@ -21,4 +21,3 @@ class ResourceMode(ResourceTBW):
 
     def draw_scene(self):
         print('draw the scene.')
-

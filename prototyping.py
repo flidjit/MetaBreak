@@ -53,7 +53,6 @@ class Character:
         self.scores = {
             'Strong': 10,
             'Tough': 10,
-            'Quick': 10,
             'Nimble': 10,
             'Clever': 10,
             'Pretty': 10,
