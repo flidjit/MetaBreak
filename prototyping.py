@@ -6,7 +6,9 @@ import sys
 import tkinter as tk_
 from tkinter import ttk
 import pygame as pg_
+import simpleaudio as sa_
 from pygame.locals import *
+
 
 class User:
     def __init__(self):
@@ -15,6 +17,26 @@ class User:
         self.last_login = ''
         self.campaigns = []
         self.player_characters = []
+
+
+class PgButton:
+    def __init__(self):
+        self.tile_sheet = ''
+        self.cell_id = 0
+        self.action = None
+        self.draw_at = [0, 0]
+        self.click_x_1 = 0
+        self.click_x_2 = 0
+        self.click_y_1 = 0
+        self.click_y_2 = 0
+
+
+class PgUI:
+    def __init__(self):
+        self.sprite_list = []
+        self.background_img = None
+        self.overlay_img = None
+        self.buttons = []
 
 
 class Character:
@@ -85,7 +107,7 @@ class Sprite:
 class Tile:
     def __init__(self):
         self.tile_sheet = 'default'
-        self.cel_id = 0
+        self.cell_id = 0
         self.scr_x_ = 0
         self.scr_y_ = 0
         self.height = 0

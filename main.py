@@ -40,7 +40,6 @@ class MainGame:
         self.root = tk_.Tk()
         self.root.withdraw()
         self.view = ViewPort()
-        self.user_ = None
         self.mode_ = TitleMode()
 
     def update(self):
@@ -52,20 +51,22 @@ class MainGame:
 
     def check_mode(self):
         if self.mode_.change_mode:
+            usr = self.mode_.user_
             if self.mode_.change_mode == 'Player':
                 self.mode_.destroy()
-                self.mode_ = PlayerMode()
+                self.mode_ = PlayerMode(usr)
             if self.mode_.change_mode == 'GM':
                 self.mode_.destroy()
-                self.mode_ = GmMode()
+                self.mode_ = GmMode(usr)
             if self.mode_.change_mode == 'Resource':
                 self.mode_.destroy()
-                self.mode_ = ResourceMode()
+                self.mode_ = ResourceMode(usr)
             if self.mode_.change_mode == 'Title':
                 self.mode_.destroy()
-                self.mode_ = TitleMode()
-
-            print('change the mode')
+                self.mode_ = TitleMode(usr)
+            if self.mode_.change_mode == 'Quit':
+                pg_.quit()
+                sys.exit()
 
 
 M_T = MainGame()
