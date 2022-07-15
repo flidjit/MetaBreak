@@ -3,6 +3,7 @@ import math
 import pickle
 import base64
 import sys
+import io
 import tkinter as tk_
 from tkinter import ttk, filedialog
 import pygame as pg_

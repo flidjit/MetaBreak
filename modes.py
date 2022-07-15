@@ -3,8 +3,6 @@ from prototyping import *
 
 # ToDo :
 #  * MasterMode().render_iso
-#  * MasterMode().decode_image
-#  * MasterMode().load_sprite
 
 
 class MasterMode(tk_.Toplevel):
@@ -17,7 +15,7 @@ class MasterMode(tk_.Toplevel):
     <.draw_scene> function that takes in the .scene object
     and draws on it."""
     def __init__(self, master=None, user_=User(),
-                 map_=GameMap(), ui_=PgUI(), master_key=False):
+                 map_=GameMap(), ui_=PgUI()):
         super().__init__(master=master, bg='black')
         self.resizable(False, False)
         self.map_ = map_
@@ -25,7 +23,6 @@ class MasterMode(tk_.Toplevel):
         self.popup = None
         self.art_ = {}
         self.change_mode = None
-        self.master_key = master_key
         self.user_ = user_
 
     def prepare_art(self, user_=None):
@@ -33,19 +30,19 @@ class MasterMode(tk_.Toplevel):
         dictionary, and set prepare them for display."""
         if self.map_:
             for i in self.map_.sprite_list:
-                self.load_sprite(self.map_.sprite_list[i])
+                self.load_sprite(i)
         if self.ui_:
             for i in self.ui_.sprite_list:
-                self.load_sprite(self.ui_.sprite_list[i])
+                self.load_sprite(i)
 
-    def load_sprite(self, name):
-        """ Un-pickle a .sptx object. """
-        print('load the sprite')
-
-    def decode_image(self, image):
-        """ The image in the .sptx file will be saved as a string for
-        serialization. Decode the string back into an image."""
-        print('decode an image')
+    def load_sprite(self, filename=None):
+        if filename:
+            load_file = open(filename, 'rb')
+            a_sprite = pickle.load(load_file)
+            load_file.close()
+            tmp_img = io.BytesIO(base64.b64decode(a_sprite.image_string))
+            a_sprite.image = pg_.image.load(tmp_img)
+            self.art_[a_sprite.name] = a_sprite
 
     def save_user_data(self):
         """ Saves all user data to memory."""

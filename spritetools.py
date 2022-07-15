@@ -8,7 +8,7 @@ from modes import MasterMode
 
 
 class SpriteMode(MasterMode):
-    def __init__(self, master=None, user_=User(), ui_=None, master_key=False):
+    def __init__(self, master=None, user_=User(), ui_=None):
         super().__init__(master=master)
         self.section_1 = tk_.Frame(self, bg='black')
         # __________________________________________________________
@@ -362,3 +362,55 @@ class SpriteMode(MasterMode):
         self.type_lbl.config(fg='white')
         self.set_access()
 
+    def save_sprite(self):
+        self.apply_to_sprite()
+        ts = self.this_sprite.image
+        self.this_sprite.image = None
+        save_file = open('Sprites/'+self.this_sprite.name+'.sptx', 'wb')
+        pickle.dump(self.this_sprite, save_file)
+        save_file.close()
+        self.this_sprite.image = ts
+
+    def make_cells(self):
+        for i in range(int(self.this_sprite.num_of_rows)):
+            for j in range(int(self.this_sprite.num_of_cols)):
+                self.this_sprite.cells.append(
+                    (j*self.this_sprite.cell_size[0],
+                     i*self.this_sprite.cell_size[1],
+                     self.this_sprite.cell_size[0],
+                     self.this_sprite.cell_size[1]))
+
+    def calc_dim(self, cols=12, rows=6):
+        self.this_sprite.cell_size[0] = int(self.this_sprite.image.get_width() / cols)
+        self.this_sprite.cell_size[1] = int(self.this_sprite.image.get_height() / rows)
+        self.this_sprite.num_of_cols = cols
+        self.this_sprite.num_of_rows = rows
+        self.this_sprite.num_of_cells = rows*cols
+
+    def apply_to_sprite(self):
+        self.this_sprite.name = self.name_ent.get()
+        self.this_sprite.artist = self.author_ent.get()
+        self.this_sprite.description = self.description_ent.get(1.0, pg_.END)
+        self.this_sprite.cell_size = [
+            int(self.col_num_sbx.get()), int(self.row_num_sbx.get())]
+        self.this_sprite.cell_size[0] = int(self.col_num_sbx.get())
+        self.this_sprite.contact_point = [
+            int(self.con_x_sbx.get()), int(self.con_y_sbx.get())]
+        self.calc_dim()
+        self.make_cells()
+
+    def apply_to_form(self):
+        self.name_ent.delete(1, pg_.END)
+        self.name_ent.insert(pg_.END, self.this_sprite.name)
+        self.author_ent.delete(1, pg_.END)
+        self.author_ent.insert(pg_.END, self.this_sprite.artist)
+        self.description_ent.delete(1.0, pg_.END)
+        self.description_ent.insert(pg_.END, self.this_sprite.description)
+        self.col_num_sbx.set(self.this_sprite.num_of_cols)
+        self.row_num_sbx.set(self.this_sprite.num_of_rows)
+        self.con_x_sbx.set(self.this_sprite.contact_point[0])
+        self.con_y_sbx.set(self.this_sprite.contact_point[1])
+        cs_1 = str(self.this_sprite.cell_size[0])
+        cs_2 = str(self.this_sprite.cell_size[1])
+        self.size_of_cells = ' [ '+cs_1+'x'+cs_2+' px ]'
+        self.number_of_cells = str(self.this_sprite.num_of_cells)
