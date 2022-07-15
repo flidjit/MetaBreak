@@ -96,10 +96,9 @@ class Sprite:
         self.creation_date = ''
         self.image = None
         self.image_string = None
-        self.type = "Tiles"
+        self.type = "Tile Set"
         self.cell_size = [1, 1]
         self.contact_point = [10, 10]
-        self.isometric = False
         self.isometric_offset = [1, 1, 1]
         self.num_of_cells = 1
         self.num_of_cols = 1
