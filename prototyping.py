@@ -162,5 +162,6 @@ class Weapon(Item):
         super().__init__()
         self.range = 1
         self.attack_bonus = 1
+        self.two_handed = False
         self.concealable = False
 

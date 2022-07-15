@@ -45,7 +45,7 @@ class ViewPort:
 class MainGame:
     """ The invisible game engine, which contains both
     tkinter windows, and pygame functionality. This
-    objects drives the motion of the game, and cascades
+    object drives the motion of the game, and cascades
     downwards updates to its child objects. It sends
     down the <self.view> object and the <self.mode_>
     object and it's children add images to the buffer
