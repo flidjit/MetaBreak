@@ -17,7 +17,7 @@ class SpriteTBW(MasterMode):
         self.name_lbl.grid(column=0, row=0)
         self.name_ent = tk_.Entry(
             self.section_1, bg='black', fg='white', textvariable=self.s_name)
-        self.s_name.set(' sprite name ')
+        self.s_name.set(' name ')
         self.name_ent.grid(column=1, row=0)
         # __________________________________________________________
         self.s_author = tk_.StringVar()  # <--- Edit this variable.
@@ -26,17 +26,17 @@ class SpriteTBW(MasterMode):
         self.author_lbl.grid(column=0, row=1)
         self.author_ent = tk_.Entry(
             self.section_1, bg='black', fg='white', textvariable=self.s_author)
-        self.s_author.set(' author name ')
+        self.s_author.set(' name ')
         self.author_ent.grid(column=1, row=1)
         # __________________________________________________________
         self.s_description = tk_.StringVar()  # <--- Edit this variable.
         self.description_lbl = tk_.Label(
-            self.section_1, bg='black', fg='white', text=' Author Name: ')
-        self.description_lbl.grid(column=0, row=1)
+            self.section_1, bg='black', fg='white', text=' Description: ')
+        self.description_lbl.grid(column=0, row=2)
         self.description_ent = tk_.Text(
-            self.section_1, bg='black', fg='white')
+            self.section_1, height=4, width=25, bg='black', fg='white')
         self.s_description.set(' author name ')
-        self.description_ent.grid(column=1, row=1)
+        self.description_ent.grid(column=1, row=2)
         # __________________________________________________________
         self.section_1.grid(column=0, row=0)
         self.grid()
