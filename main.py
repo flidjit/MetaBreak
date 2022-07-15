@@ -4,6 +4,8 @@ from Rec.scrap.resourcetools import ResourceMode
 from gmtools import GmMode
 from playertools import PlayerMode
 from tutorialtools import TutorialMode
+from spritetools import SpriteMode
+from spheretools import SphereMode
 
 
 class Camera:
@@ -56,15 +58,16 @@ class MainGame:
         self.root = tk_.Tk()
         self.root.withdraw()
         self.view = ViewPort()
-        self.mode_ = TitleMode()
+        self.mode_ = SpriteMode()
+        self.master_key = False
 
     def update(self):
         """ Begin the update() cascade."""
         self.check_mode()
         self.view.camera.update()
         self.view.scene.fill((10, 0, 10))
-        self.mode_.draw_scene(self.view)
         self.mode_.update()
+        self.mode_.draw_scene(self.view)
         self.view.update()
 
     def check_mode(self):
@@ -76,20 +79,32 @@ class MainGame:
         if self.mode_.change_mode:
             usr = self.mode_.user_
             if self.mode_.change_mode == 'Player':
+                self.master_key = False
                 self.mode_.destroy()
-                self.mode_ = PlayerMode(usr)
+                self.mode_ = PlayerMode(
+                    user_=usr, master_key=self.master_key)
+            # ---------------------------------------------
             if self.mode_.change_mode == 'GM':
+                self.master_key = True
                 self.mode_.destroy()
-                self.mode_ = GmMode(usr)
-            if self.mode_.change_mode == 'Resource':
+                self.mode_ = GmMode(
+                    user_=usr, master_key=self.master_key)
+            # ---------------------------------------------
+            if self.mode_.change_mode == 'Sphere':
                 self.mode_.destroy()
-                self.mode_ = ResourceMode(usr)
+                self.mode_ = SphereMode(
+                    user_=usr, master_key=self.master_key)
+            # ---------------------------------------------
             if self.mode_.change_mode == 'Title':
                 self.mode_.destroy()
-                self.mode_ = TitleMode(usr)
+                self.mode_ = TitleMode(
+                    user_=usr, master_key=self.master_key)
+            # ---------------------------------------------
             if self.mode_.change_mode == 'Tutorial':
                 self.mode_.destroy()
-                self.mode_ = TutorialMode(usr)
+                self.mode_ = TutorialMode(
+                    user_=usr, master_key=self.master_key)
+            # ---------------------------------------------
             if self.mode_.change_mode == 'Quit':
                 pg_.quit()
                 sys.exit()
@@ -103,7 +118,7 @@ while True:
         if event.type == QUIT:
             pg_.quit()
             sys.exit()
-        else:
+        elif event.type == MOUSEBUTTONUP:
             M_T.mode_.take_input(event)
     M_T.update()
 

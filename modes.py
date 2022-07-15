@@ -15,7 +15,7 @@ class MasterMode(tk_.Toplevel):
     <.draw_scene> function that takes in the .scene object
     and draws on it."""
     def __init__(self, master=None, user_=User(),
-                 map_=GameMap(), ui_=PgUI()):
+                 map_=GameMap(), ui_=PgUI(), master_key=False):
         super().__init__(master=master, bg='black')
         self.resizable(False, False)
         self.map_ = map_
@@ -23,6 +23,7 @@ class MasterMode(tk_.Toplevel):
         self.popup = None
         self.art_ = {}
         self.change_mode = None
+        self.master_key = master_key
         self.user_ = user_
 
     def prepare_art(self, user_=None):
@@ -68,7 +69,7 @@ class MasterMode(tk_.Toplevel):
 class TitleMode(MasterMode):
     """ This mode is active at startup. Allows the user to select
     among the other modes."""
-    def __init__(self, user_=User()):
+    def __init__(self, user_=User(), master_key=False):
         super().__init__()
         self.intro_image = pg_.image.load('Rec/scrap/main_menu.png')
         self.intro_image = pg_.transform.scale(self.intro_image, (1000, 600))

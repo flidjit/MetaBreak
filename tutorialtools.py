@@ -7,7 +7,7 @@ from modes import MasterMode
 
 
 class TutorialTBW(MasterMode):
-    def __init__(self):
+    def __init__(self, master=None, user_=User(), ui_=None, master_key=False):
         super().__init__()
 
     def take_input(self):
@@ -15,7 +15,7 @@ class TutorialTBW(MasterMode):
 
 
 class TutorialMode(TutorialTBW):
-    def __init__(self, user_=User()):
+    def __init__(self, user_=User(), master_key=False):
         super().__init__()
 
     def draw_scene(self):
