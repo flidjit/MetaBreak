@@ -1,6 +1,4 @@
-from prototyping import *
-from modes import TitleMode
-from Rec.scrap.resourcetools import ResourceMode
+from modes import *
 from gmtools import GmMode
 from playertools import PlayerMode
 from tutorialtools import TutorialMode

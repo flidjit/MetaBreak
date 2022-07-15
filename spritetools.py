@@ -3,7 +3,8 @@ from modes import MasterMode
 
 
 # ToDo :
-#  * Add animation editing.
+#  * Add animation editing
+#  * finish SpriteMode().set_access
 
 
 class SpriteMode(MasterMode):

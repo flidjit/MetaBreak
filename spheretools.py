@@ -3,7 +3,7 @@ from modes import MasterMode
 
 
 # ToDo :
-#  * ???.
+#  * Everything.
 
 
 class SphereTBW(MasterMode):

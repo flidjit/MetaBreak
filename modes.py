@@ -2,7 +2,9 @@ from prototyping import *
 
 
 # ToDo :
-#  * ???.
+#  * MasterMode().render_iso
+#  * MasterMode().decode_image
+#  * MasterMode().load_sprite
 
 
 class MasterMode(tk_.Toplevel):

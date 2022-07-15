@@ -140,7 +140,7 @@ class GameMap:
 class Item:
     def __init__(self):
         self.name = 'Pebble'
-        self.description = 'A pebble about the side of a marble.'
+        self.description = 'A pebble about the size of a marble.'
         self.personal = False
         self.material = 'stone'
         self.volume = 1
