@@ -4,10 +4,11 @@ from modes import MasterMode
 
 # ToDo :
 #  * Add animation editing
-#  * finish SpriteMode().set_access
 
 
 class SpriteMode(MasterMode):
+    """ SpriteMode() allows the user to transform a transparent .png
+    into a custom sprite object for use within the game. """
     def __init__(self, master=None, user_=User(), ui_=None):
         super().__init__(master=master)
         self.section_1 = tk_.Frame(self, bg='black')
@@ -63,7 +64,7 @@ class SpriteMode(MasterMode):
         self.row_number = tk_.StringVar()
         self.row_num_sbx = ttk.Spinbox(
             self.section_2, width=3, from_=1, to=99,
-            textvariable=self.row_number, command=self.apply_to_form)
+            textvariable=self.row_number, command=self.set_cell_size)
         self.row_num_sbx.grid(column=1, row=0)
         # __________________________________________________________
         self.col_num_lbl = tk_.Label(
@@ -72,7 +73,7 @@ class SpriteMode(MasterMode):
         self.col_number = tk_.StringVar()
         self.col_num_sbx = ttk.Spinbox(
             self.section_2, width=3, from_=1, to=99,
-            textvariable=self.col_number, command=self.apply_to_form)
+            textvariable=self.col_number, command=self.set_cell_size)
         self.col_num_sbx.grid(column=3, row=0)
         # __________________________________________________________
         self.section_2.grid(column=0, row=1, padx=10, pady=10)
@@ -164,9 +165,11 @@ class SpriteMode(MasterMode):
         self.new_but = tk_.Button(self.section_6, text=' New ',
                                   command=self.new_sprite)
         self.new_but.grid(column=0, row=0, sticky='we')
-        self.load_but = tk_.Button(self.section_6, text=' Load ')
+        self.load_but = tk_.Button(self.section_6, text=' Load ',
+                                   command=self.load_sprite)
         self.load_but.grid(column=1, row=0, sticky='we')
-        self.sav_but = tk_.Button(self.section_6, text=' Save ')
+        self.sav_but = tk_.Button(self.section_6, text=' Save ',
+                                  command=self.save_sprite)
         self.sav_but.grid(column=2, row=0, sticky='we')
         self.new_but = tk_.Button(self.section_6, text=' Quit ')
         self.new_but.grid(column=3, row=0, sticky='we')
@@ -181,7 +184,17 @@ class SpriteMode(MasterMode):
         self.ready_state = True
         self.set_access()
 
+    def take_input(self, event):
+        print(event)
+
+    def draw_scene(self, view):
+        """ Draw the sprite to the screen. """
+        if self.this_sprite.image:
+            view.scene.blit(self.this_sprite.image, (0, 0))
+
     def set_access(self, *args):
+        """ Activate/Deactivate widgets based on the currently
+        selected type of sprite."""
         if self.ready_state:
             self.type_sel.config(state=tk_.DISABLED)
             self.type_lbl.config(fg='grey4')
@@ -338,14 +351,8 @@ class SpriteMode(MasterMode):
                 self.cell_siz_lbl.config(fg='pink')
                 self.cell_size_lbl.config(fg='white')
 
-    def take_input(self, event):
-        print(event)
-
-    def draw_scene(self, view):
-        if self.this_sprite.image:
-            view.scene.blit(self.this_sprite.image, (0, 0))
-
     def new_sprite(self, *args):
+        """ Create a new sprite. """
         self.this_sprite = Sprite()
         self.filename = filedialog.askopenfilename()
         self.this_sprite.image = pg_.image.load(self.filename).convert_alpha()
@@ -360,6 +367,7 @@ class SpriteMode(MasterMode):
         self.ready_state = False
 
     def save_sprite(self):
+        """ Save the sprite to file. """
         self.apply_to_sprite()
         ts = self.this_sprite.image
         self.this_sprite.image = None
@@ -369,6 +377,8 @@ class SpriteMode(MasterMode):
         self.this_sprite.image = ts
 
     def make_cells(self):
+        """ Add cells to the sprite. """
+        self.this_sprite.cells = []
         for i in range(int(self.this_sprite.num_of_rows)):
             for j in range(int(self.this_sprite.num_of_cols)):
                 self.this_sprite.cells.append(
@@ -377,19 +387,23 @@ class SpriteMode(MasterMode):
                      self.this_sprite.cell_size[0],
                      self.this_sprite.cell_size[1]))
 
-    def calc_dim(self):
+    def set_cell_size(self, *args):
+        """ Calculates the dimensions of each cell. """
         if self.this_sprite.image:
-            cols = self.this_sprite.num_of_cols
-            rows = self.this_sprite.num_of_rows
+            self.this_sprite.num_of_cols = int(self.col_number.get())
+            cols = int(self.col_number.get())
+            self.this_sprite.num_of_rows = int(self.row_number.get())
+            rows = int(self.row_number.get())
             self.this_sprite.cell_size[0] = int(self.this_sprite.image.get_width() / cols)
             self.this_sprite.cell_size[1] = int(self.this_sprite.image.get_height() / rows)
             self.this_sprite.num_of_cells = rows*cols
             cs_1 = str(self.this_sprite.cell_size[0])
             cs_2 = str(self.this_sprite.cell_size[1])
             self.size_of_cells.set(' [ '+cs_1+'x'+cs_2+' px ]')
-            self.number_of_cells.set(self.this_sprite.num_of_cells)
+            self.number_of_cells.set(str(self.this_sprite.num_of_cells))
 
     def apply_to_sprite(self):
+        """ Apply information contained in the form to the sprite."""
         self.this_sprite.name = self.name_string.get()
         self.this_sprite.artist = self.author_string.get()
         self.this_sprite.description = self.description_ent.get(1.0, tk_.END)
@@ -398,10 +412,10 @@ class SpriteMode(MasterMode):
         self.this_sprite.cell_size[0] = int(self.col_number.get())
         self.this_sprite.contact_point = [
             int(self.con_x_number.get()), int(self.con_y_number.get())]
-        self.calc_dim()
         self.make_cells()
 
     def apply_to_form(self):
+        """ Apply information contained in the sprite to the form. """
         self.name_string.set(self.this_sprite.name)
         self.author_string.set(self.this_sprite.artist)
         self.description_ent.delete(1.0, tk_.END)
@@ -410,4 +424,3 @@ class SpriteMode(MasterMode):
         self.row_number.set(self.this_sprite.num_of_rows)
         self.con_x_number.set(self.this_sprite.contact_point[0])
         self.con_y_number.set(self.this_sprite.contact_point[1])
-        self.calc_dim()

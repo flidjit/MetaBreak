@@ -6,6 +6,20 @@ from spritetools import SpriteMode
 from spheretools import SphereMode
 
 
+#  ToDo:
+#    * Add pygame UI functionality.
+#    * Add popup functionality.
+#    * Add Mode switching functionality.
+#    ---------------------------------
+#    * Begin PlayerMode()
+#    * Begin GmMode()
+#    * Begin TutorialMode()
+#    * Begin SphereMode()
+#    * Begin MapMode()
+#    ---------------------------------
+#    * Finish SpriteMode()
+
+
 class Camera:
     """This object is to be placed in the ViewPort() object.
     Tracks the relative location of the viewer."""
@@ -21,9 +35,11 @@ class Camera:
 
 
 class ViewPort:
+    """ This object represents a pygame display window.
+    All images to be displayed are added to the <self.scene>
+    object buffer to be handled by the MasterMode(), and MainGame()
+    objects, and displayed by this ViewPort() object."""
     def __init__(self):
-        """ This object represents a pygame display window.
-        All images are added to the <self.scene> object buffer."""
         pg_.init()
         pg_.font.init()
         pg_.display.set_caption("Silver Cord Project")
@@ -57,7 +73,6 @@ class MainGame:
         self.root.withdraw()
         self.view = ViewPort()
         self.mode_ = SpriteMode()
-        self.master_key = False
 
     def update(self):
         """ Begin the update() cascade."""
@@ -77,31 +92,24 @@ class MainGame:
         if self.mode_.change_mode:
             usr = self.mode_.user_
             if self.mode_.change_mode == 'Player':
-                self.master_key = False
                 self.mode_.destroy()
-                self.mode_ = PlayerMode(
-                    user_=usr, master_key=self.master_key)
+                self.mode_ = PlayerMode(user_=usr)
             # ---------------------------------------------
             if self.mode_.change_mode == 'GM':
-                self.master_key = True
                 self.mode_.destroy()
-                self.mode_ = GmMode(
-                    user_=usr, master_key=self.master_key)
+                self.mode_ = GmMode(user_=usr)
             # ---------------------------------------------
             if self.mode_.change_mode == 'Sphere':
                 self.mode_.destroy()
-                self.mode_ = SphereMode(
-                    user_=usr, master_key=self.master_key)
+                self.mode_ = SphereMode(user_=usr)
             # ---------------------------------------------
             if self.mode_.change_mode == 'Title':
                 self.mode_.destroy()
-                self.mode_ = TitleMode(
-                    user_=usr, master_key=self.master_key)
+                self.mode_ = TitleMode(user_=usr)
             # ---------------------------------------------
             if self.mode_.change_mode == 'Tutorial':
                 self.mode_.destroy()
-                self.mode_ = TutorialMode(
-                    user_=usr, master_key=self.master_key)
+                self.mode_ = TutorialMode(user_=usr)
             # ---------------------------------------------
             if self.mode_.change_mode == 'Quit':
                 pg_.quit()

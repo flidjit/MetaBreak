@@ -3,6 +3,12 @@ from prototyping import *
 
 # ToDo :
 #  * MasterMode().render_iso
+#  * Modes added to modes.py are fully functional
+#    but need to be checked for:
+#      * Naming conventions
+#      * Simplification
+#      * Memory leaks
+#      * Bugs
 
 
 class MasterMode(tk_.Toplevel):
