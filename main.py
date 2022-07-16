@@ -11,11 +11,12 @@ from spheretools import SphereMode
 #    * Add popup functionality.
 #    * Add Mode switching functionality.
 #    ---------------------------------
+#    (In this order)
+#    * Begin MapMode()
+#    * Begin SphereMode()
 #    * Begin PlayerMode()
 #    * Begin GmMode()
 #    * Begin TutorialMode()
-#    * Begin SphereMode()
-#    * Begin MapMode()
 #    ---------------------------------
 #    * Finish SpriteMode()
 

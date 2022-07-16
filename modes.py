@@ -2,7 +2,10 @@ from prototyping import *
 
 
 # ToDo :
-#  * MasterMode().render_iso
+#  * Add MasterMode.render_iso() functionality.
+#  * Add MasterMode.load_user_data() functionality.
+#  * Work on MasterMode.pg_button_check().
+#  * TitleMode() needs to handle art properly.
 #  * Modes added to modes.py are fully functional
 #    but need to be checked for:
 #      * Naming conventions
@@ -17,9 +20,9 @@ class MasterMode(tk_.Toplevel):
     <PlayerMode()>, <GmMode()>, <TutorialMode()>, <SpriteMode()>,
     <SphereMode()>, <MapMode()>, and <TitleMode()>.
     The mode determines what gets drawn to the screen, and what
-    popups are activated. All child objects will have a
-    <.draw_scene> function that takes in the .scene object
-    and draws on it."""
+    popups are activated. All Mode objects will have a
+    <.draw_scene> function that takes in the .scene buffer
+    and adds images to it. """
     def __init__(self, master=None, user_=User(),
                  map_=GameMap(), ui_=PgUI()):
         super().__init__(master=master, bg='black')
@@ -42,6 +45,8 @@ class MasterMode(tk_.Toplevel):
                 self.load_sprite(i)
 
     def load_sprite(self, filename=None):
+        """ Loads a custom sprite object, and convert its Sprite.image_string
+        data into an image format that can be handled by pygame. """
         if filename:
             load_file = open(filename, 'rb')
             a_sprite = pickle.load(load_file)
@@ -61,6 +66,9 @@ class MasterMode(tk_.Toplevel):
         print('render an isometric map')
 
     def pg_button_check(self, x, y):
+        """ When the user clicks on the pygame window, this checks
+        to see if the click collided with one of the buttons in
+        the ui. A string containing the desired action is returned."""
         a = None
         for i in range(len(self.ui_.buttons)):
             b = self.ui_.buttons[i]
