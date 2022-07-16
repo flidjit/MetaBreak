@@ -7,6 +7,7 @@ import io
 import tkinter as tk_
 from tkinter import ttk, filedialog
 import pygame as pg_
+from pygame.locals import *
 import simpleaudio as sa_
 from pygame.locals import *
 
@@ -90,14 +91,14 @@ class Character:
 
 
 class Sprite:
-    def __init__(self, name='_name_'):
+    def __init__(self, name=' Enter a name. '):
         self.name = name
         self.description = ' ... '
-        self.artist = '_name_'
+        self.artist = ' Enter a name. '
         self.creation_date = ''
         self.image = None
         self.image_string = None
-        self.type = "Tile Set"
+        self.type = " Select a sprite type. "
         self.cell_size = [1, 1]
         self.contact_point = [10, 10]
         self.isometric_offset = [1, 1, 1]
