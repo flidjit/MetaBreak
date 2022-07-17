@@ -36,15 +36,19 @@ class MasterMode(tk_.Toplevel):
 
     def prepare_art(self, user_=None):
         """Load the sprites listed for this map into the <self.art_>
-        dictionary, and set prepare them for display."""
+        dictionary, and prepare them for display."""
+        st = 'Rec/Sprites/'
         if self.map_:
             for i in self.map_.sprite_list:
-                self.load_sprite(i)
+                sp = self.acquire_sprite_object(st + 'Tilesets/' + i + '.mtx')
+                self.art_[sp.name] = sp
         if self.ui_:
             for i in self.ui_.sprite_list:
-                self.load_sprite(i)
+                sp = self.acquire_sprite_object(st + 'UI/' + i + '.utx')
+                self.art_[sp.name] = sp
 
-    def load_sprite(self, filename=None):
+    @staticmethod
+    def acquire_sprite_object(filename=None):
         """ Loads a custom sprite object, and convert its Sprite.image_string
         data into an image format that can be handled by pygame. """
         if filename:
@@ -52,8 +56,9 @@ class MasterMode(tk_.Toplevel):
             a_sprite = pickle.load(load_file)
             load_file.close()
             tmp_img = io.BytesIO(base64.b64decode(a_sprite.image_string))
+            a_sprite.image_string = None
             a_sprite.image = pg_.image.load(tmp_img)
-            self.art_[a_sprite.name] = a_sprite
+            return a_sprite
 
     def save_user_data(self):
         """ Saves all user data to memory."""

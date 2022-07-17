@@ -11,6 +11,7 @@ class SpriteMode(MasterMode):
     into a custom sprite object for use within the game. """
     def __init__(self, master=None, user_=User(), ui_=None):
         super().__init__(master=master)
+        self.map_ = None
         self.section_1 = tk_.Frame(self, bg='black')
         # __________________________________________________________
         self.type_lbl = tk_.Label(
@@ -166,7 +167,7 @@ class SpriteMode(MasterMode):
                                   command=self.new_sprite)
         self.new_but.grid(column=0, row=0, sticky='we')
         self.load_but = tk_.Button(self.section_6, text=' Load ',
-                                   command=self.load_sprite)
+                                   command=self.acquire_sprite_object)
         self.load_but.grid(column=1, row=0, sticky='we')
         self.sav_but = tk_.Button(self.section_6, text=' Save ',
                                   command=self.save_sprite)
@@ -354,7 +355,7 @@ class SpriteMode(MasterMode):
     def new_sprite(self, *args):
         """ Create a new sprite. """
         self.this_sprite = Sprite()
-        self.filename = filedialog.askopenfilename()
+        self.filename = filedialog.askopenfilename(initialdir='Rec/Sprites/New')
         self.this_sprite.image = pg_.image.load(self.filename).convert_alpha()
         with open(self.filename, 'rb') as img:
             img = img.read()
