@@ -17,6 +17,7 @@ class User:
         self.screen_name = 'Name'
         self.email = '@mail.com'
         self.last_login = ''
+        self.selected_theme = 'Default'
         self.campaigns = []
         self.player_characters = []
 
@@ -37,7 +38,8 @@ class PgUI:
     def __init__(self):
         self.sprite_list = []
         self.bg_img = None
-        self.overlay_img = None
+        self.top_overlay_img = None
+        self.bottom_overlay_img = None
         self.buttons = [PgButton()]
         self.tool_bg = None
 
