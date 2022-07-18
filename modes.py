@@ -40,12 +40,11 @@ class MasterMode(tk_.Toplevel):
         st = 'Rec/Sprites/'
         if self.map_:
             for i in self.map_.sprite_list:
-                sp = self.acquire_sprite_object(st + 'Tilesets/' + i + '.mtx')
+                sp = self.acquire_sprite_object(st + 'Tilesets/' + i + '.spx')
                 self.art_[sp.name] = sp
         if self.ui_:
-            for i in self.ui_.sprite_list:
-                sp = self.acquire_sprite_object(st + 'UI/' + i + '.utx')
-                self.art_[sp.name] = sp
+            sp = self.acquire_sprite_object(st + 'UI/' + i + '.utx')
+            self.art_[sp.name] = sp
 
     @staticmethod
     def acquire_sprite_object(filename=None):

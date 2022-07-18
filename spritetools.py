@@ -191,8 +191,8 @@ class SpriteMode(MasterMode):
     def draw_scene(self, view):
         """ Draw the sprite to the screen. """
         self.draw_background(view)
-        if self.this_sprite.image:
-            view.scene.blit(self.this_sprite.image, (0, 0))
+        if self.this_sprite.image_:
+            view.scene.blit(self.this_sprite.image_, (0, 0))
         self.draw_ui(view)
 
     def set_access(self, *args):
@@ -369,12 +369,12 @@ class SpriteMode(MasterMode):
         self.type_lbl.config(fg='white')
         self.ready_state = False
 
-    def save_sprite(self):
+    def save_sprite(self, file_location='Rec/Sprites/Effects/', extension='.spx1'):
         """ Save the sprite to file. """
         self.apply_to_sprite()
         ts = self.this_sprite.image
         self.this_sprite.image = None
-        save_file = open('Sprites/'+self.this_sprite.name+'.sptx', 'wb')
+        save_file = open(file_location+self.this_sprite.name_+extension, 'wb')
         pickle.dump(self.this_sprite, save_file)
         save_file.close()
         self.this_sprite.image = ts
@@ -382,26 +382,26 @@ class SpriteMode(MasterMode):
     def make_cells(self):
         """ Add cells to the sprite. """
         self.this_sprite.cells = []
-        for i in range(int(self.this_sprite.num_of_rows)):
-            for j in range(int(self.this_sprite.num_of_cols)):
+        for i in range(int(self.this_sprite.number_of_rows_)):
+            for j in range(int(self.this_sprite.number_of_columns_)):
                 self.this_sprite.cells.append(
-                    (j*self.this_sprite.cell_size[0],
-                     i*self.this_sprite.cell_size[1],
-                     self.this_sprite.cell_size[0],
-                     self.this_sprite.cell_size[1]))
+                    (j*self.this_sprite.cell_size_[0],
+                     i*self.this_sprite.cell_size_[1],
+                     self.this_sprite.cell_size_[0],
+                     self.this_sprite.cell_size_[1]))
 
     def set_cell_size(self, *args):
         """ Calculates the dimensions of each cell. """
-        if self.this_sprite.image:
+        if self.this_sprite.image_:
             self.this_sprite.num_of_cols = int(self.col_number.get())
             cols = int(self.col_number.get())
             self.this_sprite.num_of_rows = int(self.row_number.get())
             rows = int(self.row_number.get())
-            self.this_sprite.cell_size[0] = int(self.this_sprite.image.get_width() / cols)
-            self.this_sprite.cell_size[1] = int(self.this_sprite.image.get_height() / rows)
+            self.this_sprite.cell_size_[0] = int(self.this_sprite.image_.get_width() / cols)
+            self.this_sprite.cell_size_[1] = int(self.this_sprite.image_.get_height() / rows)
             self.this_sprite.num_of_cells = rows*cols
-            cs_1 = str(self.this_sprite.cell_size[0])
-            cs_2 = str(self.this_sprite.cell_size[1])
+            cs_1 = str(self.this_sprite.cell_size_[0])
+            cs_2 = str(self.this_sprite.cell_size_[1])
             self.size_of_cells.set(' [ '+cs_1+'x'+cs_2+' px ]')
             self.number_of_cells.set(str(self.this_sprite.num_of_cells))
 
@@ -419,11 +419,11 @@ class SpriteMode(MasterMode):
 
     def apply_to_form(self):
         """ Apply information contained in the sprite to the form. """
-        self.name_string.set(self.this_sprite.name)
-        self.author_string.set(self.this_sprite.artist)
+        self.name_string.set(self.this_sprite.name_)
+        self.author_string.set(self.this_sprite.creator_)
         self.description_ent.delete(1.0, tk_.END)
-        self.description_ent.insert(tk_.END, self.this_sprite.description)
-        self.col_number.set(self.this_sprite.num_of_cols)
-        self.row_number.set(self.this_sprite.num_of_rows)
-        self.con_x_number.set(self.this_sprite.contact_point[0])
-        self.con_y_number.set(self.this_sprite.contact_point[1])
+        self.description_ent.insert(tk_.END, self.this_sprite.description_)
+        self.col_number.set(self.this_sprite.number_of_columns_)
+        self.row_number.set(self.this_sprite.number_of_rows_)
+        self.con_x_number.set(self.this_sprite.contact_point_[0])
+        self.con_y_number.set(self.this_sprite.contact_point_[1])
