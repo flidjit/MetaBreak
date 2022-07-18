@@ -190,8 +190,10 @@ class SpriteMode(MasterMode):
 
     def draw_scene(self, view):
         """ Draw the sprite to the screen. """
+        self.draw_background(view)
         if self.this_sprite.image:
             view.scene.blit(self.this_sprite.image, (0, 0))
+        self.draw_ui(view)
 
     def set_access(self, *args):
         """ Activate/Deactivate widgets based on the currently
