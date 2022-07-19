@@ -70,9 +70,7 @@ class MasterMode(tk_.Toplevel):
         print('render an isometric map')
 
     def draw_background(self, view):
-        cel = self.ui_.sprite.cells[0]
-        img = self.ui_.sprite.image.get_rect(cel[0], cel[1], cel[2], cel[3])
-        view.scene.blit(img, (0, 0))
+        print('draw the ui background')
 
     def draw_ui(self, view):
         print('draw the ui.')

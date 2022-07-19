@@ -86,24 +86,31 @@ class Sprite(NamedThing):
     def __init__(self, name_=' Enter a name. ', description_=' ... ',
                  creation_date_=None, creator_=None,
                  image_=None, image_string_=None,
-                 type_=' Select a sprite type.',
-                 cell_size_x_=1, cell_size_y_=1,
-                 contact_point_x_=1, contact_point_y_=1,
-                 isometric_offset_x_=0, isometric_offset_y_=0,
-                 number_of_columns_=1, number_of_rows_=1,
                  cells_=list, animations_=dict):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_)
         self.image_ = image_
         self.image_string_ = image_string_
-        self.type_ = type_
+        self.cells_ = cells_  # [sx, sy, w, h, cx, cy]
+        self.animations_ = animations_
+
+
+class TiledSprite(Sprite):
+    def __init__(self, name_=' Enter a name. ', description_=' ... ',
+                 creation_date_=None, creator_=None,
+                 image_=None, image_string_=None,
+                 cell_size_x_=1, cell_size_y_=1,
+                 isometric_offset_x_=0, isometric_offset_y_=0,
+                 number_of_columns_=1, number_of_rows_=1,
+                 cells_=list, animations_=dict):
+        super().__init__(name_=name_, description_=description_,
+                         creation_date_=creation_date_, creator_=creator_,
+                         image_=None, image_string_=None,
+                         cells_=list, animations_=dict)
         self.cell_size_ = [cell_size_x_, cell_size_y_]
-        self.contact_point_ = [contact_point_x_, contact_point_y_]
         self.isometric_offset_ = [isometric_offset_x_, isometric_offset_y_]
         self.number_of_columns_ = number_of_columns_
         self.number_of_rows_ = number_of_rows_
-        self.cells_ = cells_  # [sx, sy, w, h, cx, cy]
-        self.animations_ = animations_
 
 
 class PgButton:
