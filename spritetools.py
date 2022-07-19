@@ -11,7 +11,6 @@ class SpriteMode(MasterMode):
     into a custom sprite object for use within the game. """
     def __init__(self, master=None, user_=User(), ui_=None):
         super().__init__(master=master)
-        self.map_ = None
         self.section_1 = tk_.Frame(self, bg='black')
         # __________________________________________________________
         self.type_lbl = tk_.Label(
@@ -22,7 +21,7 @@ class SpriteMode(MasterMode):
             'Effect', 'UI Element']
         self.type_selected = tk_.StringVar()
         self.type_sel = tk_.OptionMenu(
-            self.section_1, self.type_selected, *self.type_opt, command=self.set_access)
+            self.section_1, self.type_selected, *self.type_opt)
         self.type_sel.grid(column=1, row=0, sticky='we')
         # __________________________________________________________
         self.name_lbl = tk_.Label(
@@ -103,7 +102,6 @@ class SpriteMode(MasterMode):
         self.this_sprite = Sprite()
         self.apply_to_form()
         self.ready_state = True
-        self.set_access()
 
     def take_input(self, event):
         print(event)
@@ -115,90 +113,6 @@ class SpriteMode(MasterMode):
             view.scene.blit(self.this_sprite.image_, (0, 0))
         self.draw_ui(view)
 
-    def set_access(self, *args):
-        """ Activate/Deactivate widgets based on the currently
-        selected type of sprite."""
-        if self.ready_state:
-            self.type_sel.config(state=tk_.DISABLED)
-            self.type_lbl.config(fg='grey4')
-            self.name_ent.config(state=tk_.DISABLED)
-            self.name_lbl.config(fg='grey4')
-            self.description_ent.config(state=tk_.DISABLED)
-            self.description_lbl.config(fg='grey4')
-            self.date_lbl.config(fg='grey4')
-            self.date.config(fg='grey4')
-            self.author_ent.config(state=tk_.DISABLED)
-            self.author_lbl.config(fg='grey4')
-            self.cell_num_lbl.config(fg='grey4')
-            self.cell_number_lbl.config(fg='grey4')
-            self.cell_siz_lbl.config(fg='grey4')
-            self.cell_size_lbl.config(fg='grey4')
-
-        else:
-            if self.type_selected.get() == 'Tile Set':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='pink')
-                self.cell_size_lbl.config(fg='white')
-
-            elif self.type_selected.get() == 'Character Sprite':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='pink')
-                self.cell_size_lbl.config(fg='white')
-
-            elif self.type_selected.get() == 'UI Element':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='grey4')
-                self.cell_size_lbl.config(fg='grey4')
-
-            elif self.type_selected.get() == 'Effect':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='pink')
-                self.cell_size_lbl.config(fg='white')
-
     def new_sprite(self, *args):
         """ Create a new sprite. """
         self.this_sprite = Sprite()
@@ -208,7 +122,6 @@ class SpriteMode(MasterMode):
             img = img.read()
             self.this_sprite.image_string = base64.b64encode(img)
         self.ready_state = True
-        self.set_access()
         self.apply_to_form()
         self.type_sel.config(state=tk_.NORMAL)
         self.type_lbl.config(fg='white')

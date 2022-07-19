@@ -76,10 +76,10 @@ class Character(NamedThing):
 
 sprite_types = {
     # [ file location, file extension, cells]
-    'Tile Set': ['.spx1', list],
-    'Character': ['.spx2', list],
-    'Effects': ['.spx3', list],
-    'UI': ['.spx4', list]}
+    'Tile Set': ['.spx1', [0, 0], list],
+    'Character': ['.spx2', [0, 0], list],
+    'Effects': ['.spx3', [0, 0], list],
+    'UI': ['.spx4', [0, 0], list]}
 
 
 class Sprite(NamedThing):
@@ -105,8 +105,8 @@ class TiledSprite(Sprite):
                  cells_=list, animations_=dict):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_,
-                         image_=None, image_string_=None,
-                         cells_=list, animations_=dict)
+                         image_=image_, image_string_=image_string_,
+                         cells_=cells_, animations_=animations_)
         self.cell_size_ = [cell_size_x_, cell_size_y_]
         self.isometric_offset_ = [isometric_offset_x_, isometric_offset_y_]
         self.number_of_columns_ = number_of_columns_
