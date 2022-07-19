@@ -6,7 +6,7 @@ from modes import MasterMode
 #  * Add animation editing
 
 
-class SpriteMode(MasterMode):
+class SpriteToolbar(MasterMode):
     """ SpriteMode() allows the user to transform a transparent .png
     into a custom sprite object for use within the game. """
     def __init__(self, master=None, user_=User(), ui_=None):
@@ -17,8 +17,8 @@ class SpriteMode(MasterMode):
             self.section_1, bg='black', fg='white', text=' Sprite Type: ')
         self.type_lbl.grid(column=0, row=0)
         self.type_opt = [
-            'Tile Set', 'Character Sprite',
-            'Effect', 'UI Element']
+            'Tile Set', 'Character',
+            'Effect', 'UI']
         self.type_selected = tk_.StringVar()
         self.type_sel = tk_.OptionMenu(
             self.section_1, self.type_selected, *self.type_opt)
@@ -68,28 +68,15 @@ class SpriteMode(MasterMode):
         self.cell_number_lbl.grid(column=1, row=0)
         self.number_of_cells.set(' 000 ')
         # __________________________________________________________
-        self.cell_siz_lbl = tk_.Label(
-            self.section_5, bg='black', fg='white', text=' Size of Cells: ')
-        self.cell_siz_lbl.grid(column=0, row=1)
-        # __________________________________________________________
-        self.size_of_cells = tk_.StringVar()
-        self.cell_size_lbl = tk_.Label(
-            self.section_5, bg='black', fg='white', textvariable=self.size_of_cells)
-        self.cell_size_lbl.grid(column=1, row=1)
-        self.size_of_cells.set(' 000 ')
-        # __________________________________________________________
         self.section_5.grid(column=0, row=4, padx=10, pady=10)
         # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         self.section_6 = tk_.Frame(self, bg='black')
         # __________________________________________________________
-        self.new_but = tk_.Button(self.section_6, text=' New ',
-                                  command=self.new_sprite)
+        self.new_but = tk_.Button(self.section_6, text=' New ')
         self.new_but.grid(column=0, row=0, sticky='we')
-        self.load_but = tk_.Button(self.section_6, text=' Load ',
-                                   command=self.acquire_sprite_object)
+        self.load_but = tk_.Button(self.section_6, text=' Load ')
         self.load_but.grid(column=1, row=0, sticky='we')
-        self.sav_but = tk_.Button(self.section_6, text=' Save ',
-                                  command=self.save_sprite)
+        self.sav_but = tk_.Button(self.section_6, text=' Save ')
         self.sav_but.grid(column=2, row=0, sticky='we')
         self.new_but = tk_.Button(self.section_6, text=' Quit ')
         self.new_but.grid(column=3, row=0, sticky='we')
@@ -100,8 +87,10 @@ class SpriteMode(MasterMode):
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         self.filename = None
         self.this_sprite = Sprite()
-        self.apply_to_form()
-        self.ready_state = True
+
+
+class SpriteMode(SpriteToolbar):
+    super().__init__()
 
     def take_input(self, event):
         print(event)
