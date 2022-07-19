@@ -78,39 +78,55 @@ sprite_types = {
     # [ file location, file extension, cells]
     'Tile Set': ['.spx1', [0, 0], list],
     'Character': ['.spx2', [0, 0], list],
-    'Effects': ['.spx3', [0, 0], list],
-    'UI': ['.spx4', [0, 0], list]}
+    'UI': ['.spx3', [0, 0], list]}
 
 
 class Sprite(NamedThing):
     def __init__(self, name_=' Enter a name. ', description_=' ... ',
                  creation_date_=None, creator_=None,
                  image_=None, image_string_=None,
+                 type_=None,
                  cells_=list, animations_=dict):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_)
+        self.type_ = type_
         self.image_ = image_
         self.image_string_ = image_string_
         self.cells_ = cells_  # [sx, sy, w, h, cx, cy]
         self.animations_ = animations_
 
 
-class TiledSprite(Sprite):
+class TileSet(Sprite):
     def __init__(self, name_=' Enter a name. ', description_=' ... ',
                  creation_date_=None, creator_=None,
                  image_=None, image_string_=None,
                  cell_size_x_=1, cell_size_y_=1,
                  isometric_offset_x_=0, isometric_offset_y_=0,
                  number_of_columns_=1, number_of_rows_=1,
-                 cells_=list, animations_=dict):
+                 type_='Tile Set', cells_=list, animations_=dict):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_,
                          image_=image_, image_string_=image_string_,
+                         type_=type_,
                          cells_=cells_, animations_=animations_)
         self.cell_size_ = [cell_size_x_, cell_size_y_]
         self.isometric_offset_ = [isometric_offset_x_, isometric_offset_y_]
         self.number_of_columns_ = number_of_columns_
         self.number_of_rows_ = number_of_rows_
+
+
+class PGui(Sprite):
+    def __init__(self, name_=' Enter a name. ', description_=' ... ',
+                 creation_date_=None, creator_=None,
+                 image_=None, image_string_=None,
+                 type_='UI', cells_=sprite_types['UI'][2],
+                 animations_=dict, buttons_=list):
+        super().__init__(name_=name_, description_=description_,
+                         creation_date_=creation_date_, creator_=creator_,
+                         image_=image_, image_string_=image_string_,
+                         type_=type_,
+                         cells_=cells_, animations_=animations_)
+        self.buttons_ = buttons_
 
 
 class PgButton:
@@ -119,12 +135,6 @@ class PgButton:
         self.cell_id_ = cell_id_
         self.action_name_ = action_name_
         self.draw_at_ = [screen_x_, screen_y_]
-
-
-class PgUI:
-    def __init__(self, sprite_name='name', buttons=list):
-        self.sprite = sprite_name
-        self.buttons = buttons
 
 
 class Tile:

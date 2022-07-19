@@ -24,7 +24,7 @@ class MasterMode(tk_.Toplevel):
     <.draw_scene> function that takes in the .scene buffer
     and adds images to it. """
     def __init__(self, master=None, user_=User(),
-                 map_=GameMap(), ui_=PgUI()):
+                 map_=GameMap(), ui_=PGui()):
         super().__init__(master=master, bg='black')
         self.resizable(False, False)
         self.map_ = map_
@@ -34,34 +34,33 @@ class MasterMode(tk_.Toplevel):
         self.change_mode = None
         self.user_ = user_
 
-    def prepare_art(self, user_=None):
+    def prepare_art(self):
         """Load the sprites listed for this map into the <self.art_>
         dictionary, and prepare them for display."""
         st = 'Rec/Sprites/'
         if self.map_:
             for i in self.map_.sprite_list:
-                sp = self.acquire_sprite_object(st + 'Tilesets/' + i + '.spx')
-                self.art_[sp.name] = sp
+                filename = st + 'TileSets/' + i + '.spx1'
+                self.acquire_sprite_object(filename)
         if self.ui_:
-            sp = self.acquire_sprite_object(st + 'UI/' + i + '.utx')
-            self.art_[sp.name] = sp
+            filename = st + 'UI/' + self.ui_.name_ + '.spx3'
+            self.acquire_sprite_object(filename)
 
-    @staticmethod
-    def acquire_sprite_object(filename=None):
+    def acquire_sprite_object(self, filename=None):
         """ Loads a custom sprite object, and convert its Sprite.image_string
         data into an image format that can be handled by pygame. """
         if filename:
             load_file = open(filename, 'rb')
-            a_sprite = pickle.load(load_file)
+            sprite = pickle.load(load_file)
             load_file.close()
-            tmp_img = io.BytesIO(base64.b64decode(a_sprite.image_string))
-            a_sprite.image_string = None
-            a_sprite.image = pg_.image.load(tmp_img)
-            return a_sprite
+            tmp_img = io.BytesIO(base64.b64decode(sprite.image_string))
+            sprite.image_string = None
+            sprite.image = pg_.image.load(tmp_img)
+            self.art_[sprite.name] = sprite
 
     def save_user_data(self):
         """ Saves all user data to memory."""
-        destination = open('User/'+self.user_.screen_name+'.usr', 'wb')
+        destination = open('User/'+self.user_.screen_name_+'.usr', 'wb')
         pickle.dump(self.user_, destination)
         destination.close()
 
@@ -80,8 +79,8 @@ class MasterMode(tk_.Toplevel):
         to see if the click collided with one of the buttons in
         the ui. A string containing the desired action is returned."""
         a = None
-        for i in range(len(self.ui_.buttons)):
-            b = self.ui_.buttons[i]
+        for i in range(len(self.ui_.buttons_)):
+            b = self.ui_.buttons_[i]
             if b.click_x_1 < x < b.click_x_2:
                 if b.click_y_1 < y < b.click_y_2:
                     a = b.action

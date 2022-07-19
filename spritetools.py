@@ -10,7 +10,7 @@ class SpriteMode(MasterMode):
     """ SpriteMode() allows the user to transform a transparent .png
     into a custom sprite object for use within the game. """
     def __init__(self, master=None, user_=User(), ui_=None):
-        super().__init__(master=master)
+        super().__init__(master=master, user_=user_, ui_=ui_)
         self.section_1 = tk_.Frame(self, bg='black')
         # __________________________________________________________
         self.type_lbl = tk_.Label(
@@ -127,7 +127,7 @@ class SpriteMode(MasterMode):
         self.type_lbl.config(fg='white')
         self.ready_state = False
 
-    def save_sprite(self, file_location='Rec/Sprites/Effects/', extension='.spx1'):
+    def save_sprite(self, file_location='Rec/Sprites/', extension='.spx1'):
         """ Save the sprite to file. """
         self.apply_to_sprite()
         ts = self.this_sprite.image
@@ -137,19 +137,21 @@ class SpriteMode(MasterMode):
         save_file.close()
         self.this_sprite.image = ts
 
-    def cell_grid(self, sprite=TiledSprite(), rows=1, columns=1):
+    def cell_grid(self, rows=1, columns=1):
         """ Add cells to the sprite. """
-        if sprite.image_:
-            sprite.cell_size_x_ = int(sprite.image_.get_width() / columns)
-            sprite.cell_size_y_ = int(sprite.image_.get_height() / rows)
-            sprite.cells_ = []
+        if self.this_sprite.image_:
+            self.this_sprite.cell_size_x_ = int(
+                self.this_sprite.image_.get_width() / columns)
+            self.this_sprite.cell_size_y_ = int(
+                self.this_sprite.image_.get_height() / rows)
+            self.this_sprite.cells_ = []
             for i in range(rows):
                 for j in range(columns):
-                    sprite.cells_.append(
-                        (j*sprite.cell_size_x_,
-                         i*sprite.cell_size_y_,
-                         sprite.cell_size_x_,
-                         sprite.cell_size_y_))
+                    self.this_sprite.cells_.append(
+                        (j*self.this_sprite.cell_size_x_,
+                         i*self.this_sprite.cell_size_y_,
+                         self.this_sprite.cell_size_x_,
+                         self.this_sprite.cell_size_y_))
 
     def apply_to_sprite(self):
         """ Apply information contained in the form to the sprite."""
