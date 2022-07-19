@@ -379,11 +379,11 @@ class SpriteMode(MasterMode):
         save_file.close()
         self.this_sprite.image = ts
 
-    def make_cells(self):
+    def cell_grid(self, rows=1, columns=1):
         """ Add cells to the sprite. """
         self.this_sprite.cells = []
-        for i in range(int(self.this_sprite.number_of_rows_)):
-            for j in range(int(self.this_sprite.number_of_columns_)):
+        for i in range(rows):
+            for j in range(columns):
                 self.this_sprite.cells.append(
                     (j*self.this_sprite.cell_size_[0],
                      i*self.this_sprite.cell_size_[1],

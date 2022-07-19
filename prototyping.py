@@ -33,7 +33,7 @@ class User:
 class Character(NamedThing):
     def __init__(self, first_name_='Name', last_name_='Name',
                  description_=' ... ', creation_date_=None, creator_=None,
-                 sprite_sheet_='Rec/Sprites/Characters/Pawn.spx2',
+                 sprite_sheet_='Pawn',
                  strong_=10, tough_=10, nimble_=10,
                  clever_=10, pretty_=10, alert_=10,
                  hit_points_=10, action_points_=4, energy_points_=10,
@@ -72,6 +72,14 @@ class Character(NamedThing):
         self.pack = list
         self.current_location = None
         self.notes = dict
+
+
+sprite_types = {
+    # [ file location, file extension, cells]
+    'Tile Set': ['.spx1', list],
+    'Character': ['.spx2', list],
+    'Effects': ['.spx3', list],
+    'UI': ['.spx4', list]}
 
 
 class Sprite(NamedThing):
