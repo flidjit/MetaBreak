@@ -27,9 +27,8 @@ class SpriteToolbar(MasterMode):
         self.name_lbl = tk_.Label(
             self.section_1, bg='black', fg='white', text=' Sprite Name: ')
         self.name_lbl.grid(column=0, row=1)
-        self.name_string = tk_.StringVar()
         self.name_ent = tk_.Entry(
-            self.section_1, bg='black', fg='green', textvariable=self.name_string)
+            self.section_1, bg='black', fg='green')
         self.name_ent.grid(column=1, row=1, sticky='we')
         # __________________________________________________________
         self.author_lbl = tk_.Label(
@@ -90,7 +89,10 @@ class SpriteToolbar(MasterMode):
 
 
 class SpriteMode(SpriteToolbar):
-    super().__init__()
+    def __init__(self):
+        super().__init__()
+        self.name_string = tk_.StringVar()
+        self.name_ent.config(textvariable=self.name_string)
 
     def take_input(self, event):
         print(event)
@@ -108,9 +110,7 @@ class SpriteMode(SpriteToolbar):
         with open(self.filename, 'rb') as img:
             img = img.read()
             self.this_sprite.image_string = base64.b64encode(img)
-        self.ready_state = True
         self.apply_to_form()
-        self.ready_state = False
 
     def save_sprite(self, file_location='Rec/Sprites/', extension='.spx1'):
         """ Save the sprite to file. """
