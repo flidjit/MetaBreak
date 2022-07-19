@@ -68,9 +68,6 @@ class MasterMode(tk_.Toplevel):
         """ Render the <self.map_> object as isometric tiles."""
         print('render an isometric map')
 
-    def draw_background(self, view):
-        print('draw the ui background')
-
     def draw_ui(self, view):
         print('draw the ui.')
 
@@ -113,4 +110,5 @@ class TitleMode(MasterMode):
     def draw_scene(self, view):
         """ All <MasterMode()> children will need to have a
         <.draw_scene> function."""
-        view.scene.blit(self.intro_image, (0, 0))
+        view.scene.blit(self.ui_.cells_[0], (0, 0))
+        self.draw_ui(view)

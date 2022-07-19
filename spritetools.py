@@ -108,10 +108,8 @@ class SpriteMode(MasterMode):
 
     def draw_scene(self, view):
         """ Draw the sprite to the screen. """
-        self.draw_background(view)
         if self.this_sprite.image_:
             view.scene.blit(self.this_sprite.image_, (0, 0))
-        self.draw_ui(view)
 
     def new_sprite(self, *args):
         """ Create a new sprite. """
@@ -123,8 +121,6 @@ class SpriteMode(MasterMode):
             self.this_sprite.image_string = base64.b64encode(img)
         self.ready_state = True
         self.apply_to_form()
-        self.type_sel.config(state=tk_.NORMAL)
-        self.type_lbl.config(fg='white')
         self.ready_state = False
 
     def save_sprite(self, file_location='Rec/Sprites/', extension='.spx1'):
