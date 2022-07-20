@@ -87,10 +87,8 @@ class SpriteMode(SpriteToolbar):
         self.date_.set(' 0/0/0')
         self.description_.set(' ... ')
         self.cell_number_.set(' 000 ')
-
         self.new_but.config(command=self.new_sprite)
         self.sav_but.config(command=self.save_sprite)
-
 
     def take_input(self, event):
         print(event)
