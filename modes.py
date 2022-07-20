@@ -40,7 +40,7 @@ class MasterMode(tk_.Toplevel):
         st = 'Rec/Sprites/'
         if self.map_:
             for i in self.map_.sprite_list:
-                filename = st + 'TileSets/' + i + '.spx1'
+                filename = st + 'Tile Sets/' + i + '.spx1'
                 self.acquire_sprite_object(filename)
         if self.ui_:
             filename = st + 'UI/' + self.ui_.name_ + '.spx3'

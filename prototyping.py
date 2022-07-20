@@ -77,8 +77,9 @@ class Character(NamedThing):
 sprite_types = {
     # [ file location, file extension, cells]
     'Tile Set': ['.spx1', [0, 0], list],
-    'Character': ['.spx2', [0, 0], list],
-    'UI': ['.spx3', [0, 0], list]}
+    'Custom Grid': ['.spx2', [0, 0], list],
+    'Character': ['.spx3', [0, 0], list],
+    'UI': ['.spx4', [0, 0], list]}
 
 
 class Sprite(NamedThing):
