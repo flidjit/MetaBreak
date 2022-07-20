@@ -8,7 +8,7 @@ from modes import MasterMode
 
 class PlayerMode(MasterMode):
     def __init__(self, master=None, user_=User(), ui_=None):
-        super().__init__()
+        super().__init__(master=master, user_=user_, ui_=ui_)
 
     def take_input(self):
         print('take the input')

@@ -1,3 +1,5 @@
+import tkinter
+
 from prototyping import *
 from modes import MasterMode
 
@@ -6,422 +8,147 @@ from modes import MasterMode
 #  * Add animation editing
 
 
-class SpriteMode(MasterMode):
+class SpriteToolbar(MasterMode):
     """ SpriteMode() allows the user to transform a transparent .png
     into a custom sprite object for use within the game. """
     def __init__(self, master=None, user_=User(), ui_=None):
-        super().__init__(master=master)
-        self.map_ = None
-        self.section_1 = tk_.Frame(self, bg='black')
+        super().__init__(master=master, user_=user_, ui_=ui_)
+        self.s_1 = tk_.Frame(self, bg='black')
         # __________________________________________________________
-        self.type_lbl = tk_.Label(
-            self.section_1, bg='black', fg='white', text=' Sprite Type: ')
-        self.type_lbl.grid(column=0, row=0)
-        self.type_opt = [
-            'Tile Set', 'Character Sprite',
-            'Effect', 'UI Element']
-        self.type_selected = tk_.StringVar()
-        self.type_sel = tk_.OptionMenu(
-            self.section_1, self.type_selected, *self.type_opt, command=self.set_access)
-        self.type_sel.grid(column=1, row=0, sticky='we')
+        self.name_ = tk_.StringVar()
+        self.nam_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Sprite Name: ')
+        self.nam_s_lbl.grid(column=0, row=1)
+        self.nam_lbl = tk_.Label(self.s_1, bg='black', fg='green', textvariable=self.name_)
+        self.nam_lbl.grid(column=1, row=1, sticky='we')
         # __________________________________________________________
-        self.name_lbl = tk_.Label(
-            self.section_1, bg='black', fg='white', text=' Sprite Name: ')
-        self.name_lbl.grid(column=0, row=1)
-        self.name_string = tk_.StringVar()
-        self.name_ent = tk_.Entry(
-            self.section_1, bg='black', fg='green', textvariable=self.name_string)
-        self.name_ent.grid(column=1, row=1, sticky='we')
+        self.author_ = tk_.StringVar()
+        self.ath_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Author: ')
+        self.ath_s_lbl.grid(column=0, row=2)
+        self.ath_lbl = tk_.Label(self.s_1, bg='black', fg='green', textvariable=self.author_)
+        self.ath_lbl.grid(column=1, row=2, sticky='we')
         # __________________________________________________________
-        self.author_lbl = tk_.Label(
-            self.section_1, bg='black', fg='white', text=' Author Name: ')
-        self.author_lbl.grid(column=0, row=2)
-        self.author_string = tk_.StringVar()
-        self.author_ent = tk_.Entry(
-            self.section_1, bg='black', fg='green', textvariable=self.author_string)
-        self.author_ent.grid(column=1, row=2, sticky='we')
+        self.description_ = tk_.StringVar()
+        self.des_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Description: ')
+        self.des_s_lbl.grid(column=0, row=3)
+        self.dsc_lbl = tk_.Label(self.s_1, height=4, width=25, bg='black', fg='green', textvariable=self.description_)
+        self.dsc_lbl.grid(column=1, row=3)
         # __________________________________________________________
-        self.description_lbl = tk_.Label(
-            self.section_1, bg='black', fg='white', text=' Description: ')
-        self.description_lbl.grid(column=0, row=3)
-        self.description_ent = tk_.Text(
-            self.section_1, height=4, width=25, bg='black', fg='green')
-        self.description_ent.grid(column=1, row=3)
+        self.date_ = tk_.StringVar()
+        self.dt_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Creation Date: ')
+        self.dt_s_lbl.grid(column=0, row=4)
+        self.dt_lbl2 = tk_.Label(self.s_1, bg='black', fg='white', textvariable=self.date_)
+        self.dt_lbl2.grid(column=1, row=4)
         # __________________________________________________________
-        self.date_lbl = tk_.Label(
-            self.section_1, bg='black', fg='white', text=' Creation Date: ')
-        self.date_lbl.grid(column=0, row=4)
-        self.date = tk_.Label(
-            self.section_1, bg='black', fg='white', text=' 0/0/0 ')
-        self.date.grid(column=1, row=4)
-        # __________________________________________________________
-        self.section_1.grid(column=0, row=0, padx=10, pady=10)
-        # __________________________________________________________
-        self.section_2 = tk_.Frame(self, bg='black')
-        # __________________________________________________________
-        self.row_num_lbl = tk_.Label(
-            self.section_2, bg='black', fg='white', text=' # of Rows: ')
-        self.row_num_lbl.grid(column=0, row=0)
-        self.row_number = tk_.StringVar()
-        self.row_num_sbx = ttk.Spinbox(
-            self.section_2, width=3, from_=1, to=99,
-            textvariable=self.row_number, command=self.set_cell_size)
-        self.row_num_sbx.grid(column=1, row=0)
-        # __________________________________________________________
-        self.col_num_lbl = tk_.Label(
-            self.section_2, bg='black', fg='white', text=' # of Columns: ')
-        self.col_num_lbl.grid(column=2, row=0)
-        self.col_number = tk_.StringVar()
-        self.col_num_sbx = ttk.Spinbox(
-            self.section_2, width=3, from_=1, to=99,
-            textvariable=self.col_number, command=self.set_cell_size)
-        self.col_num_sbx.grid(column=3, row=0)
-        # __________________________________________________________
-        self.section_2.grid(column=0, row=1, padx=10, pady=10)
+        self.s_1.grid(column=0, row=0, padx=10, pady=10)
         # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        self.section_3 = tk_.Frame(self, bg='black')
+        self.s_2 = tk_.Frame(self, bg='black')
         # __________________________________________________________
-        self.con_x_lbl = tk_.Label(
-            self.section_3, bg='black', fg='white', text=' Contact Point -   X: ')
-        self.con_x_lbl.grid(column=0, row=0)
-        self.con_x_number = tk_.StringVar()
-        self.con_x_sbx = ttk.Spinbox(
-            self.section_3, width=3, from_=1, to=500,
-            textvariable=self.con_x_number)
-        self.con_x_sbx.grid(column=1, row=0)
+        self.cell_number_ = tk_.StringVar()
+        self.cell_num_lbl = tk_.Label(self.s_2, bg='black', fg='white', textvariable=self.cell_number_)
+        self.cell_num_lbl.grid(column=1, row=0)
         # __________________________________________________________
-        self.con_y_lbl = tk_.Label(
-            self.section_3, bg='black', fg='white', text='   Y: ')
-        self.con_y_lbl.grid(column=2, row=0)
-        self.con_y_number = tk_.StringVar()
-        self.con_y_sbx = ttk.Spinbox(
-            self.section_3, width=3, from_=1, to=500,
-            textvariable=self.con_y_number)
-        self.con_y_sbx.grid(column=3, row=0)
-        self.con_y_sbx.set('1')
-        # __________________________________________________________
-        self.section_3.grid(column=0, row=2, padx=10, pady=10)
+        self.s_2.grid(column=0, row=4, padx=10, pady=10)
         # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        self.section_4 = tk_.Frame(self, bg='black')
+        self.s_3 = tk_.Frame(self, bg='black')
         # __________________________________________________________
-        self.tile_off_lbl = tk_.Label(
-            self.section_4, bg='black', fg='white', text=' Tile offsets - ')
-        self.tile_off_lbl.grid(column=0, row=0, columnspan=6)
+        self.type_options_ = ['Tile Set', 'Custom Grid', 'Character', 'UI']
+        self.type_selected_ = tk_.StringVar()
+        self.typ_s_lbl = tk_.Label(self.s_3, bg='black', fg='white', text=' Sprite Type: ')
+        self.typ_s_lbl.grid(column=0, row=0)
+        self.typ_sel = tk_.OptionMenu(self.s_3, self.type_selected_, *self.type_options_)
+        self.typ_sel.grid(column=1, row=0, sticky='we', columnspan=6)
         # __________________________________________________________
-        self.tile_off_x_lbl = tk_.Label(
-            self.section_4, bg='black', fg='white', text='   X: ')
-        self.tile_off_x_lbl.grid(column=0, row=1)
-        self.tile_off_x_number = tk_.StringVar()
-        self.tile_off_x_sbx = ttk.Spinbox(
-            self.section_4, width=3, from_=1, to=500,
-            textvariable=self.tile_off_x_number)
-        self.tile_off_x_sbx.grid(column=1, row=1)
+        self.regrid_ = tk_.Button(self.s_3, text=' Edit Cell Grid ')
+        self.regrid_.grid(column=0, row=1, columnspan=4, sticky='we')
+        self.new_but = tk_.Button(self.s_3, text=' New ')
+        self.new_but.grid(column=0, row=2, sticky='we')
+        self.lod_but = tk_.Button(self.s_3, text=' Load ')
+        self.lod_but.grid(column=1, row=2, sticky='we')
+        self.sav_but = tk_.Button(self.s_3, text=' Save ')
+        self.sav_but.grid(column=2, row=2, sticky='we')
+        self.qit_but = tk_.Button(self.s_3, text=' Quit ')
+        self.qit_but.grid(column=3, row=2, sticky='we')
         # __________________________________________________________
-        self.tile_off_y_lbl = tk_.Label(
-            self.section_4, bg='black', fg='white', text='   Y: ')
-        self.tile_off_y_lbl.grid(column=2, row=1)
-        self.tile_off_y_number = tk_.StringVar()
-        self.tile_off_y_sbx = ttk.Spinbox(
-            self.section_4, width=3, from_=1, to=500,
-            textvariable=self.tile_off_y_number)
-        self.tile_off_y_sbx.grid(column=3, row=1)
-        # __________________________________________________________
-        self.tile_off_z_lbl = tk_.Label(
-            self.section_4, bg='black', fg='white', text='   Z: ')
-        self.tile_off_z_lbl.grid(column=4, row=1)
-        self.tile_off_z_number = tk_.StringVar()
-        self.tile_off_z_sbx = ttk.Spinbox(
-            self.section_4, width=3, from_=1, to=500,
-            textvariable=self.tile_off_z_number)
-        self.tile_off_z_sbx.grid(column=5, row=1)
-        # __________________________________________________________
-        self.section_4.grid(column=0, row=3, padx=10, pady=10)
-        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        self.section_5 = tk_.Frame(self, bg='black')
-        # __________________________________________________________
-        self.cell_num_lbl = tk_.Label(
-            self.section_5, bg='black', fg='white', text=' Number of Cells: ')
-        self.cell_num_lbl.grid(column=0, row=0)
-        # __________________________________________________________
-        self.number_of_cells = tk_.StringVar()
-        self.cell_number_lbl = tk_.Label(
-            self.section_5, bg='black', fg='white', textvariable=self.number_of_cells)
-        self.cell_number_lbl.grid(column=1, row=0)
-        self.number_of_cells.set(' 000 ')
-        # __________________________________________________________
-        self.cell_siz_lbl = tk_.Label(
-            self.section_5, bg='black', fg='white', text=' Size of Cells: ')
-        self.cell_siz_lbl.grid(column=0, row=1)
-        # __________________________________________________________
-        self.size_of_cells = tk_.StringVar()
-        self.cell_size_lbl = tk_.Label(
-            self.section_5, bg='black', fg='white', textvariable=self.size_of_cells)
-        self.cell_size_lbl.grid(column=1, row=1)
-        self.size_of_cells.set(' 000 ')
-        # __________________________________________________________
-        self.section_5.grid(column=0, row=4, padx=10, pady=10)
-        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        self.section_6 = tk_.Frame(self, bg='black')
-        # __________________________________________________________
-        self.new_but = tk_.Button(self.section_6, text=' New ',
-                                  command=self.new_sprite)
-        self.new_but.grid(column=0, row=0, sticky='we')
-        self.load_but = tk_.Button(self.section_6, text=' Load ',
-                                   command=self.acquire_sprite_object)
-        self.load_but.grid(column=1, row=0, sticky='we')
-        self.sav_but = tk_.Button(self.section_6, text=' Save ',
-                                  command=self.save_sprite)
-        self.sav_but.grid(column=2, row=0, sticky='we')
-        self.new_but = tk_.Button(self.section_6, text=' Quit ')
-        self.new_but.grid(column=3, row=0, sticky='we')
-        # __________________________________________________________
-        self.section_6.grid(column=0, row=5, padx=10, pady=10)
+        self.s_3.grid(column=0, row=5, padx=10, pady=10)
         self.grid()
         # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         self.filename = None
-        self.this_sprite = Sprite()
-        self.apply_to_form()
-        self.ready_state = True
-        self.set_access()
+
+
+class SpriteMode(SpriteToolbar):
+    def __init__(self):
+        super().__init__(master=None, user_=User(), ui_=PGui())
+        self.working_sprite_ = Sprite()
+        self.base_filename_ = 'Rec/Sprites/'
+        self.type_selected_.set(' Select a Sprite Type. ')
+        self.name_.set(' ... ')
+        self.author_.set(' Your Name ')
+        self.date_.set(' 0/0/0')
+        self.description_.set(' ... ')
+        self.cell_number_.set(' 000 ')
+        self.new_but.config(command=self.new_sprite)
+        self.sav_but.config(command=self.save_sprite)
 
     def take_input(self, event):
         print(event)
 
     def draw_scene(self, view):
         """ Draw the sprite to the screen. """
-        if self.this_sprite.image:
-            view.scene.blit(self.this_sprite.image, (0, 0))
-
-    def set_access(self, *args):
-        """ Activate/Deactivate widgets based on the currently
-        selected type of sprite."""
-        if self.ready_state:
-            self.type_sel.config(state=tk_.DISABLED)
-            self.type_lbl.config(fg='grey4')
-            self.name_ent.config(state=tk_.DISABLED)
-            self.name_lbl.config(fg='grey4')
-            self.description_ent.config(state=tk_.DISABLED)
-            self.description_lbl.config(fg='grey4')
-            self.date_lbl.config(fg='grey4')
-            self.date.config(fg='grey4')
-            self.author_ent.config(state=tk_.DISABLED)
-            self.author_lbl.config(fg='grey4')
-            self.row_num_sbx.config(state=tk_.DISABLED)
-            self.row_num_lbl.config(fg='grey4')
-            self.col_num_sbx.config(state=tk_.DISABLED)
-            self.col_num_lbl.config(fg='grey4')
-            self.con_x_sbx.config(state=tk_.DISABLED)
-            self.con_x_lbl.config(fg='grey4')
-            self.con_y_sbx.config(state=tk_.DISABLED)
-            self.con_y_lbl.config(fg='grey4')
-            self.tile_off_lbl.config(fg='grey4')
-            self.tile_off_x_sbx.config(state=tk_.DISABLED)
-            self.tile_off_x_lbl.config(fg='grey4')
-            self.tile_off_y_sbx.config(state=tk_.DISABLED)
-            self.tile_off_y_lbl.config(fg='grey4')
-            self.tile_off_z_sbx.config(state=tk_.DISABLED)
-            self.tile_off_z_lbl.config(fg='grey4')
-            self.cell_num_lbl.config(fg='grey4')
-            self.cell_number_lbl.config(fg='grey4')
-            self.cell_siz_lbl.config(fg='grey4')
-            self.cell_size_lbl.config(fg='grey4')
-
-        else:
-            if self.type_selected.get() == 'Tile Set':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.row_num_sbx.config(state=tk_.NORMAL)
-                self.row_num_lbl.config(fg='white')
-                self.col_num_sbx.config(state=tk_.NORMAL)
-                self.col_num_lbl.config(fg='white')
-                self.con_x_sbx.config(state=tk_.NORMAL)
-                self.con_x_lbl.config(fg='yellow')
-                self.con_y_sbx.config(state=tk_.NORMAL)
-                self.con_y_lbl.config(fg='yellow')
-                self.tile_off_lbl.config(fg='white')
-                self.tile_off_x_sbx.config(state=tk_.NORMAL)
-                self.tile_off_x_lbl.config(fg='white')
-                self.tile_off_y_sbx.config(state=tk_.NORMAL)
-                self.tile_off_y_lbl.config(fg='white')
-                self.tile_off_z_sbx.config(state=tk_.NORMAL)
-                self.tile_off_z_lbl.config(fg='white')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='pink')
-                self.cell_size_lbl.config(fg='white')
-
-            elif self.type_selected.get() == 'Character Sprite':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.row_num_sbx.config(state=tk_.NORMAL)
-                self.row_num_lbl.config(fg='white')
-                self.col_num_sbx.config(state=tk_.NORMAL)
-                self.col_num_lbl.config(fg='white')
-                self.con_x_sbx.config(state=tk_.NORMAL)
-                self.con_x_lbl.config(fg='yellow')
-                self.con_y_sbx.config(state=tk_.NORMAL)
-                self.con_y_lbl.config(fg='yellow')
-                self.tile_off_lbl.config(fg='grey4')
-                self.tile_off_x_sbx.config(state=tk_.DISABLED)
-                self.tile_off_x_lbl.config(fg='grey4')
-                self.tile_off_y_sbx.config(state=tk_.DISABLED)
-                self.tile_off_y_lbl.config(fg='grey4')
-                self.tile_off_z_sbx.config(state=tk_.DISABLED)
-                self.tile_off_z_lbl.config(fg='grey4')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='pink')
-                self.cell_size_lbl.config(fg='white')
-
-            elif self.type_selected.get() == 'UI Element':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.row_num_sbx.config(state=tk_.DISABLED)
-                self.row_num_lbl.config(fg='grey4')
-                self.col_num_sbx.config(state=tk_.DISABLED)
-                self.col_num_lbl.config(fg='grey4')
-                self.con_x_sbx.config(state=tk_.DISABLED)
-                self.con_x_lbl.config(fg='grey4')
-                self.con_y_sbx.config(state=tk_.DISABLED)
-                self.con_y_lbl.config(fg='grey4')
-                self.tile_off_lbl.config(fg='grey4')
-                self.tile_off_x_sbx.config(state=tk_.DISABLED)
-                self.tile_off_x_lbl.config(fg='grey4')
-                self.tile_off_y_sbx.config(state=tk_.DISABLED)
-                self.tile_off_y_lbl.config(fg='grey4')
-                self.tile_off_z_sbx.config(state=tk_.DISABLED)
-                self.tile_off_z_lbl.config(fg='grey4')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='grey4')
-                self.cell_size_lbl.config(fg='grey4')
-
-            elif self.type_selected.get() == 'Effect':
-                self.type_sel.config(state=tk_.NORMAL)
-                self.type_lbl.config(fg='white')
-                self.name_ent.config(state=tk_.NORMAL)
-                self.name_lbl.config(fg='white')
-                self.description_ent.config(state=tk_.NORMAL)
-                self.description_lbl.config(fg='white')
-                self.date_lbl.config(fg='grey')
-                self.date.config(fg='grey')
-                self.author_ent.config(state=tk_.NORMAL)
-                self.author_lbl.config(fg='white')
-                self.row_num_sbx.config(state=tk_.NORMAL)
-                self.row_num_lbl.config(fg='white')
-                self.col_num_sbx.config(state=tk_.NORMAL)
-                self.col_num_lbl.config(fg='white')
-                self.con_x_sbx.config(state=tk_.DISABLED)
-                self.con_x_lbl.config(fg='grey4')
-                self.con_y_sbx.config(state=tk_.DISABLED)
-                self.con_y_lbl.config(fg='grey4')
-                self.tile_off_lbl.config(fg='grey4')
-                self.tile_off_x_sbx.config(state=tk_.DISABLED)
-                self.tile_off_x_lbl.config(fg='grey4')
-                self.tile_off_y_sbx.config(state=tk_.DISABLED)
-                self.tile_off_y_lbl.config(fg='grey4')
-                self.tile_off_z_sbx.config(state=tk_.DISABLED)
-                self.tile_off_z_lbl.config(fg='grey4')
-                self.cell_num_lbl.config(fg='pink')
-                self.cell_number_lbl.config(fg='white')
-                self.cell_siz_lbl.config(fg='pink')
-                self.cell_size_lbl.config(fg='white')
+        if self.ui_.image_:
+            cell = self.ui_.image_.get_rect(self.ui_.cells_[0])
+            view.scene.blit(cell, (0, 0))  # !!
+        if self.working_sprite_.image_:
+            view.scene.blit(self.working_sprite_.image_, (0, 0))
 
     def new_sprite(self, *args):
         """ Create a new sprite. """
-        self.this_sprite = Sprite()
-        self.filename = filedialog.askopenfilename(initialdir='Rec/Sprites/New')
-        self.this_sprite.image = pg_.image.load(self.filename).convert_alpha()
-        with open(self.filename, 'rb') as img:
+        self.working_sprite_ = Sprite()
+        folder = self.base_filename_+self.type_selected_.get()
+        filename = filedialog.askopenfilename(initialdir=folder)
+        self.working_sprite_.image_ = pg_.image.load(filename).convert_alpha()
+        with open(filename, 'rb') as img:
             img = img.read()
-            self.this_sprite.image_string = base64.b64encode(img)
-        self.ready_state = True
-        self.set_access()
+            self.working_sprite_.image_string_ = base64.b64encode(img)
         self.apply_to_form()
-        self.type_sel.config(state=tk_.NORMAL)
-        self.type_lbl.config(fg='white')
-        self.ready_state = False
 
-    def save_sprite(self):
+    def save_sprite(self, file_location='Rec/Sprites/', extension='.spx1'):
         """ Save the sprite to file. """
         self.apply_to_sprite()
-        ts = self.this_sprite.image
-        self.this_sprite.image = None
-        save_file = open('Sprites/'+self.this_sprite.name+'.sptx', 'wb')
-        pickle.dump(self.this_sprite, save_file)
+        ts = self.working_sprite_.image_
+        self.working_sprite_.image = None
+        save_file = open(file_location+self.working_sprite_.name_+extension, 'wb')
+        pickle.dump(self.working_sprite_, save_file)
         save_file.close()
-        self.this_sprite.image = ts
+        self.working_sprite_.image = ts
 
-    def make_cells(self):
+    def cell_grid(self, rows=1, columns=1):
         """ Add cells to the sprite. """
-        self.this_sprite.cells = []
-        for i in range(int(self.this_sprite.num_of_rows)):
-            for j in range(int(self.this_sprite.num_of_cols)):
-                self.this_sprite.cells.append(
-                    (j*self.this_sprite.cell_size[0],
-                     i*self.this_sprite.cell_size[1],
-                     self.this_sprite.cell_size[0],
-                     self.this_sprite.cell_size[1]))
-
-    def set_cell_size(self, *args):
-        """ Calculates the dimensions of each cell. """
-        if self.this_sprite.image:
-            self.this_sprite.num_of_cols = int(self.col_number.get())
-            cols = int(self.col_number.get())
-            self.this_sprite.num_of_rows = int(self.row_number.get())
-            rows = int(self.row_number.get())
-            self.this_sprite.cell_size[0] = int(self.this_sprite.image.get_width() / cols)
-            self.this_sprite.cell_size[1] = int(self.this_sprite.image.get_height() / rows)
-            self.this_sprite.num_of_cells = rows*cols
-            cs_1 = str(self.this_sprite.cell_size[0])
-            cs_2 = str(self.this_sprite.cell_size[1])
-            self.size_of_cells.set(' [ '+cs_1+'x'+cs_2+' px ]')
-            self.number_of_cells.set(str(self.this_sprite.num_of_cells))
+        if self.working_sprite_.image_:
+            self.working_sprite_.cell_size_x_ = int(
+                self.working_sprite_.image_.get_width() / columns)
+            self.working_sprite_.cell_size_y_ = int(
+                self.working_sprite_.image_.get_height() / rows)
+            self.working_sprite_.cells_ = []
+            for i in range(rows):
+                for j in range(columns):
+                    self.working_sprite_.cells_.append(
+                        (j*self.working_sprite_.cell_size_x_,
+                         i*self.working_sprite_.cell_size_y_,
+                         self.working_sprite_.cell_size_x_,
+                         self.working_sprite_.cell_size_y_))
 
     def apply_to_sprite(self):
         """ Apply information contained in the form to the sprite."""
-        self.this_sprite.name = self.name_string.get()
-        self.this_sprite.artist = self.author_string.get()
-        self.this_sprite.description = self.description_ent.get(1.0, tk_.END)
-        self.this_sprite.cell_size = [
-            int(self.col_number.get()), int(self.row_number.get())]
-        self.this_sprite.cell_size[0] = int(self.col_number.get())
-        self.this_sprite.contact_point = [
-            int(self.con_x_number.get()), int(self.con_y_number.get())]
-        self.make_cells()
+        self.working_sprite_.name_ = self.name_.get()
+        self.working_sprite_.artist_ = self.author_.get()
+        self.working_sprite_.description_ = self.description_.get()
+        self.working_sprite_.creation_date_ = self.date_.get()
 
     def apply_to_form(self):
         """ Apply information contained in the sprite to the form. """
-        self.name_string.set(self.this_sprite.name)
-        self.author_string.set(self.this_sprite.artist)
-        self.description_ent.delete(1.0, tk_.END)
-        self.description_ent.insert(tk_.END, self.this_sprite.description)
-        self.col_number.set(self.this_sprite.num_of_cols)
-        self.row_number.set(self.this_sprite.num_of_rows)
-        self.con_x_number.set(self.this_sprite.contact_point[0])
-        self.con_y_number.set(self.this_sprite.contact_point[1])
+        self.name_.set(self.working_sprite_.name_)
+        self.author_.set(self.working_sprite_.creator_)
+        self.description_.set(self.working_sprite_.description_)
+        self.date_.set(self.working_sprite_.creation_date_)
+        self.cell_number_.set(str(len(self.working_sprite_.cells_)))
