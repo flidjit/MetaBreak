@@ -76,10 +76,18 @@ class MOB(NamedThing):
 
 sprite_types = {
     # [ file location, file extension, cells]
-    'Tile Set': ['.spx1', [0, 0], list],
-    'Custom Grid': ['.spx2', [0, 0], list],
-    'Character': ['.spx3', [0, 0], list],
-    'UI': ['.spx4', [0, 0], list]}
+    'Tile Set': [
+        '.spx1', [0, 0],
+        list],
+    'Custom Grid': [
+        '.spx2', [0, 0],
+        list],
+    'Character': [
+        '.spx3', [0, 0],
+        list],
+    'UI': [
+        '.spx4', [0, 0],
+        list]}
 
 
 class Sprite(NamedThing):
@@ -134,13 +142,15 @@ class Character(Sprite):
     def __init__(self, name_=' Enter a name. ', description_=' ... ',
                  creation_date_=None, creator_=None,
                  image_=None, image_string_=None,
-                 type_='UI', cells_=sprite_types['UI'][2],
+                 type_='UI', cells_=sprite_types['Character'][2],
                  animations_=dict):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_,
                          image_=image_, image_string_=image_string_,
                          type_=type_,
                          cells_=cells_, animations_=animations_)
+
+
 class PgButton:
     def __init__(self, cell_id_=0, action_name_='Options',
                  screen_x_=0, screen_y_=0):

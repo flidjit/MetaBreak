@@ -8,6 +8,20 @@ from modes import MasterMode
 #  * Add animation editing
 
 
+class UserEntry:
+    def __init__(self, master=None):
+        self.window = tk_.Toplevel(master)
+        self.label = tk_.Label(self.window, bg='black', fg='white', text='Text')
+        self.label.grid()
+        self.window.grid()
+
+    def adopt(self, sprite=Sprite()):
+        self.window.deiconify()
+        self.window.wait_window()
+        sprite.name_ = 'Ben'
+        return sprite
+
+
 class SpriteToolbar(MasterMode):
     """ SpriteMode() allows the user to transform a transparent .png
     into a custom sprite object for use within the game. """
@@ -84,7 +98,7 @@ class SpriteMode(SpriteToolbar):
         self.type_selected_.set(' Select a Sprite Type. ')
         self.name_.set(' ... ')
         self.author_.set(' Your Name ')
-        self.date_.set(' 0/0/0')
+        self.date_.set(' 0/0/0 ')
         self.description_.set(' ... ')
         self.cell_number_.set(' 000 ')
         self.new_but.config(command=self.new_sprite)
@@ -99,8 +113,11 @@ class SpriteMode(SpriteToolbar):
         if self.ui_.image_:
             cell = self.ui_.image_.get_rect(self.ui_.cells_[0])
             view.scene.blit(cell, (0, 0))
-        if self.working_sprite_.image_:
-            view.scene.blit(self.working_sprite_.image_, (0, 0))
+        if self.working_sprite_:
+            if self.working_sprite_.image_:
+                view.scene.blit(self.working_sprite_.image_, (0, 0))
+        else:
+            self.working_sprite_ = Sprite()
 
     def new_sprite(self, *args):
         """ Create a new sprite. """
@@ -120,6 +137,7 @@ class SpriteMode(SpriteToolbar):
                 self.working_sprite_.type_ = type_
             else:
                 print('Not a valid sprite type.')
+            self.working_sprite_ = UserEntry(self).adopt(self.working_sprite_)
             dir_ = self.base_folder_ + type_
             image_filename_ = filedialog.askopenfilename(initialdir=dir_)
             self.working_sprite_.image_ = pg_.image.load(image_filename_).convert_alpha()
