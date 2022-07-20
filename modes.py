@@ -40,23 +40,26 @@ class MasterMode(tk_.Toplevel):
         st = 'Rec/Sprites/'
         if self.map_:
             for i in self.map_.sprite_list:
-                filename = st + 'Tile Sets/' + i + '.spx1'
+                filename = st + 'Tile Set/' + i + '.spx1'
                 self.acquire_sprite_object(filename)
         if self.ui_:
             filename = st + 'UI/' + self.ui_.name_ + '.spx3'
             self.acquire_sprite_object(filename)
 
-    def acquire_sprite_object(self, filename=None):
+    def acquire_sprite_object(self, filename=None, return_value_=False):
         """ Loads a custom sprite object, and convert its Sprite.image_string
         data into an image format that can be handled by pygame. """
         if filename:
             load_file = open(filename, 'rb')
             sprite = pickle.load(load_file)
             load_file.close()
-            tmp_img = io.BytesIO(base64.b64decode(sprite.image_string))
-            sprite.image_string = None
-            sprite.image = pg_.image.load(tmp_img)
-            self.art_[sprite.name] = sprite
+            tmp_img = io.BytesIO(base64.b64decode(sprite.image_string_))
+            sprite.image_string_ = None
+            sprite.image_ = pg_.image.load(tmp_img)
+            if return_value_:
+                return sprite
+            else:
+                self.art_[sprite.name] = sprite
 
     def save_user_data(self):
         """ Saves all user data to memory."""

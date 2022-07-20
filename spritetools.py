@@ -73,7 +73,6 @@ class SpriteToolbar(MasterMode):
         self.grid()
         # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        self.filename = None
 
 
 class SpriteMode(SpriteToolbar):
@@ -81,7 +80,7 @@ class SpriteMode(SpriteToolbar):
     def __init__(self):
         super().__init__(master=None, user_=User(), ui_=PGui())
         self.working_sprite_ = Sprite()
-        self.base_filename_ = 'Rec/Sprites/'
+        self.base_folder_ = 'Rec/Sprites/'
         self.type_selected_.set(' Select a Sprite Type. ')
         self.name_.set(' ... ')
         self.author_.set(' Your Name ')
@@ -90,6 +89,7 @@ class SpriteMode(SpriteToolbar):
         self.cell_number_.set(' 000 ')
         self.new_but.config(command=self.new_sprite)
         self.sav_but.config(command=self.save_sprite)
+        self.lod_but.config(command=self.load_sprite)
 
     def take_input(self, event):
         print(event)
@@ -98,30 +98,54 @@ class SpriteMode(SpriteToolbar):
         """ Draw the sprite to the screen. """
         if self.ui_.image_:
             cell = self.ui_.image_.get_rect(self.ui_.cells_[0])
-            view.scene.blit(cell, (0, 0))  # !!
+            view.scene.blit(cell, (0, 0))
         if self.working_sprite_.image_:
             view.scene.blit(self.working_sprite_.image_, (0, 0))
 
     def new_sprite(self, *args):
         """ Create a new sprite. """
-        self.working_sprite_ = Sprite()
-        folder = self.base_filename_+self.type_selected_.get()
-        filename = filedialog.askopenfilename(initialdir=folder)
-        self.working_sprite_.image_ = pg_.image.load(filename).convert_alpha()
-        with open(filename, 'rb') as img:
-            img = img.read()
-            self.working_sprite_.image_string_ = base64.b64encode(img)
-        self.apply_to_form()
+        try:
+            type_ = self.type_selected_.get()
+            if type_ == 'PGui':
+                self.working_sprite_ = PGui()
+                self.working_sprite_.type_ = type_
+            elif type_ == 'Tile Set':
+                self.working_sprite_ = TileSet()
+                self.working_sprite_.type_ = type_
+            elif type_ == 'Character':
+                self.working_sprite_ = Character()
+                self.working_sprite_.type_ = type_
+            elif type_ == 'Custom Grid':
+                self.working_sprite_ = Sprite()
+                self.working_sprite_.type_ = type_
+            else:
+                print('Not a valid sprite type.')
+            dir_ = self.base_folder_ + type_
+            image_filename_ = filedialog.askopenfilename(initialdir=dir_)
+            self.working_sprite_.image_ = pg_.image.load(image_filename_).convert_alpha()
+            with open(image_filename_, 'rb') as img:
+                img = img.read()
+                self.working_sprite_.image_string_ = base64.b64encode(img)
+            self.apply_to_form()
+        except TypeError:
+            print(' Failed. ')
 
-    def save_sprite(self, file_location='Rec/Sprites/', extension='.spx1'):
+    def save_sprite(self):
         """ Save the sprite to file. """
         self.apply_to_sprite()
         ts = self.working_sprite_.image_
-        self.working_sprite_.image = None
-        save_file = open(file_location+self.working_sprite_.name_+extension, 'wb')
+        self.working_sprite_.image_ = None
+        type_ = self.working_sprite_.type_
+        sprite_filename_ = self.base_folder_+type_+'/'
+        sprite_filename_ += self.working_sprite_.name_+sprite_types[type_][0]
+        save_file = open(sprite_filename_, 'wb')
         pickle.dump(self.working_sprite_, save_file)
         save_file.close()
         self.working_sprite_.image = ts
+
+    def load_sprite(self):
+        sprite_filename_ = filedialog.askopenfilename()
+        self.working_sprite_ = self.acquire_sprite_object(sprite_filename_, True)
 
     def cell_grid(self, rows=1, columns=1):
         """ Add cells to the sprite. """
@@ -152,4 +176,7 @@ class SpriteMode(SpriteToolbar):
         self.author_.set(self.working_sprite_.creator_)
         self.description_.set(self.working_sprite_.description_)
         self.date_.set(self.working_sprite_.creation_date_)
-        self.cell_number_.set(str(len(self.working_sprite_.cells_)))
+        try:
+            self.cell_number_.set(str(len(self.working_sprite_.cells_)))
+        except TypeError:
+            print('failed to calculate cell number.')
