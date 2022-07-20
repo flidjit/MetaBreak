@@ -77,6 +77,7 @@ class SpriteToolbar(MasterMode):
 
 
 class SpriteMode(SpriteToolbar):
+    """ SpriteMode allows you to create and edit sprites. """
     def __init__(self):
         super().__init__(master=None, user_=User(), ui_=PGui())
         self.working_sprite_ = Sprite()
