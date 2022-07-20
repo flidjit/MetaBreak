@@ -5,10 +5,33 @@ from modes import MasterMode
 
 
 # ToDo :
+#  * I stored information in my objects that might be handled
+#    externally just fine without storing them. reduce complexity.
+#  * some minor bugs occur which are difficult to debug because of
+#    the issue presented above.
+#  * Create at least 1 PGui() object, so I can start making the
+#    ui system work.
+#  * Activate/Deactivate widget functionality.
+#  * Build UserEntry() form.
+#  * Build GridEntry() form.
 #  * Add animation editing
 
 
 class UserEntry:
+    def __init__(self, master=None):
+        self.window = tk_.Toplevel(master)
+        self.label = tk_.Label(self.window, bg='black', fg='white', text='Text')
+        self.label.grid()
+        self.window.grid()
+
+    def adopt(self, sprite=Sprite()):
+        self.window.deiconify()
+        self.window.wait_window()
+        sprite.name_ = 'Ben'
+        return sprite
+
+
+class GridEntry:
     def __init__(self, master=None):
         self.window = tk_.Toplevel(master)
         self.label = tk_.Label(self.window, bg='black', fg='white', text='Text')

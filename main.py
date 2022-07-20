@@ -73,7 +73,7 @@ class MainGame:
         self.root = tk_.Tk()
         self.root.withdraw()
         self.view = ViewPort()
-        self.mode_ = SpriteMode()
+        self.mode_ = TitleMode()
 
     def update(self):
         """ Begin the update() cascade."""

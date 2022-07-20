@@ -157,6 +157,8 @@ class PgButton:
         self.cell_id_ = cell_id_
         self.action_name_ = action_name_
         self.draw_at_ = [screen_x_, screen_y_]
+        self.double_scale_ = False
+        self.scaled_image_ = None
 
 
 class Tile:
