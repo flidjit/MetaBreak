@@ -29,6 +29,7 @@ class MasterMode(tk_.Toplevel):
         self.resizable(False, False)
         self.map_ = map_
         self.ui_ = ui_
+        self.ui_bg = None
         self.popup = None
         self.art_ = {}
         self.change_mode = None
@@ -45,6 +46,9 @@ class MasterMode(tk_.Toplevel):
         if self.ui_:
             filename = st + 'UI/' + self.ui_.name_ + '.spx3'
             self.acquire_sprite_object(filename)
+            self.ui_.background_img_ = self.ui_.image_.get_rect(self.ui_.cells_[0][0])
+            self.ui_.background_img_ = pg_.transform.scale(
+                self.ui_.background_img_, (1000, 500))
 
     def acquire_sprite_object(self, filename=None, return_value_=False):
         """ Loads a custom sprite object, and convert its Sprite.image_string

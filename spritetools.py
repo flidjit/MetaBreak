@@ -1,5 +1,3 @@
-import tkinter
-
 from prototyping import *
 from modes import MasterMode
 
@@ -53,27 +51,35 @@ class SpriteToolbar(MasterMode):
         self.s_1 = tk_.Frame(self, bg='black')
         # __________________________________________________________
         self.name_ = tk_.StringVar()
-        self.nam_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Sprite Name: ')
+        self.nam_s_lbl = tk_.Label(self.s_1, bg='black', fg='white',
+                                   text=' Sprite Name: ')
         self.nam_s_lbl.grid(column=0, row=1)
-        self.nam_lbl = tk_.Label(self.s_1, bg='black', fg='green', textvariable=self.name_)
+        self.nam_lbl = tk_.Label(self.s_1, bg='black', fg='green',
+                                 textvariable=self.name_)
         self.nam_lbl.grid(column=1, row=1, sticky='we')
         # __________________________________________________________
         self.author_ = tk_.StringVar()
-        self.ath_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Author: ')
+        self.ath_s_lbl = tk_.Label(self.s_1, bg='black', fg='white',
+                                   text=' Author: ')
         self.ath_s_lbl.grid(column=0, row=2)
-        self.ath_lbl = tk_.Label(self.s_1, bg='black', fg='green', textvariable=self.author_)
+        self.ath_lbl = tk_.Label(self.s_1, bg='black', fg='green',
+                                 textvariable=self.author_)
         self.ath_lbl.grid(column=1, row=2, sticky='we')
         # __________________________________________________________
         self.description_ = tk_.StringVar()
-        self.des_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Description: ')
+        self.des_s_lbl = tk_.Label(self.s_1, bg='black', fg='white',
+                                   text=' Description: ')
         self.des_s_lbl.grid(column=0, row=3)
-        self.dsc_lbl = tk_.Label(self.s_1, height=4, width=25, bg='black', fg='green', textvariable=self.description_)
+        self.dsc_lbl = tk_.Label(self.s_1, height=4, width=25, bg='black',
+                                 fg='green', textvariable=self.description_)
         self.dsc_lbl.grid(column=1, row=3)
         # __________________________________________________________
         self.date_ = tk_.StringVar()
-        self.dt_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Creation Date: ')
+        self.dt_s_lbl = tk_.Label(self.s_1, bg='black', fg='white',
+                                  text=' Creation Date: ')
         self.dt_s_lbl.grid(column=0, row=4)
-        self.dt_lbl2 = tk_.Label(self.s_1, bg='black', fg='white', textvariable=self.date_)
+        self.dt_lbl2 = tk_.Label(self.s_1, bg='black', fg='white',
+                                 textvariable=self.date_)
         self.dt_lbl2.grid(column=1, row=4)
         # __________________________________________________________
         self.s_1.grid(column=0, row=0, padx=10, pady=10)
@@ -81,7 +87,8 @@ class SpriteToolbar(MasterMode):
         self.s_2 = tk_.Frame(self, bg='black')
         # __________________________________________________________
         self.cell_number_ = tk_.StringVar()
-        self.cell_num_lbl = tk_.Label(self.s_2, bg='black', fg='white', textvariable=self.cell_number_)
+        self.cell_num_lbl = tk_.Label(self.s_2, bg='black', fg='white',
+                                      textvariable=self.cell_number_)
         self.cell_num_lbl.grid(column=1, row=0)
         # __________________________________________________________
         self.s_2.grid(column=0, row=4, padx=10, pady=10)
@@ -90,9 +97,11 @@ class SpriteToolbar(MasterMode):
         # __________________________________________________________
         self.type_options_ = ['Tile Set', 'Custom Grid', 'Character', 'UI']
         self.type_selected_ = tk_.StringVar()
-        self.typ_s_lbl = tk_.Label(self.s_3, bg='black', fg='white', text=' Sprite Type: ')
+        self.typ_s_lbl = tk_.Label(self.s_3, bg='black', fg='white',
+                                   text=' Sprite Type: ')
         self.typ_s_lbl.grid(column=0, row=0)
-        self.typ_sel = tk_.OptionMenu(self.s_3, self.type_selected_, *self.type_options_)
+        self.typ_sel = tk_.OptionMenu(self.s_3, self.type_selected_,
+                                      *self.type_options_)
         self.typ_sel.grid(column=1, row=0, sticky='we', columnspan=6)
         # __________________________________________________________
         self.regrid_ = tk_.Button(self.s_3, text=' Edit Cell Grid ')
@@ -134,8 +143,7 @@ class SpriteMode(SpriteToolbar):
     def draw_scene(self, view):
         """ Draw the sprite to the screen. """
         if self.ui_.image_:
-            cell = self.ui_.image_.get_rect(self.ui_.cells_[0])
-            view.scene.blit(cell, (0, 0))
+            view.scene.blit(self.ui_.background_img_, (0, 0))
         if self.working_sprite_:
             if self.working_sprite_.image_:
                 view.scene.blit(self.working_sprite_.image_, (0, 0))

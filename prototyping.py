@@ -136,6 +136,7 @@ class PGui(Sprite):
                          type_=type_,
                          cells_=cells_, animations_=animations_)
         self.buttons_ = buttons_
+        self.background_img_ = None
 
 
 class Character(Sprite):
