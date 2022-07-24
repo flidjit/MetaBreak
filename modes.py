@@ -6,12 +6,6 @@ from prototyping import *
 #  * Add MasterMode.load_user_data() functionality.
 #  * Work on MasterMode.pg_button_check().
 #  * TitleMode() needs to handle art properly. Waiting for a PGui() object.
-#  * Modes added to modes.py are fully functional
-#    but need to be checked for:
-#      * Naming conventions
-#      * Simplification
-#      * Memory leaks
-#      * Bugs
 
 
 class MasterMode(tk_.Toplevel):
