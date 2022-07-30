@@ -91,7 +91,7 @@ class SpriteToolbar(MasterMode):
         # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         self.s_3 = tk_.Frame(self, bg='black')
         # __________________________________________________________
-        self.type_options_ = ['Tile Set', 'Custom Grid', 'Character', 'UI']
+        self.type_options_ = ['Tile Set', 'Custom Grid', 'Character', 'PGui']
         self.type_selected_ = tk_.StringVar()
         self.typ_s_lbl = tk_.Label(self.s_3, bg='black', fg='white',
                                    text=' Sprite Type: ')
@@ -142,9 +142,9 @@ class SpriteMode(SpriteToolbar):
         if self.working_sprite_:
             if self.working_sprite_.image_:
                 view.scene.blit(self.working_sprite_.image_, (0, 0))
-        for i in self.working_sprite_.cells_:
-            cell = self.working_sprite_.cells_[i]
-
+        if self.working_sprite_.cells_:
+            for i in self.working_sprite_.cells_:
+                pg_.draw.rect(view.scene, 'red', (i[0], i[1], i[2], i[3]), 1)
         else:
             self.working_sprite_ = Sprite()
 
@@ -155,7 +155,6 @@ class SpriteMode(SpriteToolbar):
             if type_ == 'PGui':
                 self.working_sprite_ = PGui()
                 self.working_sprite_.type_ = type_
-                self.working_sprite_.cells_ = cell_data_['PGui']
             elif type_ == 'Tile Set':
                 self.working_sprite_ = TileSet()
                 self.working_sprite_.type_ = type_
@@ -225,6 +224,6 @@ class SpriteMode(SpriteToolbar):
         self.author_.set(self.working_sprite_.creator_)
         self.date_.set(self.working_sprite_.creation_date_)
         try:
-            self.cell_number_.set(str(len(self.working_sprite_.cells_)))
+            self.cell_number_.set('# of cells: '+str(len(self.working_sprite_.cells_)))
         except TypeError:
             print('failed to calculate cell number.')

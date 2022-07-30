@@ -11,6 +11,8 @@ from pygame.locals import *
 from pygame.locals import *
 from datetime import date
 
+from celldata import cell_data_
+
 
 class NamedThing:
     def __init__(self, name_='Thing Name', description_=' ... ',
@@ -85,7 +87,7 @@ sprite_types = {
     'Character': [
         '.spx3', [0, 0],
         list],
-    'UI': [
+    'PGui': [
         '.spx4', [0, 0],
         list]}
 
@@ -95,7 +97,7 @@ class Sprite(NamedThing):
                  creation_date_=None, creator_=None,
                  image_=None, image_string_=None,
                  type_=None,
-                 cells_=list, animations_=dict):
+                 cells_=None, animations_=dict):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_)
         self.type_ = type_
@@ -128,7 +130,7 @@ class PGui(Sprite):
     def __init__(self, name_=' Enter a name. ', description_=' ... ',
                  creation_date_=None, creator_=None,
                  image_=None, image_string_=None,
-                 type_='UI', cells_=sprite_types['UI'][2],
+                 type_='PGui', cells_=cell_data_['PGui'],
                  animations_=dict, buttons_=list):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_,
