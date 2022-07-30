@@ -8,7 +8,6 @@ import tkinter as tk_
 from tkinter import ttk, filedialog
 import pygame as pg_
 from pygame.locals import *
-import simpleaudio as sa_
 from pygame.locals import *
 
 
@@ -32,15 +31,16 @@ class User:
 
 class Character(NamedThing):
     def __init__(self, first_name_='Name', last_name_='Name',
-                 description_=' ... ', creation_date_=None, creator_=None,
-                 sprite_sheet_='Pawn',
+                 description_=' ... ', creation_date_=None,
+                 creator_=None, sprite_sheet_='Pawn',
                  strong_=10, tough_=10, nimble_=10,
                  clever_=10, pretty_=10, alert_=10,
                  hit_points_=10, action_points_=4, energy_points_=10,
                  defence_=10, attack_=2):
         super().__init__(name_=first_name_+'_'+last_name_,
                          description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
+                         creation_date_=creation_date_,
+                         creator_=creator_)
         self.first_name_ = first_name_
         self.last_name_ = last_name_
         self.sprite_sheet_ = sprite_sheet_
@@ -89,7 +89,8 @@ class Sprite(NamedThing):
                  type_=None,
                  cells_=list, animations_=dict):
         super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
+                         creation_date_=creation_date_,
+                         creator_=creator_)
         self.type_ = type_
         self.image_ = image_
         self.image_string_ = image_string_
@@ -106,12 +107,13 @@ class TileSet(Sprite):
                  number_of_columns_=1, number_of_rows_=1,
                  type_='Tile Set', cells_=list, animations_=dict):
         super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         image_=image_, image_string_=image_string_,
-                         type_=type_,
+                         creation_date_=creation_date_,
+                         creator_=creator_, image_=image_,
+                         image_string_=image_string_, type_=type_,
                          cells_=cells_, animations_=animations_)
         self.cell_size_ = [cell_size_x_, cell_size_y_]
-        self.isometric_offset_ = [isometric_offset_x_, isometric_offset_y_]
+        self.isometric_offset_ = [isometric_offset_x_,
+                                  isometric_offset_y_]
         self.number_of_columns_ = number_of_columns_
         self.number_of_rows_ = number_of_rows_
 
@@ -123,9 +125,9 @@ class PGui(Sprite):
                  type_='UI', cells_=sprite_types['UI'][2],
                  animations_=dict, buttons_=list):
         super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         image_=image_, image_string_=image_string_,
-                         type_=type_,
+                         creation_date_=creation_date_,
+                         creator_=creator_, image_=image_,
+                         image_string_=image_string_, type_=type_,
                          cells_=cells_, animations_=animations_)
         self.buttons_ = buttons_
 
@@ -167,11 +169,13 @@ class GameMap(NamedThing):
                  iso_offset_x_=42, iso_offset_y_=29,
                  sprite_list=list):
         super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
+                         creation_date_=creation_date_,
+                         creator_=creator_)
         self.size = [x_size, y_size]
         self.iso_offset = [iso_offset_x_, iso_offset_y_]
         self.sprite_list = sprite_list
-        self.array_ = [[TileStack() for i in range(x_size)] for j in range(y_size)]
+        self.array_ = [[TileStack() for i in range(x_size)]
+                       for j in range(y_size)]
 
 
 class Item(NamedThing):
@@ -179,7 +183,8 @@ class Item(NamedThing):
                  creation_date_=None, creator_=None,
                  weight_=0, technology_level_=1, magic_level_=1):
         super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
+                         creation_date_=creation_date_,
+                         creator_=creator_)
         self.weight_ = weight_
         self.technology_level_ = technology_level_
         self.magic_level_ = magic_level_
@@ -191,8 +196,9 @@ class Armor(Item):
                  weight_=1, technology_level_=1, magic_level_=1,
                  equip_location_='Head', defence_bonus_=0):
         super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         weight_=weight_, technology_level_=technology_level_,
+                         creation_date_=creation_date_,
+                         creator_=creator_, weight_=weight_,
+                         technology_level_=technology_level_,
                          magic_level_=magic_level_)
         self.equip_location_ = equip_location_
         self.defence_bonus_ = defence_bonus_
@@ -205,8 +211,9 @@ class Weapon(Item):
                  attack_range_=1, attack_bonus_=1,
                  two_handed_=False, concealable_=False):
         super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         weight_=weight_, technology_level_=technology_level_,
+                         creation_date_=creation_date_,
+                         creator_=creator_, weight_=weight_,
+                         technology_level_=technology_level_,
                          magic_level_=magic_level_)
         self.attack_range_ = attack_range_
         self.attack_bonus_ = attack_bonus_

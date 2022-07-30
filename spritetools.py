@@ -30,7 +30,8 @@ class SpriteToolbar(MasterMode):
         self.description_ = tk_.StringVar()
         self.des_s_lbl = tk_.Label(self.s_1, bg='black', fg='white', text=' Description: ')
         self.des_s_lbl.grid(column=0, row=3)
-        self.dsc_lbl = tk_.Label(self.s_1, height=4, width=25, bg='black', fg='green', textvariable=self.description_)
+        self.dsc_lbl = tk_.Label(self.s_1, height=4, width=25, bg='black',
+                                 fg='green', textvariable=self.description_)
         self.dsc_lbl.grid(column=1, row=3)
         # __________________________________________________________
         self.date_ = tk_.StringVar()
@@ -44,7 +45,8 @@ class SpriteToolbar(MasterMode):
         self.s_2 = tk_.Frame(self, bg='black')
         # __________________________________________________________
         self.cell_number_ = tk_.StringVar()
-        self.cell_num_lbl = tk_.Label(self.s_2, bg='black', fg='white', textvariable=self.cell_number_)
+        self.cell_num_lbl = tk_.Label(self.s_2, bg='black', fg='white',
+                                      textvariable=self.cell_number_)
         self.cell_num_lbl.grid(column=1, row=0)
         # __________________________________________________________
         self.s_2.grid(column=0, row=4, padx=10, pady=10)
