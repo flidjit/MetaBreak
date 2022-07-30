@@ -8,7 +8,6 @@ import tkinter as tk_
 from tkinter import ttk, filedialog
 import pygame as pg_
 from pygame.locals import *
-import simpleaudio as sa_
 from pygame.locals import *
 
 
