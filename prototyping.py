@@ -9,6 +9,7 @@ from tkinter import ttk, filedialog
 import pygame as pg_
 from pygame.locals import *
 from pygame.locals import *
+from datetime import date
 
 
 class NamedThing:

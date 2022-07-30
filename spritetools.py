@@ -1,31 +1,35 @@
 from prototyping import *
 from modes import MasterMode
+from celldata import cell_data_
 
 
 # ToDo :
-#  * I stored information in my objects that might be handled
-#    externally just fine without storing them. reduce complexity.
-#  * some minor bugs occur which are difficult to debug because of
-#    the issue presented above.
 #  * Create at least 1 PGui() object, so I can start making the
 #    ui system work.
 #  * Activate/Deactivate widget functionality.
-#  * Build UserEntry() form.
 #  * Build GridEntry() form.
 #  * Add animation editing
 
 
 class UserEntry:
     def __init__(self, master=None):
-        self.window = tk_.Toplevel(master)
-        self.label = tk_.Label(self.window, bg='black', fg='white', text='Text')
-        self.label.grid()
+        self.window = tk_.Toplevel(master, bg='black')
+        self.n_label = tk_.Label(self.window, bg='black', fg='white', text=' Name the sprite : ')
+        self.n_label.grid(row=0, column=0)
+        self.n_string = tk_.StringVar()
+        self.n_entry = tk_.Entry(self.window, bg='black', fg='green', textvariable=self.n_string)
+        self.n_entry.grid(row=0, column=1, columnspan=2)
+        self.ok_btn = tk_.Button(self.window, bg='black', fg='pink', text=' OK ',
+                                 command=self.window.destroy)
+        self.ok_btn.grid(row=3, column=1, sticky='we')
+        self.nope_btn = tk_.Button(self.window, bg='black', fg='pink', text=' Cancel ')
+        self.nope_btn.grid(row=3, column=2, sticky='we')
         self.window.grid()
 
     def adopt(self, sprite=Sprite()):
         self.window.deiconify()
         self.window.wait_window()
-        sprite.name_ = 'Ben'
+        sprite.name_ = self.n_string.get()
         return sprite
 
 
@@ -65,14 +69,6 @@ class SpriteToolbar(MasterMode):
         self.ath_lbl = tk_.Label(self.s_1, bg='black', fg='green',
                                  textvariable=self.author_)
         self.ath_lbl.grid(column=1, row=2, sticky='we')
-        # __________________________________________________________
-        self.description_ = tk_.StringVar()
-        self.des_s_lbl = tk_.Label(self.s_1, bg='black', fg='white',
-                                   text=' Description: ')
-        self.des_s_lbl.grid(column=0, row=3)
-        self.dsc_lbl = tk_.Label(self.s_1, height=4, width=25, bg='black',
-                                 fg='green', textvariable=self.description_)
-        self.dsc_lbl.grid(column=1, row=3)
         # __________________________________________________________
         self.date_ = tk_.StringVar()
         self.dt_s_lbl = tk_.Label(self.s_1, bg='black', fg='white',
@@ -129,9 +125,8 @@ class SpriteMode(SpriteToolbar):
         self.base_folder_ = 'Rec/Sprites/'
         self.type_selected_.set(' Select a Sprite Type. ')
         self.name_.set(' ... ')
-        self.author_.set(' Your Name ')
+        self.author_.set(self.user_.screen_name_)
         self.date_.set(' 0/0/0 ')
-        self.description_.set(' ... ')
         self.cell_number_.set(' 000 ')
         self.new_but.config(command=self.new_sprite)
         self.sav_but.config(command=self.save_sprite)
@@ -147,6 +142,9 @@ class SpriteMode(SpriteToolbar):
         if self.working_sprite_:
             if self.working_sprite_.image_:
                 view.scene.blit(self.working_sprite_.image_, (0, 0))
+        for i in self.working_sprite_.cells_:
+            cell = self.working_sprite_.cells_[i]
+
         else:
             self.working_sprite_ = Sprite()
 
@@ -157,6 +155,7 @@ class SpriteMode(SpriteToolbar):
             if type_ == 'PGui':
                 self.working_sprite_ = PGui()
                 self.working_sprite_.type_ = type_
+                self.working_sprite_.cells_ = cell_data_['PGui']
             elif type_ == 'Tile Set':
                 self.working_sprite_ = TileSet()
                 self.working_sprite_.type_ = type_
@@ -169,6 +168,8 @@ class SpriteMode(SpriteToolbar):
             else:
                 print('Not a valid sprite type.')
             self.working_sprite_ = UserEntry(self).adopt(self.working_sprite_)
+            self.working_sprite_.creation_date_ = str(date.today())
+            self.working_sprite_.creator_ = self.user_.screen_name_
             dir_ = self.base_folder_ + type_
             image_filename_ = filedialog.askopenfilename(initialdir=dir_)
             self.working_sprite_.image_ = pg_.image.load(image_filename_).convert_alpha()
@@ -216,14 +217,12 @@ class SpriteMode(SpriteToolbar):
         """ Apply information contained in the form to the sprite."""
         self.working_sprite_.name_ = self.name_.get()
         self.working_sprite_.artist_ = self.author_.get()
-        self.working_sprite_.description_ = self.description_.get()
         self.working_sprite_.creation_date_ = self.date_.get()
 
     def apply_to_form(self):
         """ Apply information contained in the sprite to the form. """
         self.name_.set(self.working_sprite_.name_)
         self.author_.set(self.working_sprite_.creator_)
-        self.description_.set(self.working_sprite_.description_)
         self.date_.set(self.working_sprite_.creation_date_)
         try:
             self.cell_number_.set(str(len(self.working_sprite_.cells_)))
