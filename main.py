@@ -45,7 +45,7 @@ class ViewPort:
         pg_.font.init()
         pg_.display.set_caption("Silver Cord Project")
         self.camera = Camera()
-        self.scene = pg_.display.set_mode((1000, 600))
+        self.scene = pg_.display.set_mode((1280, 720))
         self.clock = pg_.time.Clock()
         self.fps = 30
 

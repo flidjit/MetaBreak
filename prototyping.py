@@ -191,7 +191,7 @@ class GameMap(NamedThing):
                  creation_date_=None, creator_=None,
                  x_size=10, y_size=15,
                  iso_offset_x_=42, iso_offset_y_=29,
-                 sprite_list=list):
+                 sprite_list=None):
         super().__init__(name_=name_, description_=description_,
                          creation_date_=creation_date_, creator_=creator_)
         self.size = [x_size, y_size]

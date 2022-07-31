@@ -4,11 +4,10 @@ from celldata import cell_data_
 
 
 # ToDo :
-#  * Create at least 1 PGui() object, so I can start making the
-#    ui system work.
 #  * Activate/Deactivate widget functionality.
 #  * Build GridEntry() form.
 #  * Add animation editing
+#  ^ click and drag pygame window to move sprite sheet.
 
 
 class UserEntry:
@@ -131,6 +130,7 @@ class SpriteMode(SpriteToolbar):
         self.new_but.config(command=self.new_sprite)
         self.sav_but.config(command=self.save_sprite)
         self.lod_but.config(command=self.load_sprite)
+        self.prepare_art()
 
     def take_input(self, event):
         print(event)

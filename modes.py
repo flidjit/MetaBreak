@@ -40,15 +40,18 @@ class MasterMode(tk_.Toplevel):
         dictionary, and prepare them for display."""
         st = 'Rec/Sprites/'
         if self.map_:
-            for i in self.map_.sprite_list:
-                filename = st + 'Tile Set/' + i + '.spx1'
-                self.acquire_sprite_object(filename)
+            if self.map_.sprite_list:
+                for i in self.map_.sprite_list:
+                    filename = st + 'Tile Set/' + i + '.spx1'
+                    self.acquire_sprite_object(filename)
         if self.ui_:
-            filename = st + 'UI/' + self.ui_.name_ + '.spx3'
-            self.acquire_sprite_object(filename)
-            self.ui_.background_img_ = self.ui_.image_.get_rect(self.ui_.cells_[0][0])
+            filename = st + 'PGui/' + self.user_.selected_theme_ + '.spx4'
+            self.ui_ = self.acquire_sprite_object(filename, True)
+            c = self.ui_.cells_
+            self.ui_.image_.set_clip(pg_.Rect(c[0][0], c[0][1], c[0][2], c[0][3]))
+            self.ui_.background_img_ = self.ui_.image_.subsurface(self.ui_.image_.get_clip())
             self.ui_.background_img_ = pg_.transform.scale(
-                self.ui_.background_img_, (1000, 500))
+                self.ui_.background_img_, (1280, 720))
 
     def acquire_sprite_object(self, filename=None, return_value_=False):
         """ Loads a custom sprite object, and convert its Sprite.image_string
@@ -63,7 +66,7 @@ class MasterMode(tk_.Toplevel):
             if return_value_:
                 return sprite
             else:
-                self.art_[sprite.name] = sprite
+                self.art_[sprite.name_] = sprite
 
     def save_user_data(self):
         """ Saves all user data to memory."""
