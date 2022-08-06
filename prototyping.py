@@ -200,42 +200,48 @@ class GameMap(NamedThing):
         self.array_ = [[TileStack() for i in range(x_size)] for j in range(y_size)]
 
 
-class Item(NamedThing):
-    def __init__(self, name_='Item Name', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 weight_=0, technology_level_=1, magic_level_=1):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
-        self.weight_ = weight_
-        self.technology_level_ = technology_level_
-        self.magic_level_ = magic_level_
+class PUK(NamedThing):
+    def __int__(self):
+        super().__init__(name_='Bob')
+        self.tree_visualization_ = None
+        self.focus_nodes = {}
+        self.gear_nodes = {}
 
 
-class Armor(Item):
-    def __init__(self, name_='Armor Name', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 weight_=1, technology_level_=1, magic_level_=1,
-                 equip_location_='Head', defence_bonus_=0):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         weight_=weight_, technology_level_=technology_level_,
-                         magic_level_=magic_level_)
-        self.equip_location_ = equip_location_
-        self.defence_bonus_ = defence_bonus_
+class Node(NamedThing):
+    def __int__(self):
+        super(NamedThing, self).__init__()
+        self.GP_cost_ = 0
+        self.type_ = ''
+        self.fantasy_level = 1
+        self.technology_level = 1
+        self.stat_requirements_ = []
+        self.node_requirements = []
 
 
-class Weapon(Item):
-    def __init__(self, name_='Weapon Name', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 weight_=1, technology_level_=1, magic_level_=1,
-                 attack_range_=1, attack_bonus_=1,
-                 two_handed_=False, concealable_=False):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         weight_=weight_, technology_level_=technology_level_,
-                         magic_level_=magic_level_)
-        self.attack_range_ = attack_range_
-        self.attack_bonus_ = attack_bonus_
-        self.two_handed_ = two_handed_
-        self.concealable_ = concealable_
+class Gear(Node):
+    def __int__(self):
+        super(Gear, self).__int__()
+        self.weight_ = 1
+        self.volume_ = 1
+
+
+class Outfit(Gear):
+    def __int__(self):
+        super(Outfit, self).__int__()
+        self.skills_ = []
+        self.defence_bonus_ = 0
+
+
+class Equipment(Outfit):
+    def __int__(self):
+        super(Equipment, self).__int__()
+        self.equip_location_ = ''
+
+
+class Weapon(Gear):
+    def __int__(self):
+        super(Weapon, self).__int__()
+        self.range_ = 0
+        self.powers_ = []
 

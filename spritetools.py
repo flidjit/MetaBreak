@@ -170,14 +170,15 @@ class SpriteMode(SpriteToolbar):
             self.working_sprite_.creation_date_ = str(date.today())
             self.working_sprite_.creator_ = self.user_.screen_name_
             dir_ = self.base_folder_ + type_
-            image_filename_ = filedialog.askopenfilename(initialdir=dir_)
+            image_filename_ = filedialog.askopenfilename(
+                initialdir=dir_, title=' Select a png sprite strip. ')
             self.working_sprite_.image_ = pg_.image.load(image_filename_).convert_alpha()
             with open(image_filename_, 'rb') as img:
                 img = img.read()
                 self.working_sprite_.image_string_ = base64.b64encode(img)
             self.apply_to_form()
         except TypeError:
-            print(' Failed. ')
+            print(' Failed to create a new sprite. ')
 
     def save_sprite(self):
         """ Save the sprite to file. """
