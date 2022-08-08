@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <minder version="1.13.1">
-  <theme name="solarized_dark" label="Solarized Dark" index="0"/>
+  <theme name="solarized_dark" label="Solarized Dark" index="-1"/>
   <styles>
     <style level="0" isset="false" branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="rounded" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="10" nodepadding="10" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionlwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10" connectiontwidth="100"/>
     <style level="1" isset="false" branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionlwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10" connectiontwidth="100"/>
@@ -14,63 +14,63 @@
     <style level="9" isset="false" branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionlwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10" connectiontwidth="100"/>
     <style level="10" isset="false" branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionlwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10" connectiontwidth="100"/>
   </styles>
-  <drawarea x="383.96614583333235" y="-800.30468749999977" scale="0.75"/>
+  <drawarea x="932.88932291666572" y="-374.65494791666669" scale="0.75"/>
   <images/>
   <nodes>
-    <node id="0" posx="-154.18880208333252" posy="436.55729166666663" width="176" height="76" side="left" fold="false" treesize="184" layout="To right" sticker="services" group="false">
+    <node id="0" posx="-703.11197916666572" posy="10.907552083333258" width="176" height="76" side="left" fold="false" treesize="184" layout="To right" sticker="services" group="false">
       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="8" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-      <nodename posx="-86.188802083332519" posy="464.55729166666663" maxwidth="200">
+      <nodename posx="-635.11197916666572" posy="38.907552083333258" maxwidth="200">
         <text data="MainGame()"/>
       </nodename>
       <nodenote></nodenote>
       <nodes>
-        <node id="1" posx="121.81119791666754" posy="382.55729166666663" width="107" height="48" side="right" fold="false" treesize="48" color="#cb4b16" colorroot="false" layout="To right" group="false">
+        <node id="1" posx="-427.11197916666583" posy="-43.09244791666697" width="107" height="48" side="right" fold="false" treesize="48" color="#cb4b16" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="8" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="135.81119791666754" posy="396.55729166666663" maxwidth="200">
+          <nodename posx="-413.11197916666583" posy="-29.09244791666697" maxwidth="200">
             <text data="ViewPort()"/>
           </nodename>
           <nodenote></nodenote>
           <nodes>
-            <node id="2" posx="328.81119791666748" posy="382.55729166666663" width="99" height="48" side="right" fold="false" treesize="48" color="#cb4b16" colorroot="false" layout="To right" group="false">
+            <node id="2" posx="-220.11197916666561" posy="-43.09244791666697" width="99" height="48" side="right" fold="false" treesize="48" color="#cb4b16" colorroot="false" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="8" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="342.81119791666748" posy="396.55729166666663" maxwidth="200">
+              <nodename posx="-206.11197916666561" posy="-29.09244791666697" maxwidth="200">
                 <text data="Camera()"/>
               </nodename>
               <nodenote></nodenote>
             </node>
           </nodes>
         </node>
-        <node id="3" posx="121.81119791666754" posy="474.55729166666663" width="134" height="48" side="right" fold="false" treesize="136" color="#b58900" colorroot="false" layout="To right" group="false">
+        <node id="3" posx="-427.11197916666583" posy="48.907552083333258" width="134" height="48" side="right" fold="false" treesize="136" color="#b58900" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="8" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="135.81119791666754" posy="488.55729166666663" maxwidth="200">
+          <nodename posx="-413.11197916666583" posy="62.907552083333258" maxwidth="200">
             <text data="MasterMode()"/>
           </nodename>
           <nodenote></nodenote>
           <nodes>
-            <node id="4" posx="355.81119791666748" posy="430.55729166666663" width="115" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
+            <node id="4" posx="-193.11197916666561" posy="4.9075520833330302" width="115" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="362.81119791666748" posy="437.55729166666663" maxwidth="200">
+              <nodename posx="-186.11197916666561" posy="11.90755208333303" maxwidth="200">
                 <text data="PlayerMode()"/>
               </nodename>
               <nodenote></nodenote>
             </node>
-            <node id="5" posx="355.81119791666748" posy="464.55729166666663" width="93" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
+            <node id="5" posx="-193.11197916666561" posy="38.907552083333258" width="93" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="362.81119791666748" posy="471.55729166666663" maxwidth="200">
+              <nodename posx="-186.11197916666561" posy="45.907552083333258" maxwidth="200">
                 <text data="DMMode()"/>
               </nodename>
               <nodenote></nodenote>
             </node>
-            <node id="6" posx="355.81119791666748" posy="498.55729166666663" width="101" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
+            <node id="6" posx="-193.11197916666561" posy="72.907552083333258" width="101" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="362.81119791666748" posy="505.55729166666663" maxwidth="200">
+              <nodename posx="-186.11197916666561" posy="79.907552083333258" maxwidth="200">
                 <text data="MapMode()"/>
               </nodename>
               <nodenote></nodenote>
             </node>
-            <node id="7" posx="355.81119791666748" posy="532.55729166666663" width="128" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
+            <node id="7" posx="-193.11197916666561" posy="106.90755208333309" width="128" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="362.81119791666748" posy="539.55729166666663" maxwidth="200">
+              <nodename posx="-186.11197916666561" posy="113.90755208333309" maxwidth="200">
                 <text data="TutorialMode()"/>
               </nodename>
               <nodenote></nodenote>
@@ -79,102 +79,102 @@
         </node>
       </nodes>
     </node>
-    <node id="8" posx="-88.329427083332519" posy="504.21874999999989" width="205" height="76" side="left" fold="true" treesize="76" layout="To right" sticker="frame" group="false">
+    <node id="8" posx="-637.25260416666572" posy="78.569010416666288" width="205" height="76" side="left" fold="true" treesize="76" layout="To right" sticker="frame" group="false">
       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="8" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-      <nodename posx="-20.329427083332519" posy="532.21874999999989" maxwidth="200">
+      <nodename posx="-569.25260416666572" posy="106.56901041666629" maxwidth="200">
         <text data="PopupWindow()"/>
       </nodename>
       <nodenote></nodenote>
       <nodes>
-        <node id="9" posx="216.67057291666748" posy="389.21874999999977" width="108" height="34" side="right" fold="false" treesize="34" color="#6c71c4" colorroot="false" layout="To right" group="false">
+        <node id="9" posx="-332.25260416666561" posy="-36.430989583333712" width="108" height="34" side="right" fold="false" treesize="34" color="#6c71c4" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="396.21874999999977" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="-29.430989583333712" maxwidth="200">
             <text data="TimeEditor()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="10" posx="216.67057291666748" posy="423.21874999999989" width="104" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
+        <node id="10" posx="-332.25260416666561" posy="-2.4309895833337123" width="104" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="430.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="4.5690104166662877" maxwidth="200">
             <text data="ItemEditor()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="11" posx="216.67057291666748" posy="457.21874999999989" width="101" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="false" layout="To right" group="false">
+        <node id="11" posx="-332.25260416666561" posy="31.569010416666288" width="101" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="464.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="38.569010416666288" maxwidth="200">
             <text data="DiceRoller()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="12" posx="216.67057291666748" posy="491.21874999999989" width="104" height="34" side="right" fold="false" treesize="34" color="#6c71c4" colorroot="false" layout="To right" group="false">
+        <node id="12" posx="-332.25260416666561" posy="65.569010416666288" width="104" height="34" side="right" fold="false" treesize="34" color="#6c71c4" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="498.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="72.569010416666288" maxwidth="200">
             <text data="ItemEditor()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="13" posx="216.67057291666748" posy="525.21874999999989" width="162" height="34" side="right" fold="false" treesize="34" color="#268bd2" colorroot="false" layout="To right" group="false">
+        <node id="13" posx="-332.25260416666561" posy="99.569010416666515" width="162" height="34" side="right" fold="false" treesize="34" color="#268bd2" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="532.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="106.56901041666652" maxwidth="200">
             <text data="CampaignOptions()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="14" posx="216.67057291666748" posy="559.21874999999989" width="124" height="34" side="right" fold="false" treesize="34" color="#859900" colorroot="false" layout="To right" group="false">
+        <node id="14" posx="-332.25260416666561" posy="133.56901041666617" width="124" height="34" side="right" fold="false" treesize="34" color="#859900" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="566.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="140.56901041666617" maxwidth="200">
             <text data="SphereEditor()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="15" posx="216.67057291666748" posy="593.21874999999989" width="111" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
+        <node id="15" posx="-332.25260416666561" posy="167.56901041666623" width="111" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="600.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="174.56901041666623" maxwidth="200">
             <text data="PartyEditor()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="16" posx="216.67057291666748" posy="627.21874999999989" width="126" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="false" layout="To right" group="false">
+        <node id="16" posx="-332.25260416666561" posy="201.56901041666623" width="126" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="634.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="208.56901041666623" maxwidth="200">
             <text data="OptionsMenu()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
-        <node id="17" posx="216.67057291666748" posy="661.21874999999989" width="147" height="34" side="right" fold="false" treesize="34" color="#268bd2" colorroot="false" layout="To right" group="false">
+        <node id="17" posx="-332.25260416666561" posy="235.56901041666623" width="147" height="34" side="right" fold="false" treesize="34" color="#268bd2" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="223.67057291666748" posy="668.21874999999989" maxwidth="200">
+          <nodename posx="-325.25260416666561" posy="242.56901041666623" maxwidth="200">
             <text data="CharacterEditor()"/>
           </nodename>
           <nodenote></nodenote>
         </node>
       </nodes>
     </node>
-    <node id="18" posx="456.10937500000023" posy="825.33333333333258" width="177" height="76" side="left" fold="false" treesize="1748.0000000000009" layout="To right" sticker="support" group="false">
+    <node id="18" posx="-92.813802083332803" posy="399.68359374999903" width="177" height="76" side="left" fold="false" treesize="1747.9999999999995" layout="To right" sticker="support" group="false">
       <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="8" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-      <nodename posx="524.10937500000023" posy="853.33333333333258" maxwidth="200">
+      <nodename posx="-24.813802083332803" posy="427.68359374999903" maxwidth="200">
         <text data="Basic ( CNK )"/>
       </nodename>
       <nodenote></nodenote>
       <nodes>
-        <node id="19" posx="733.10937499999977" posy="346.3333333333328" width="102" height="34" side="right" fold="false" treesize="748" color="#859900" colorroot="true" layout="To right" group="false">
+        <node id="19" posx="184.1861979166664" posy="-79.316406250001137" width="102" height="34" side="right" fold="false" treesize="747.99999999999886" color="#859900" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="740.10937499999977" posy="353.3333333333328" maxwidth="200">
+          <nodename posx="191.1861979166664" posy="-72.316406250001137" maxwidth="200">
             <text data="Loadouts"/>
           </nodename>
           <nodenote>A Loadout is what the character is holding in thier hands. Switching to a different loadout costs 3AP.</nodenote>
           <nodes>
-            <node id="20" posx="935.10937499999977" posy="176.3333333333328" width="110" height="34" side="right" fold="false" treesize="408" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="20" posx="386.18619791666663" posy="-249.31640625000091" width="110" height="34" side="right" fold="false" treesize="408.00000000000006" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="942.10937499999977" posy="183.3333333333328" maxwidth="200">
+              <nodename posx="393.18619791666663" posy="-242.31640625000091" maxwidth="200">
                 <text data="Short Sword"/>
               </nodename>
               <nodenote></nodenote>
               <nodes>
-                <node id="21" posx="1145.1093749999998" posy="40.333333333332689" width="86" height="34" side="right" fold="false" treesize="136" color="#268bd2" colorroot="true" layout="To right" group="false">
+                <node id="21" posx="596.18619791666777" posy="-385.31640625000091" width="86" height="34" side="right" fold="false" treesize="135.99999999999977" color="#268bd2" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999998" posy="47.333333333332689" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="-378.31640625000091" maxwidth="200">
                     <text data="Buckler"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -187,9 +187,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                   <nodes>
-                    <node id="22" posx="1331.1093749999998" posy="-10.666666666667311" width="91" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
+                    <node id="22" posx="782.18619791666799" posy="-436.31640625000091" width="91" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1338.1093749999998" posy="-3.6666666666673109" maxwidth="200">
+                      <nodename posx="789.18619791666799" posy="-429.31640625000091" maxwidth="200">
                         <text data="Reprisal"/>
                       </nodename>
                       <nodenote>Sack  -  Gear  -  Container
@@ -202,32 +202,32 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                     </node>
-                    <node id="82" posx="1331.1093749999998" posy="23.333333333332689" width="91" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
+                    <node id="23" posx="782.18619791666799" posy="-402.31640625000091" width="91" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1338.1093749999998" posy="30.333333333332689" maxwidth="200">
+                      <nodename posx="789.18619791666799" posy="-395.31640625000091" maxwidth="200">
                         <text data="Push Back"/>
                       </nodename>
                       <nodenote></nodenote>
                     </node>
-                    <node id="97" posx="1331.1093749999998" posy="57.333333333332803" width="64" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="24" posx="782.18619791666799" posy="-368.31640625000114" width="64" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1338.1093749999998" posy="64.333333333332803" maxwidth="200">
+                      <nodename posx="789.18619791666799" posy="-361.31640625000114" maxwidth="200">
                         <text data="Spiked"/>
                       </nodename>
                       <nodenote></nodenote>
                     </node>
-                    <node id="98" posx="1331.1093749999998" posy="91.333333333332803" width="98" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="25" posx="782.18619791666799" posy="-334.31640625000114" width="98" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1338.1093749999998" posy="98.333333333332803" maxwidth="200">
+                      <nodename posx="789.18619791666799" posy="-327.31640625000114" maxwidth="200">
                         <text data="Reinforced"/>
                       </nodename>
                       <nodenote></nodenote>
                     </node>
                   </nodes>
                 </node>
-                <node id="23" posx="1145.1093749999998" posy="159.3333333333328" width="88" height="34" side="right" fold="false" treesize="102" color="#268bd2" colorroot="true" layout="To right" group="false">
+                <node id="26" posx="596.18619791666777" posy="-266.31640625000102" width="88" height="34" side="right" fold="false" treesize="102" color="#268bd2" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999998" posy="166.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="-259.31640625000102" maxwidth="200">
                     <text data="Dagger"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -240,9 +240,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                   <nodes>
-                    <node id="24" posx="1333.1093749999998" posy="142.3333333333328" width="124" height="34" side="right" fold="false" treesize="68" color="#dc322f" colorroot="true" layout="To right" group="false">
+                    <node id="27" posx="784.18619791666777" posy="-283.31640625000102" width="124" height="34" side="right" fold="false" treesize="68" color="#dc322f" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1340.1093749999998" posy="149.3333333333328" maxwidth="200">
+                      <nodename posx="791.18619791666777" posy="-276.31640625000102" maxwidth="200">
                         <text data="Blade Flurry"/>
                       </nodename>
                       <nodenote>Sack  -  Gear  -  Container
@@ -255,71 +255,71 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                       <nodes>
-                        <node id="104" posx="1557.1093749999998" posy="125.3333333333328" width="138" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                        <node id="28" posx="1008.1861979166678" posy="-300.31640625000102" width="138" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1564.1093749999998" posy="132.3333333333328" maxwidth="200">
+                          <nodename posx="1015.1861979166678" posy="-293.31640625000102" maxwidth="200">
                             <text data="Blade Hurricane"/>
                           </nodename>
                           <nodenote></nodenote>
                         </node>
-                        <node id="105" posx="1557.1093749999998" posy="159.3333333333328" width="128" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                        <node id="29" posx="1008.1861979166678" posy="-266.31640625000102" width="128" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1564.1093749999998" posy="166.3333333333328" maxwidth="200">
+                          <nodename posx="1015.1861979166678" posy="-259.31640625000102" maxwidth="200">
                             <text data="Blade Tsunami"/>
                           </nodename>
                           <nodenote></nodenote>
                         </node>
                       </nodes>
                     </node>
-                    <node id="99" posx="1333.1093749999998" posy="193.3333333333328" width="51" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="30" posx="784.18619791666799" posy="-232.31640625000102" width="51" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1340.1093749999998" posy="200.3333333333328" maxwidth="200">
+                      <nodename posx="791.18619791666799" posy="-225.31640625000102" maxwidth="200">
                         <text data="Keen"/>
                       </nodename>
                       <nodenote></nodenote>
                     </node>
                   </nodes>
                 </node>
-                <node id="84" posx="1145.1093749999998" posy="227.3333333333328" width="88" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
+                <node id="31" posx="596.18619791666777" posy="-198.3164062500008" width="88" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999998" posy="234.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="-191.3164062500008" maxwidth="200">
                     <text data="Backslash"/>
                   </nodename>
                   <nodenote></nodenote>
                 </node>
-                <node id="100" posx="1145.1093749999998" posy="261.3333333333328" width="51" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="32" posx="596.18619791666777" posy="-164.3164062500008" width="51" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999998" posy="268.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="-157.3164062500008" maxwidth="200">
                     <text data="Keen"/>
                   </nodename>
                   <nodenote></nodenote>
                 </node>
-                <node id="101" posx="1145.1093749999998" posy="295.3333333333328" width="91" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="34" posx="596.18619791666777" posy="-130.31640625000091" width="86" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999998" posy="302.3333333333328" maxwidth="200">
-                    <text data="Electrified"/>
-                  </nodename>
-                  <nodenote></nodenote>
-                </node>
-                <node id="102" posx="1145.1093749999998" posy="329.3333333333328" width="86" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
-                  <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999998" posy="336.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="-123.31640625000091" maxwidth="200">
                     <text data="Vibrating"/>
                   </nodename>
                   <nodenote></nodenote>
                 </node>
-                <node id="103" posx="1145.1093749999998" posy="363.3333333333328" width="81" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="35" posx="596.18619791666777" posy="-96.316406250000909" width="81" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999998" posy="370.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="-89.316406250000909" maxwidth="200">
                     <text data="Serrated"/>
+                  </nodename>
+                  <nodenote></nodenote>
+                </node>
+                <node id="33" posx="596.18619791666663" posy="-62.316406250000909" width="91" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                  <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
+                  <nodename posx="603.18619791666663" posy="-55.316406250000909" maxwidth="200">
+                    <text data="Electrified"/>
                   </nodename>
                   <nodenote></nodenote>
                 </node>
               </nodes>
             </node>
-            <node id="25" posx="935.10937499999977" posy="499.3333333333328" width="149" height="34" side="right" fold="false" treesize="238" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="36" posx="386.18619791666663" posy="73.683593749998863" width="149" height="34" side="right" fold="false" treesize="237.99999999999955" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="942.10937499999977" posy="506.3333333333328" maxwidth="200">
+              <nodename posx="393.18619791666663" posy="80.683593749998863" maxwidth="200">
                 <text data="Living Grimoire"/>
               </nodename>
               <nodenote>Fox's Grimoire  -  Loadout  -  Book
@@ -340,9 +340,9 @@ Add Skill:
 
 While reading from Fox's Grimoire this character can aim thier palm at a target and emit a short-ranged fireball at will.</nodenote>
               <nodes>
-                <node id="26" posx="1184.1093749999993" posy="397.3333333333328" width="77" height="34" side="right" fold="false" treesize="34" color="#d33682" colorroot="true" layout="To right" group="false">
+                <node id="37" posx="635.18619791666754" posy="-28.316406250001137" width="77" height="34" side="right" fold="false" treesize="34" color="#d33682" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1191.1093749999993" posy="404.3333333333328" maxwidth="200">
+                  <nodename posx="642.18619791666754" posy="-21.316406250001137" maxwidth="200">
                     <text data="Flame"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -355,9 +355,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="27" posx="1184.1093749999993" posy="465.3333333333328" width="127" height="34" side="right" fold="false" treesize="102" color="#dc322f" colorroot="true" layout="To right" group="false">
+                <node id="38" posx="635.18619791666754" posy="39.683593749998863" width="127" height="34" side="right" fold="false" treesize="102" color="#dc322f" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1191.1093749999993" posy="472.3333333333328" maxwidth="200">
+                  <nodename posx="642.18619791666754" posy="46.683593749998863" maxwidth="200">
                     <text data="Guided Blast"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -370,9 +370,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                   <nodes>
-                    <node id="28" posx="1411.1093749999998" posy="431.3333333333328" width="127" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="39" posx="862.18619791666845" posy="5.6835937499988631" width="127" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1418.1093749999998" posy="438.3333333333328" maxwidth="200">
+                      <nodename posx="869.18619791666845" posy="12.683593749998863" maxwidth="200">
                         <text data="Two Targets"/>
                       </nodename>
                       <nodenote>Sack  -  Gear  -  Container
@@ -385,9 +385,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                       <nodes>
-                        <node id="29" posx="1638.1093749999998" posy="431.3333333333328" width="139" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                        <node id="40" posx="1089.186197916669" posy="5.6835937499988631" width="139" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1645.1093749999998" posy="438.3333333333328" maxwidth="200">
+                          <nodename posx="1096.186197916669" posy="12.683593749998863" maxwidth="200">
                             <text data="Three Targets"/>
                           </nodename>
                           <nodenote>Sack  -  Gear  -  Container
@@ -402,9 +402,9 @@ Holds: 30 Units of volume
                         </node>
                       </nodes>
                     </node>
-                    <node id="30" posx="1411.1093749999998" posy="465.3333333333328" width="122" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="41" posx="862.18619791666845" posy="39.683593749998863" width="122" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1418.1093749999998" posy="472.3333333333328" maxwidth="200">
+                      <nodename posx="869.18619791666845" posy="46.683593749998863" maxwidth="200">
                         <text data="Blue Flames"/>
                       </nodename>
                       <nodenote>Sack  -  Gear  -  Container
@@ -417,25 +417,25 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                       <nodes>
-                        <node id="91" posx="1633.1093749999998" posy="465.3333333333328" width="72" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
+                        <node id="42" posx="1084.186197916669" posy="39.683593749998863" width="72" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1640.1093749999998" posy="472.3333333333328" maxwidth="200">
+                          <nodename posx="1091.186197916669" posy="46.683593749998863" maxwidth="200">
                             <text data="Ignition"/>
                           </nodename>
                           <nodenote></nodenote>
                         </node>
                       </nodes>
                     </node>
-                    <node id="90" posx="1411.1093749999998" posy="499.3333333333328" width="142" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="43" posx="862.18619791666845" posy="73.683593749998863" width="142" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1418.1093749999998" posy="506.3333333333328" maxwidth="200">
+                      <nodename posx="869.18619791666845" posy="80.683593749998863" maxwidth="200">
                         <text data="Increased Range"/>
                       </nodename>
                       <nodenote></nodenote>
                       <nodes>
-                        <node id="92" posx="1653.1093749999998" posy="499.3333333333328" width="140" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
+                        <node id="44" posx="1104.186197916669" posy="73.683593749998863" width="140" height="34" side="right" fold="false" treesize="33.999999999999943" color="#cb4b16" colorroot="false" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1660.1093749999998" posy="506.3333333333328" maxwidth="200">
+                          <nodename posx="1111.186197916669" posy="80.683593749998863" maxwidth="200">
                             <text data="Increased Speed"/>
                           </nodename>
                           <nodenote></nodenote>
@@ -444,9 +444,9 @@ Holds: 30 Units of volume
                     </node>
                   </nodes>
                 </node>
-                <node id="31" posx="1184.1093749999993" posy="550.3333333333328" width="120" height="34" side="right" fold="false" treesize="68" color="#dc322f" colorroot="true" layout="To right" group="false">
+                <node id="45" posx="635.18619791666754" posy="124.68359374999903" width="120" height="34" side="right" fold="false" treesize="68" color="#dc322f" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1191.1093749999993" posy="557.3333333333328" maxwidth="200">
+                  <nodename posx="642.18619791666754" posy="131.68359374999903" maxwidth="200">
                     <text data="Flame Gout"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -459,9 +459,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                   <nodes>
-                    <node id="32" posx="1404.1093749999998" posy="533.3333333333328" width="158" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="46" posx="855.18619791666845" posy="107.68359374999892" width="158" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1411.1093749999998" posy="540.3333333333328" maxwidth="200">
+                      <nodename posx="862.18619791666845" posy="114.68359374999892" maxwidth="200">
                         <text data="Increased Range"/>
                       </nodename>
                       <nodenote>Increased Range  -  Flame Gout  -  Upgrade
@@ -473,18 +473,18 @@ MP Cost Increase: 1
 Range is now: self - AOE - 10ft.
 </nodenote>
                       <nodes>
-                        <node id="93" posx="1662.1093749999998" posy="533.3333333333328" width="58" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
+                        <node id="47" posx="1113.186197916669" posy="107.68359374999892" width="58" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1669.1093749999998" posy="540.3333333333328" maxwidth="200">
+                          <nodename posx="1120.186197916669" posy="114.68359374999892" maxwidth="200">
                             <text data="Gyser"/>
                           </nodename>
                           <nodenote></nodenote>
                         </node>
                       </nodes>
                     </node>
-                    <node id="33" posx="1404.1093749999993" posy="567.3333333333328" width="122" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="48" posx="855.18619791666845" posy="141.68359374999898" width="122" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1411.1093749999993" posy="574.3333333333328" maxwidth="200">
+                      <nodename posx="862.18619791666845" posy="148.68359374999898" maxwidth="200">
                         <text data="Blue Flames"/>
                       </nodename>
                       <nodenote>Sack  -  Gear  -  Container
@@ -497,9 +497,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                       <nodes>
-                        <node id="94" posx="1626.1093749999993" posy="567.3333333333328" width="72" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
+                        <node id="49" posx="1077.186197916669" posy="141.68359374999898" width="72" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1633.1093749999993" posy="574.3333333333328" maxwidth="200">
+                          <nodename posx="1084.186197916669" posy="148.68359374999898" maxwidth="200">
                             <text data="Ignition"/>
                           </nodename>
                           <nodenote></nodenote>
@@ -508,9 +508,9 @@ Holds: 30 Units of volume
                     </node>
                   </nodes>
                 </node>
-                <node id="34" posx="1184.1093749999993" posy="601.3333333333328" width="110" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
+                <node id="50" posx="635.18619791666754" posy="175.68359374999858" width="110" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1191.1093749999993" posy="608.3333333333328" maxwidth="200">
+                  <nodename posx="642.18619791666754" posy="182.68359374999858" maxwidth="200">
                     <text data="Fire Shield"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -523,9 +523,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                   <nodes>
-                    <node id="35" posx="1394.1093749999998" posy="601.3333333333328" width="122" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="51" posx="845.18619791666845" posy="175.68359374999858" width="122" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1401.1093749999998" posy="608.3333333333328" maxwidth="200">
+                      <nodename posx="852.18619791666845" posy="182.68359374999858" maxwidth="200">
                         <text data="Blue Flames"/>
                       </nodename>
                       <nodenote>Sack  -  Gear  -  Container
@@ -538,9 +538,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                       <nodes>
-                        <node id="95" posx="1616.1093749999998" posy="601.3333333333328" width="72" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
+                        <node id="52" posx="1067.186197916669" posy="175.68359374999858" width="72" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="false" layout="To right" group="false">
                           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                          <nodename posx="1623.1093749999998" posy="608.3333333333328" maxwidth="200">
+                          <nodename posx="1074.186197916669" posy="182.68359374999858" maxwidth="200">
                             <text data="Ignition"/>
                           </nodename>
                           <nodenote></nodenote>
@@ -551,9 +551,9 @@ Holds: 30 Units of volume
                 </node>
               </nodes>
             </node>
-            <node id="36" posx="935.10937499999977" posy="669.3333333333328" width="110" height="34" side="right" fold="false" treesize="102" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="53" posx="386.18619791666663" posy="243.68359374999812" width="110" height="34" side="right" fold="false" treesize="102" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="942.10937499999977" posy="676.3333333333328" maxwidth="200">
+              <nodename posx="393.18619791666663" posy="250.68359374999812" maxwidth="200">
                 <text data="Holy Cross"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -566,9 +566,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
               <nodes>
-                <node id="37" posx="1145.1093749999993" posy="635.3333333333328" width="120" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
+                <node id="54" posx="596.18619791666777" posy="209.68359374999812" width="120" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999993" posy="642.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="216.68359374999812" maxwidth="200">
                     <text data="Holy Prayer"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -581,9 +581,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="38" posx="1145.1093749999993" posy="669.3333333333328" width="161" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
+                <node id="55" posx="596.18619791666777" posy="243.68359374999812" width="161" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999993" posy="676.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="250.68359374999812" maxwidth="200">
                     <text data="Wraithful Prayer"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -596,9 +596,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="39" posx="1145.1093749999993" posy="703.3333333333328" width="183" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
+                <node id="56" posx="596.18619791666777" posy="277.68359374999812" width="183" height="34" side="right" fold="false" treesize="34" color="#dc322f" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1152.1093749999993" posy="710.3333333333328" maxwidth="200">
+                  <nodename posx="603.18619791666777" posy="284.68359374999812" maxwidth="200">
                     <text data="Come Into the Light"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -615,16 +615,16 @@ Holds: 30 Units of volume
             </node>
           </nodes>
         </node>
-        <node id="40" posx="733.10937499999977" posy="873.3333333333328" width="65" height="34" side="right" fold="false" treesize="306" color="#859900" colorroot="true" layout="To right" group="false">
+        <node id="57" posx="184.1861979166664" posy="447.68359374999847" width="65" height="34" side="right" fold="false" treesize="306.00000000000034" color="#859900" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="740.10937499999977" posy="880.3333333333328" maxwidth="200">
+          <nodename posx="191.1861979166664" posy="454.68359374999847" maxwidth="200">
             <text data="Armor"/>
           </nodename>
           <nodenote></nodenote>
           <nodes>
-            <node id="41" posx="898.10937499999977" posy="737.3333333333328" width="161" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="58" posx="349.18619791666652" posy="311.6835937499979" width="161" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="744.3333333333328" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="318.6835937499979" maxwidth="200">
                 <text data="Bullet-Proof Vest"/>
               </nodename>
               <nodenote>Bullet-Proof Vest  -  Armor  -  Torso
@@ -638,9 +638,9 @@ Defence Bonus: +3
 
 This character has a DR of 8 VS ballistic damage.</nodenote>
             </node>
-            <node id="42" posx="898.10937499999977" posy="771.3333333333328" width="133" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="59" posx="349.18619791666652" posy="345.68359374999858" width="133" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="778.3333333333328" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="352.68359374999858" maxwidth="200">
                 <text data="Taylored Suit"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -653,9 +653,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="43" posx="898.10937499999977" posy="805.3333333333328" width="98" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="60" posx="349.18619791666652" posy="379.68359374999858" width="98" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="812.3333333333328" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="386.68359374999858" maxwidth="200">
                 <text data="Jumpsuit"/>
               </nodename>
               <nodenote>Jumpsuit  -  Armor  -  Outfit
@@ -670,9 +670,9 @@ AC: +1
 
 This character now has a DR of 4 VS cold damage.</nodenote>
             </node>
-            <node id="44" posx="898.10937499999977" posy="839.3333333333328" width="107" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="61" posx="349.18619791666652" posy="413.68359374999812" width="107" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="846.3333333333328" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="420.68359374999812" maxwidth="200">
                 <text data="Flight Suit"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -685,9 +685,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="45" posx="898.10937499999977" posy="890.3333333333328" width="84" height="34" side="right" fold="false" treesize="68" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="62" posx="349.18619791666652" posy="464.68359374999915" width="84" height="34" side="right" fold="false" treesize="68" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="897.3333333333328" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="471.68359374999915" maxwidth="200">
                 <text data="Helmet"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -700,9 +700,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
               <nodes>
-                <node id="46" posx="1082.1093749999993" posy="873.3333333333328" width="119" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="63" posx="533.18619791666777" posy="447.68359374999847" width="119" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1089.1093749999993" posy="880.3333333333328" maxwidth="200">
+                  <nodename posx="540.18619791666777" posy="454.68359374999847" maxwidth="200">
                     <text data="Head Lamp"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -715,9 +715,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="47" posx="1082.1093749999993" posy="907.33333333333258" width="150" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="64" posx="533.18619791666777" posy="481.68359374999909" width="150" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1089.1093749999993" posy="914.33333333333258" maxwidth="200">
+                  <nodename posx="540.18619791666777" posy="488.68359374999909" maxwidth="200">
                     <text data="Digital Readout"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -732,9 +732,9 @@ Holds: 30 Units of volume
                 </node>
               </nodes>
             </node>
-            <node id="48" posx="898.10937499999977" posy="941.33333333333258" width="144" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="65" posx="349.18619791666652" posy="515.68359374999841" width="144" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="948.33333333333258" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="522.68359374999841" maxwidth="200">
                 <text data="Running Shoes"/>
               </nodename>
               <nodenote>Shoes  -  Armor  -  Feet
@@ -750,9 +750,9 @@ Move Silently +2
 
 </nodenote>
             </node>
-            <node id="49" posx="898.10937499999977" posy="975.33333333333258" width="136" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="66" posx="349.18619791666652" posy="549.68359374999864" width="136" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="982.33333333333258" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="556.68359374999864" maxwidth="200">
                 <text data="Black Domino"/>
               </nodename>
               <nodenote>Black Domino  -  Armor  -  Face
@@ -768,9 +768,9 @@ Move Silently +1
 
 This character gains advantage on rolls involving picking pockets.</nodenote>
             </node>
-            <node id="50" posx="898.10937499999977" posy="1009.333333333333" width="99" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="67" posx="349.18619791666652" posy="583.68359374999909" width="99" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="905.10937499999977" posy="1016.333333333333" maxwidth="200">
+              <nodename posx="356.18619791666652" posy="590.68359374999909" maxwidth="200">
                 <text data="Jumpjets"/>
               </nodename>
               <nodenote>Jumpjets  -  Armor  -  Feet
@@ -788,16 +788,16 @@ This character's Jump height = +10ft.</nodenote>
             </node>
           </nodes>
         </node>
-        <node id="51" posx="733.10937499999977" posy="1179.3333333333328" width="52" height="34" side="right" fold="false" treesize="305.99999999999977" color="#859900" colorroot="false" layout="To right" group="false">
+        <node id="68" posx="184.1861979166664" posy="753.68359375000023" width="52" height="34" side="right" fold="false" treesize="306" color="#859900" colorroot="false" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="740.10937499999977" posy="1186.3333333333328" maxwidth="200">
+          <nodename posx="191.1861979166664" posy="760.68359375000023" maxwidth="200">
             <text data="Gear"/>
           </nodename>
           <nodenote></nodenote>
           <nodes>
-            <node id="52" posx="885.10937499999977" posy="1043.333333333333" width="65" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="69" posx="336.18619791666652" posy="617.68359374999955" width="65" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1050.333333333333" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="624.68359374999955" maxwidth="200">
                 <text data="Sack"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -810,9 +810,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="53" posx="885.10937499999977" posy="1077.3333333333333" width="118" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="70" posx="336.18619791666652" posy="651.68359374999955" width="118" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1084.3333333333333" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="658.68359374999955" maxwidth="200">
                 <text data="Fanny Pack"/>
               </nodename>
               <nodenote>Fanny Pack  -  Gear  -  Container
@@ -825,9 +825,9 @@ equip location: Waist
 Holds: 3 Units of volume
 </nodenote>
             </node>
-            <node id="54" posx="885.10937499999977" posy="1111.333333333333" width="102" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="71" posx="336.18619791666652" posy="685.68359374999955" width="102" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1118.333333333333" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="692.68359374999955" maxwidth="200">
                 <text data="Backpack"/>
               </nodename>
               <nodenote>Backpack  -  Gear  -  Container
@@ -839,9 +839,9 @@ equip location: Back
 Holds: 20 Units of volume
 </nodenote>
             </node>
-            <node id="55" posx="885.10937499999977" posy="1145.3333333333328" width="97" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="72" posx="336.18619791666652" posy="719.68359375000023" width="97" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1152.3333333333328" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="726.68359375000023" maxwidth="200">
                 <text data="Mail Bag"/>
               </nodename>
               <nodenote>Backpack  -  Gear  -  Container
@@ -853,9 +853,9 @@ equip location: Back
 Holds: 20 Units of volume
 </nodenote>
             </node>
-            <node id="56" posx="885.10937499999977" posy="1179.3333333333328" width="116" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="73" posx="336.18619791666652" posy="753.68359375000023" width="116" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1186.3333333333328" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="760.68359375000023" maxwidth="200">
                 <text data="Comm Unit"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -868,9 +868,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="57" posx="885.10937499999977" posy="1213.3333333333328" width="99" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="74" posx="336.18619791666652" posy="787.68359375" width="99" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1220.3333333333328" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="794.68359375" maxwidth="200">
                 <text data="Lock Pick"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -883,9 +883,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
               <nodes>
-                <node id="58" posx="1084.1093749999993" posy="1213.3333333333328" width="196" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="75" posx="535.18619791666777" posy="787.68359375" width="196" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1091.1093749999993" posy="1220.3333333333328" maxwidth="200">
+                  <nodename posx="542.18619791666777" posy="794.68359375" maxwidth="200">
                     <text data="Journeyman Training"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -898,9 +898,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                   <nodes>
-                    <node id="59" posx="1380.1093749999998" posy="1213.3333333333328" width="153" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                    <node id="76" posx="831.18619791666799" posy="787.68359375" width="153" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                       <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                      <nodename posx="1387.1093749999998" posy="1220.3333333333328" maxwidth="200">
+                      <nodename posx="838.18619791666799" posy="794.68359375" maxwidth="200">
                         <text data="Master Training"/>
                       </nodename>
                       <nodenote>Sack  -  Gear  -  Container
@@ -917,9 +917,9 @@ Holds: 30 Units of volume
                 </node>
               </nodes>
             </node>
-            <node id="61" posx="885.10937499999977" posy="1247.3333333333328" width="106" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="77" posx="336.18619791666652" posy="821.68359375000023" width="106" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1254.3333333333328" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="828.68359375000023" maxwidth="200">
                 <text data="CookBook"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -932,9 +932,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="62" posx="885.10937499999977" posy="1281.3333333333328" width="193" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="78" posx="336.18619791666652" posy="855.68359374999977" width="193" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1288.3333333333328" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="862.68359374999977" maxwidth="200">
                 <text data="Survivalist Handbook"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -947,9 +947,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="63" posx="885.10937499999977" posy="1315.3333333333328" width="227" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="79" posx="336.18619791666652" posy="889.68359374999977" width="227" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="892.10937499999977" posy="1322.3333333333328" maxwidth="200">
+              <nodename posx="343.18619791666652" posy="896.68359374999977" maxwidth="200">
                 <text data="Magic for Hedge Wizards"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -964,16 +964,16 @@ Holds: 30 Units of volume
             </node>
           </nodes>
         </node>
-        <node id="64" posx="733.10937499999977" posy="1434.3333333333335" width="45" height="34" side="right" fold="false" treesize="204" color="#859900" colorroot="true" layout="To right" group="false">
+        <node id="80" posx="184.1861979166664" posy="1008.68359375" width="45" height="34" side="right" fold="false" treesize="204" color="#859900" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="740.10937499999977" posy="1441.3333333333335" maxwidth="200">
+          <nodename posx="191.1861979166664" posy="1015.68359375" maxwidth="200">
             <text data="Pets"/>
           </nodename>
           <nodenote></nodenote>
           <nodes>
-            <node id="65" posx="878.10937499999977" posy="1383.3333333333333" width="62" height="34" side="right" fold="false" treesize="102" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="81" posx="329.18619791666652" posy="957.68359375000023" width="62" height="34" side="right" fold="false" treesize="102" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="885.10937499999977" posy="1390.3333333333333" maxwidth="200">
+              <nodename posx="336.18619791666652" posy="964.68359375000023" maxwidth="200">
                 <text data="Dog"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -986,9 +986,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
               <nodes>
-                <node id="66" posx="1040.1093749999998" posy="1349.3333333333333" width="150" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="82" posx="491.18619791666754" posy="923.68359374999977" width="150" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1047.1093749999998" posy="1356.3333333333333" maxwidth="200">
+                  <nodename posx="498.18619791666754" posy="930.68359374999977" maxwidth="200">
                     <text data="Attack Training"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -1001,9 +1001,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="67" posx="1040.1093749999998" posy="1383.3333333333333" width="162" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="83" posx="491.18619791666754" posy="957.68359375000023" width="162" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1047.1093749999998" posy="1390.3333333333333" maxwidth="200">
+                  <nodename posx="498.18619791666754" posy="964.68359375000023" maxwidth="200">
                     <text data="Support Training"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -1016,9 +1016,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="68" posx="1040.1093749999998" posy="1417.3333333333335" width="106" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="84" posx="491.18619791666754" posy="991.68359375" width="106" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1047.1093749999998" posy="1424.3333333333335" maxwidth="200">
+                  <nodename posx="498.18619791666754" posy="998.68359375" maxwidth="200">
                     <text data="Gear Vest"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -1033,9 +1033,9 @@ Holds: 30 Units of volume
                 </node>
               </nodes>
             </node>
-            <node id="69" posx="878.10937499999977" posy="1485.3333333333335" width="74" height="34" side="right" fold="false" treesize="102" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="85" posx="329.18619791666652" posy="1059.6835937500005" width="74" height="34" side="right" fold="false" treesize="102" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="885.10937499999977" posy="1492.3333333333335" maxwidth="200">
+              <nodename posx="336.18619791666652" posy="1066.6835937500005" maxwidth="200">
                 <text data="Horse"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -1048,9 +1048,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
               <nodes>
-                <node id="70" posx="1052.1093749999993" posy="1451.3333333333333" width="161" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="86" posx="503.18619791666731" posy="1025.68359375" width="161" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1059.1093749999993" posy="1458.3333333333333" maxwidth="200">
+                  <nodename posx="510.18619791666731" posy="1032.68359375" maxwidth="200">
                     <text data="Combat Training"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -1063,9 +1063,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="71" posx="1052.1093749999993" posy="1485.3333333333335" width="147" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="87" posx="503.18619791666731" posy="1059.6835937500005" width="147" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1059.1093749999993" posy="1492.3333333333335" maxwidth="200">
+                  <nodename posx="510.18619791666731" posy="1066.6835937500005" maxwidth="200">
                     <text data="Speed Training"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -1078,9 +1078,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
                 </node>
-                <node id="72" posx="1052.1093749999993" posy="1519.3333333333335" width="124" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
+                <node id="88" posx="503.18619791666731" posy="1093.68359375" width="124" height="34" side="right" fold="false" treesize="34" color="#cb4b16" colorroot="true" layout="To right" group="false">
                   <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-                  <nodename posx="1059.1093749999993" posy="1526.3333333333335" maxwidth="200">
+                  <nodename posx="510.18619791666731" posy="1100.68359375" maxwidth="200">
                     <text data="Saddle Bags"/>
                   </nodename>
                   <nodenote>Sack  -  Gear  -  Container
@@ -1097,16 +1097,16 @@ Holds: 30 Units of volume
             </node>
           </nodes>
         </node>
-        <node id="73" posx="733.10937499999977" posy="1604.3333333333335" width="76" height="34" side="right" fold="false" treesize="136" color="#859900" colorroot="true" layout="To right" group="false">
+        <node id="89" posx="184.1861979166664" posy="1178.6835937499995" width="76" height="34" side="right" fold="false" treesize="136" color="#859900" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="740.10937499999977" posy="1611.3333333333335" maxwidth="200">
+          <nodename posx="191.1861979166664" posy="1185.6835937499995" maxwidth="200">
             <text data="Vehicles"/>
           </nodename>
           <nodenote></nodenote>
           <nodes>
-            <node id="74" posx="909.10937499999977" posy="1553.3333333333335" width="115" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="90" posx="360.18619791666663" posy="1127.68359375" width="115" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="916.10937499999977" posy="1560.3333333333335" maxwidth="200">
+              <nodename posx="367.18619791666663" posy="1134.68359375" maxwidth="200">
                 <text data="Motorcycle"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -1119,9 +1119,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="75" posx="909.10937499999977" posy="1587.3333333333335" width="82" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="91" posx="360.18619791666663" posy="1161.6835937499991" width="82" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="916.10937499999977" posy="1594.3333333333335" maxwidth="200">
+              <nodename posx="367.18619791666663" posy="1168.6835937499991" maxwidth="200">
                 <text data="Bycicle"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -1134,9 +1134,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="76" posx="909.10937499999977" posy="1621.3333333333335" width="57" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="92" posx="360.18619791666663" posy="1195.6835937499991" width="57" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="916.10937499999977" posy="1628.3333333333335" maxwidth="200">
+              <nodename posx="367.18619791666663" posy="1202.6835937499991" maxwidth="200">
                 <text data="Car"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -1149,9 +1149,9 @@ equip location: Hands
 Holds: 30 Units of volume
 </nodenote>
             </node>
-            <node id="77" posx="909.10937499999977" posy="1655.3333333333335" width="73" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
+            <node id="93" posx="360.18619791666663" posy="1229.6835937499991" width="73" height="34" side="right" fold="false" treesize="34" color="#b58900" colorroot="true" layout="To right" group="false">
               <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-              <nodename posx="916.10937499999977" posy="1662.3333333333335" maxwidth="200">
+              <nodename posx="367.18619791666663" posy="1236.6835937499991" maxwidth="200">
                 <text data="Truck"/>
               </nodename>
               <nodenote>Sack  -  Gear  -  Container
@@ -1166,39 +1166,39 @@ Holds: 30 Units of volume
             </node>
           </nodes>
         </node>
-        <node id="96" posx="733.10937500000023" posy="1689.3333333333335" width="72" height="48" side="right" fold="false" treesize="48" color="#6c71c4" colorroot="true" layout="To right" group="false">
+        <node id="94" posx="184.1861979166664" posy="1263.6835937499991" width="72" height="48" side="right" fold="false" treesize="48" color="#6c71c4" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="squared" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="8" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="747.10937500000023" posy="1703.3333333333335" maxwidth="200">
+          <nodename posx="198.1861979166664" posy="1277.6835937499991" maxwidth="200">
             <text data="Races"/>
           </nodename>
           <nodenote></nodenote>
         </node>
       </nodes>
     </node>
-    <node id="78" posx="-82.847656249999829" posy="833.85156249999955" width="130" height="46" side="left" fold="false" treesize="102" layout="To right" group="false">
+    <node id="95" posx="-631.77083333333314" posy="408.201822916666" width="130" height="46" side="left" fold="false" treesize="102" layout="To right" group="false">
       <style branchmargin="100" branchradius="25" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
-      <nodename posx="-68.847656249999829" posy="847.85156249999955" maxwidth="200">
+      <nodename posx="-617.77083333333314" posy="422.201822916666" maxwidth="200">
         <text data="Status Effects"/>
       </nodename>
       <nodenote></nodenote>
       <nodes>
-        <node id="79" posx="147.15234375000023" posy="805.85156249999955" width="104" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="true" layout="To right" group="false">
+        <node id="96" posx="-401.77083333333303" posy="380.20182291666623" width="104" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="154.15234375000023" posy="812.85156249999955" maxwidth="200">
+          <nodename posx="-394.77083333333303" posy="387.20182291666623" maxwidth="200">
             <text data="Disarmed"/>
           </nodename>
           <nodenote>The weapon set currently being used by the disarmed character can no longer be used. If the character is not engaged they can spend 3 AP to retrieve it. Otherwise they must succeed at contested dexterity checks against all characters in contact range. 3 AP are spent whether or not these checks are successful. The character may choose to spend 3 AP to switch loadouts instead.</nodenote>
         </node>
-        <node id="80" posx="147.15234375000023" posy="839.85156249999955" width="75" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="true" layout="To right" group="false">
+        <node id="97" posx="-401.77083333333303" posy="414.20182291666646" width="75" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="154.15234375000023" posy="846.85156249999955" maxwidth="200">
+          <nodename posx="-394.77083333333303" posy="421.20182291666646" maxwidth="200">
             <text data="Prone"/>
           </nodename>
           <nodenote>The weapon set currently being used by the disarmed character can no longer be used. If the character is not engaged they can spend 3 AP to retrieve it. Otherwise they must succeed at contested dexterity checks against all characters in contact range. 3 AP are spent whether or not these checks are successful. The character may choose to spend 3 AP to switch loadouts instead.</nodenote>
         </node>
-        <node id="81" posx="147.15234375000023" posy="873.85156249999955" width="106" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="true" layout="To right" group="false">
+        <node id="98" posx="-401.77083333333303" posy="448.20182291666612" width="106" height="34" side="right" fold="false" treesize="34" color="#2aa198" colorroot="true" layout="To right" group="false">
           <style branchmargin="100" branchradius="25" linktype="rounded" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="pilled" nodewidth="200" nodeborderwidth="4" nodefill="true" nodemargin="1" nodepadding="6" nodefont="Dyuthi 14" nodemarkup="true"/>
-          <nodename posx="154.15234375000023" posy="880.85156249999955" maxwidth="200">
+          <nodename posx="-394.77083333333303" posy="455.20182291666612" maxwidth="200">
             <text data="Paralyzed"/>
           </nodename>
           <nodenote>The weapon set currently being used by the disarmed character can no longer be used. If the character is not engaged they can spend 3 AP to retrieve it. Otherwise they must succeed at contested dexterity checks against all characters in contact range. 3 AP are spent whether or not these checks are successful. The character may choose to spend 3 AP to switch loadouts instead.</nodenote>
@@ -1208,12 +1208,12 @@ Holds: 30 Units of volume
   </nodes>
   <groups/>
   <connections>
-    <connection from_id="0" to_id="3" drag_x="138.15494791666947" drag_y="454.77994791666617">
+    <connection from_id="0" to_id="3" drag_x="-410.76822916666362" drag_y="29.130208333332178">
       <style connectiondash="dotted" connectionlwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10" connectiontwidth="100"/>
       <title></title>
       <note></note>
     </connection>
-    <connection from_id="1" to_id="3" drag_x="214.2291666666685" drag_y="448.68619791666617">
+    <connection from_id="1" to_id="3" drag_x="-334.6940104166639" drag_y="23.036458333332178">
       <style connectiondash="dotted" connectionlwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10" connectiontwidth="100"/>
       <title></title>
       <note></note>

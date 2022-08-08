@@ -30,50 +30,89 @@ class User:
         self.email_ = email_
         self.last_login_ = last_login_
         self.selected_theme_ = selected_theme_
+        self.avatars = []
+        self.graveyard = []
+        self.campaigns = []
 
 
-class MOB(NamedThing):
-    def __init__(self, first_name_='Name', last_name_='Name',
-                 description_=' ... ', creation_date_=None, creator_=None,
-                 sprite_sheet_='Pawn',
-                 strong_=10, tough_=10, nimble_=10,
-                 clever_=10, pretty_=10, alert_=10,
-                 hit_points_=10, action_points_=4, energy_points_=10,
-                 defence_=10, attack_=2):
-        super().__init__(name_=first_name_+'_'+last_name_,
-                         description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
-        self.first_name_ = first_name_
-        self.last_name_ = last_name_
-        self.sprite_sheet_ = sprite_sheet_
-        self.current_animation_ = None
-        self.animation_index_ = 0
-        self.frame_timer_ = 0
-        self.strong_ = strong_
-        self.tough_ = tough_
-        self.nimble_ = nimble_
-        self.clever_ = clever_
-        self.pretty_ = pretty_
-        self.alert_ = alert_
-        self.hit_points_ = [hit_points_, hit_points_]
-        self.energy_points_ = [energy_points_, energy_points_]
-        self.action_points_ = [action_points_, action_points_]
-        self.defence_ = defence_
-        self.attack_ = attack_
-        self.techniques = dict
-        self.skills = dict
-        self.left_hand_ = None
-        self.right_hand_ = None
-        self.head_gear_ = None
-        self.face_gear_ = None
-        self.torso_gear_ = None
-        self.hand_gear_ = None
-        self.back_gear_ = None
-        self.leg_gear_ = None
-        self.foot_gear_ = None
-        self.pack = list
-        self.current_location = None
-        self.notes = dict
+class Deck(NamedThing):
+    def __int__(self):
+        super().__init__(name_='Bob')
+        self.races = None
+        self.weapons = None
+        self.equipment = None
+        self.pack = None
+        self.minions = None
+        self.vehicles = None
+        self.upgrades = None
+        self.techniques = None
+
+
+class Avatar(Deck):
+    def __int__(self):
+        super().__int__()
+        self.stats = {
+            "First Name": '',
+            "Last Name": '',
+            "Age": 1,
+            "Height": [5, 1],
+            "Weight": 130}
+        self.scores = {
+            "Level": 1,
+            "XP": [0, 100],
+            "UPs": [100, 100],
+            "Mighty": 1,
+            "Nimble": 1,
+            "Clever": 1,
+            "Alert": 1,
+            "Bold": 1,
+            "Defence": 1,
+            "Resistance": 1,
+            "Health": [20, 20],
+            "Energy": [20, 20],
+            "Action Points": [5, 5]}
+        self.skills = {}
+        self.conditions = {}
+        self.reaction = None
+        self.melee_weapon = None
+        self.ranged_weapon = None
+
+
+class Card(NamedThing):
+    def __int__(self):
+        super().__init__()
+        self.fantasy_level = 1
+        self.technology_level = 1
+        self.stat_requirements = {}
+        self.skill_requirements = {}
+        self.card_requirements = []
+        self.conflicts_with = []
+        self.stats = {
+            "UP Cost": 10,
+            "Card Type": '',
+            "Weight": 1,
+            "Volume": 1,
+            "Tags": [],
+            "Flavor Text": '',
+            "Special Effects": None}
+
+
+class Weapon(Card):
+    def __int__(self):
+        self.ranged = False
+        self.sub_weapon = None
+        self.stats["Range"] = ['single target', 5]
+        self.stats["AP Cost"] = 3
+        self.stats["Success Roll"] = ['Nimble', +0, 'Defense', +0]
+        self.stats["Damage Roll"] = [1, 6]
+        self.stats["Critical Damage"] = [2, 6]
+        self.stats["Critical Effects"] = []
+
+
+class Armor(Card):
+    def __int__(self):
+        super().__int__()
+
 
 
 sprite_types = {
@@ -200,48 +239,4 @@ class GameMap(NamedThing):
         self.array_ = [[TileStack() for i in range(x_size)] for j in range(y_size)]
 
 
-class PUK(NamedThing):
-    def __int__(self):
-        super().__init__(name_='Bob')
-        self.tree_visualization_ = None
-        self.focus_nodes = {}
-        self.gear_nodes = {}
-
-
-class Node(NamedThing):
-    def __int__(self):
-        super(NamedThing, self).__init__()
-        self.GP_cost_ = 0
-        self.type_ = ''
-        self.fantasy_level = 1
-        self.technology_level = 1
-        self.stat_requirements_ = []
-        self.node_requirements = []
-
-
-class Gear(Node):
-    def __int__(self):
-        super(Gear, self).__int__()
-        self.weight_ = 1
-        self.volume_ = 1
-
-
-class Outfit(Gear):
-    def __int__(self):
-        super(Outfit, self).__int__()
-        self.skills_ = []
-        self.defence_bonus_ = 0
-
-
-class Equipment(Outfit):
-    def __int__(self):
-        super(Equipment, self).__int__()
-        self.equip_location_ = ''
-
-
-class Weapon(Gear):
-    def __int__(self):
-        super(Weapon, self).__int__()
-        self.range_ = 0
-        self.powers_ = []
 
