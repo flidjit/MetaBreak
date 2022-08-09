@@ -14,15 +14,6 @@ from datetime import date
 from celldata import cell_data_
 
 
-class NamedThing:
-    def __init__(self, name_='Thing Name', description_=' ... ',
-                 creation_date_=None, creator_=None):
-        self.name_ = name_
-        self.description_ = description_
-        self.creation_date_ = creation_date_
-        self.creator_ = creator_
-
-
 class User:
     def __init__(self, screen_name_='Name', email_='@mail.com',
                  last_login_='', selected_theme_='Default'):
@@ -30,33 +21,21 @@ class User:
         self.email_ = email_
         self.last_login_ = last_login_
         self.selected_theme_ = selected_theme_
-        self.avatars = []
-        self.graveyard = []
-        self.campaigns = []
+        self.avatars = [None]
+        self.graveyard = [None]
+        self.campaigns = [None]
 
 
-class Deck(NamedThing):
+class Avatar:
     def __int__(self):
-        super().__init__(name_='Bob')
-        self.races = None
-        self.weapons = None
-        self.equipment = None
-        self.pack = None
-        self.minions = None
-        self.vehicles = None
-        self.upgrades = None
-        self.techniques = None
-
-
-class Avatar(Deck):
-    def __int__(self):
-        super().__int__()
         self.stats = {
+            "Creator": None,
             "First Name": '',
             "Last Name": '',
             "Age": 1,
             "Height": [5, 1],
-            "Weight": 130}
+            "Weight": 130,
+            "Description": ['']}
         self.scores = {
             "Level": 1,
             "XP": [0, 100],
@@ -71,48 +50,71 @@ class Avatar(Deck):
             "Health": [20, 20],
             "Energy": [20, 20],
             "Action Points": [5, 5]}
-        self.skills = {}
         self.conditions = {}
-        self.reaction = None
-        self.melee_weapon = None
-        self.ranged_weapon = None
+        self.deck = {}
+        self.skills = {}
+        self.melee_weapon = [None, None]
+        self.ranged_weapon = [None, None]
 
 
-class Card(NamedThing):
+class Card:
     def __int__(self):
-        super().__init__()
+        self.root_card = False
+        self.branch_of = None
+        self.branches = {}
         self.fantasy_level = 1
         self.technology_level = 1
         self.stat_requirements = {}
         self.skill_requirements = {}
-        self.card_requirements = []
-        self.conflicts_with = []
+        self.conflicts_with = [None]
         self.stats = {
             "UP Cost": 10,
             "Card Type": '',
             "Weight": 1,
             "Volume": 1,
             "Tags": [],
+            "Prefix": [],
+            "Banner Image": '',
             "Flavor Text": '',
-            "Special Effects": None}
+            "Special Effects": [None]}
 
 
 class Weapon(Card):
     def __int__(self):
-        self.ranged = False
-        self.sub_weapon = None
-        self.stats["Range"] = ['single target', 5]
+        super(Weapon, self).__int__()
+        self.stats["Tags"].append("Weapon")
         self.stats["AP Cost"] = 3
-        self.stats["Success Roll"] = ['Nimble', +0, 'Defense', +0]
-        self.stats["Damage Roll"] = [1, 6]
-        self.stats["Critical Damage"] = [2, 6]
-        self.stats["Critical Effects"] = []
+        self.stats["Range"] = ['melee', 'single target', 5]
+        self.stats["Success Roll"] = {
+            "Attacker": [['Nimble'], +0],
+            "Defender": [['Defense'], +0]}
+        self.stats["Damage Roll"] = [[1, 6, "Slashing"]]
+        self.stats["Hit Effects"] = [None]
+        self.stats["Critical Damage"] = [[2, 6, "Slashing"]]
+        self.stats["Critical Effects"] = [None]
 
 
 class Armor(Card):
     def __int__(self):
-        super().__int__()
+        super(Armor, self).__int__()
+        self.stats["Tags"].append("Armor")
+        self.stats["Defence Bonus"] = +1
+        self.stats["Placement"] = 'Body'
+        self.stats["Resistances"] = {
+            "Shock": +0,
+            "Fire": +0,
+            "Cold": +0,
+            "Slashing": +0,
+            "Bashing": +0,
+            "Stabbing": +0,
+            "Ballistic": +0}
 
+
+class Upgrade(Card):
+    def __int__(self):
+        super(Upgrade, self).__int__()
+        self.replace_stats = []
+        self.boost_stats = []
 
 
 sprite_types = {
@@ -131,7 +133,7 @@ sprite_types = {
         list]}
 
 
-class Sprite(NamedThing):
+class Sprite():
     def __init__(self, name_='Bob', description_=' ... ',
                  creation_date_=None, creator_=None,
                  image_=None, image_string_=None,
@@ -225,7 +227,7 @@ class TileStack:
         self.stack_ = stack
 
 
-class GameMap(NamedThing):
+class GameMap():
     def __init__(self, name_='Map Name', description_=' ... ',
                  creation_date_=None, creator_=None,
                  x_size=10, y_size=15,
