@@ -26,16 +26,26 @@ class User:
         self.campaigns = [None]
 
 
+class Campaign:
+    def __int__(self):
+        self.title = 'Campaign 1'
+        self.description = []
+        self.deck = {}
+
+
 class Avatar:
     def __int__(self):
         self.stats = {
             "Creator": None,
             "First Name": '',
             "Last Name": '',
+            "Gender": '',
             "Age": 1,
             "Height": [5, 1],
             "Weight": 130,
+            "Size Category": 'Medium',
             "Description": ['']}
+        self.body_type = None
         self.scores = {
             "Level": 1,
             "XP": [0, 100],
@@ -45,76 +55,141 @@ class Avatar:
             "Clever": 1,
             "Alert": 1,
             "Bold": 1,
-            "Defence": 1,
-            "Resistance": 1,
+            "Defense": 1,
             "Health": [20, 20],
             "Energy": [20, 20],
-            "Action Points": [5, 5]}
+            "Action Points": [5, 5],
+            "Inventory Volume": [0, 0],
+            "Weight Capacity": [0, 0, 0]}
         self.conditions = {}
+        self.resistances = {
+            "Arcane": 0,
+            "Dark": 0,
+            "Light": 0,
+            "Shock": 0,
+            "Fire": 0,
+            "Ice": 0,
+            "Slashing": 0,
+            "Bashing": 0,
+            "Stabbing": 0,
+            "Ballistic": 0}
         self.deck = {}
         self.skills = {}
-        self.melee_weapon = [None, None]
-        self.ranged_weapon = [None, None]
+        self.techniques = []
+        self.gear = {
+            "Loadout 1": {
+                "Main Hand": None,
+                "Off-Hand": None},
+            "Loadout 2": {
+                "Main Hand": None,
+                "Off-Hand": None},
+            "Loadout 3": {
+                "Main Hand": None,
+                "Off-Hand": None},
+            # [Card(), slot occupied by?]
+            "Head": [None, False],
+            "Face": [None, False],
+            "Neck": [None, False],
+            "Shoulders": [None, False],
+            "Back": [None, False],
+            "Cape": [None, False],
+            "Torso": [None, False],
+            "Arms": [None, False],
+            "Hands": [None, False],
+            "Fingers": [[None, False]],
+            "Waist": [None, False],
+            "Legs": [None, False],
+            "Shins": [None, False],
+            "Feet": [None, False],
+            "Inventory": []}
 
 
 class Card:
     def __int__(self):
         self.root_card = False
-        self.branch_of = None
-        self.branches = {}
-        self.fantasy_level = 1
-        self.technology_level = 1
-        self.stat_requirements = {}
-        self.skill_requirements = {}
-        self.conflicts_with = [None]
+        self.branch_cards = {}
+        self.unlocked = False
         self.stats = {
+            "Fantasy Level": 1,
+            "Technology Level": 1,
+            "Stat Requirements": {},
+            "Skill Requirements": {},
+            "Conflicts With": [],
             "UP Cost": 10,
             "Card Type": '',
             "Weight": 1,
             "Volume": 1,
             "Tags": [],
             "Prefix": [],
-            "Banner Image": '',
-            "Flavor Text": '',
+            "Flavor Text": [],
             "Special Effects": [None]}
 
 
 class Weapon(Card):
     def __int__(self):
         super(Weapon, self).__int__()
-        self.stats["Tags"].append("Weapon")
+        self.stats["Tags"].append(["Sword", "Melee", "Steel"])
+        self.stats["Card Type"] = "Weapon"
         self.stats["AP Cost"] = 3
         self.stats["Range"] = ['melee', 'single target', 5]
         self.stats["Success Roll"] = {
-            "Attacker": [['Nimble'], +0],
-            "Defender": [['Defense'], +0]}
-        self.stats["Damage Roll"] = [[1, 6, "Slashing"]]
-        self.stats["Hit Effects"] = [None]
-        self.stats["Critical Damage"] = [[2, 6, "Slashing"]]
+            "Attacker": [['!!-1-D-20', 'Nimble'], +0],
+            "Defender": [['Defense', 'Nimble', 'Alert'], +0]}
+        self.stats["Magnitude Roll"] = [[1, 6, "Slashing"]]
+        self.stats["Success Effects"] = [None]
+        self.stats["Critical Magnitude"] = [[2, 6, "Slashing"]]
         self.stats["Critical Effects"] = [None]
 
 
 class Armor(Card):
     def __int__(self):
         super(Armor, self).__int__()
-        self.stats["Tags"].append("Armor")
-        self.stats["Defence Bonus"] = +1
-        self.stats["Placement"] = 'Body'
+        self.stats["Tags"].append(["Armor", "Torso", "Steel"])
+        self.stats["Card Type"] = "Armor"
+        self.stats["Defense Bonus"] = +1
+        self.stats["Placement"] = ['Torso']
         self.stats["Resistances"] = {
-            "Shock": +0,
-            "Fire": +0,
-            "Cold": +0,
-            "Slashing": +0,
-            "Bashing": +0,
-            "Stabbing": +0,
-            "Ballistic": +0}
+            "Magic": 0,
+            "Unholy": 0,
+            "Holy": 0,
+            "Shock": 0,
+            "Fire": 0,
+            "Cold": 0,
+            "Slashing": 0,
+            "Bashing": 0,
+            "Stabbing": 0,
+            "Ballistic": 0}
 
 
 class Upgrade(Card):
     def __int__(self):
         super(Upgrade, self).__int__()
+        self.stats["Tags"].append(["Upgrade"])
+        self.stats["Card Type"] = "Upgrade"
         self.replace_stats = []
         self.boost_stats = []
+
+
+class Technique(Card):
+    def __int__(self):
+        super(Technique, self).__int__()
+        self.stats["Tags"].append(["Character Technique", "Magic", "Fire"])
+        self.stats["Card Type"] = "Technique"
+        self.stats["AP Cost"] = 2
+        self.stats["Energy Cost"] = 2
+        self.stats["Free Hands Required"] = 1
+        self.stats["Verbal Component?"] = False
+        self.stats["Line of Sight?"] = True
+        self.stats["Range"] = ['ranged', 'single target', 20]
+        self.stats["Success Roll"] = {
+            "Attacker": [['!!-1-D-20', 'Nimble'], +0],
+            "Defender": [['Defense', 'Nimble', 'Alert'], +0]}
+        self.stats["Magnitude Roll"] = [[1, 6, "Fire"]]
+        self.stats["Success Effects"] = [None]
+        self.stats["Critical Magnitude"] = [[2, 6, "Fire"]]
+        self.stats["Critical Effects"] = [None]
+        self.stats["Special Effects"] = [None]
+
 
 
 sprite_types = {
