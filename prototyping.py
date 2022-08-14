@@ -86,7 +86,8 @@ class Avatar:
             "Loadout 3": {
                 "Main Hand": None,
                 "Off-Hand": None},
-            # [Card name, slot occupied by?]
+            # [ Card name,
+            # slot occupied by?(when equipment takes up more than one slot) ]
             "Head": [None, False],
             "Face": [None, False],
             "Neck": [None, False],
