@@ -86,7 +86,7 @@ class Avatar:
             "Loadout 3": {
                 "Main Hand": None,
                 "Off-Hand": None},
-            # [Card(), slot occupied by?]
+            # [Card name, slot occupied by?]
             "Head": [None, False],
             "Face": [None, False],
             "Neck": [None, False],
@@ -191,7 +191,6 @@ class Technique(Card):
         self.stats["Special Effects"] = [None]
 
 
-
 sprite_types = {
     # [ file location, file extension, cells]
     'Tile Set': [
@@ -208,14 +207,12 @@ sprite_types = {
         list]}
 
 
-class Sprite():
-    def __init__(self, name_='Bob', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 image_=None, image_string_=None,
-                 type_=None,
-                 cells_=None, animations_=dict):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
+class Sprite:
+    def __init__(self, image_=None, image_string_=None,
+                 type_=None, cells_=None, animations_=dict):
+        self.name_ = 'Default'
+        self.creator_ = 'Bob'
+        self.creation_date_ = ''
         self.type_ = type_
         self.image_ = image_
         self.image_string_ = image_string_
@@ -224,16 +221,12 @@ class Sprite():
 
 
 class TileSet(Sprite):
-    def __init__(self, name_=' Enter a name. ', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 image_=None, image_string_=None,
+    def __init__(self, image_=None, image_string_=None,
                  cell_size_x_=1, cell_size_y_=1,
                  isometric_offset_x_=0, isometric_offset_y_=0,
                  number_of_columns_=1, number_of_rows_=1,
                  type_='Tile Set', cells_=list, animations_=dict):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         image_=image_, image_string_=image_string_,
+        super().__init__(image_=image_, image_string_=image_string_,
                          type_=type_,
                          cells_=cells_, animations_=animations_)
         self.cell_size_ = [cell_size_x_, cell_size_y_]
@@ -243,14 +236,10 @@ class TileSet(Sprite):
 
 
 class PGui(Sprite):
-    def __init__(self, name_=' Enter a name. ', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 image_=None, image_string_=None,
+    def __init__(self, image_=None, image_string_=None,
                  type_='PGui', cells_=cell_data_['PGui'],
                  animations_=dict, buttons_=list):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         image_=image_, image_string_=image_string_,
+        super().__init__(image_=image_, image_string_=image_string_,
                          type_=type_,
                          cells_=cells_, animations_=animations_)
         self.buttons_ = buttons_
@@ -258,14 +247,10 @@ class PGui(Sprite):
 
 
 class Character(Sprite):
-    def __init__(self, name_=' Enter a name. ', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 image_=None, image_string_=None,
-                 type_='UI', cells_=sprite_types['Character'][2],
+    def __init__(self, image_=None, image_string_=None,
+                 type_='PGui', cells_=sprite_types['Character'][2],
                  animations_=dict):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_,
-                         image_=image_, image_string_=image_string_,
+        super().__init__(image_=image_, image_string_=image_string_,
                          type_=type_,
                          cells_=cells_, animations_=animations_)
 
@@ -302,14 +287,10 @@ class TileStack:
         self.stack_ = stack
 
 
-class GameMap():
-    def __init__(self, name_='Map Name', description_=' ... ',
-                 creation_date_=None, creator_=None,
-                 x_size=10, y_size=15,
+class GameMap:
+    def __init__(self, x_size=10, y_size=15,
                  iso_offset_x_=42, iso_offset_y_=29,
                  sprite_list=None):
-        super().__init__(name_=name_, description_=description_,
-                         creation_date_=creation_date_, creator_=creator_)
         self.size = [x_size, y_size]
         self.iso_offset = [iso_offset_x_, iso_offset_y_]
         self.sprite_list = sprite_list

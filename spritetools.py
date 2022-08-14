@@ -137,8 +137,9 @@ class SpriteMode(SpriteToolbar):
 
     def draw_scene(self, view):
         """ Draw the sprite to the screen. """
-        if self.ui_.image_:
-            view.scene.blit(self.ui_.background_img_, (0, 0))
+        if self.ui_:
+            if self.ui_.image_:
+                view.scene.blit(self.ui_.background_img_, (0, 0))
         if self.working_sprite_:
             if self.working_sprite_.image_:
                 view.scene.blit(self.working_sprite_.image_, (0, 0))

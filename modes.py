@@ -38,29 +38,35 @@ class MasterMode(tk_.Toplevel):
                 for i in self.map_.sprite_list:
                     filename = st + 'Tile Set/' + i + '.spx1'
                     self.acquire_sprite_object(filename)
-        if self.ui_:
-            filename = st + 'PGui/' + self.user_.selected_theme_ + '.spx4'
-            self.ui_ = self.acquire_sprite_object(filename, True)
-            c = self.ui_.cells_
-            self.ui_.image_.set_clip(pg_.Rect(c[0][0], c[0][1], c[0][2], c[0][3]))
-            self.ui_.background_img_ = self.ui_.image_.subsurface(self.ui_.image_.get_clip())
-            self.ui_.background_img_ = pg_.transform.scale(
-                self.ui_.background_img_, (1280, 720))
+        try:
+            if self.ui_:
+                filename = st + 'PGui/' + self.user_.selected_theme_ + '.spx4'
+                self.ui_ = self.acquire_sprite_object(filename, True)
+                c = self.ui_.cells_
+                self.ui_.image_.set_clip(pg_.Rect(c[0][0], c[0][1], c[0][2], c[0][3]))
+                self.ui_.background_img_ = self.ui_.image_.subsurface(self.ui_.image_.get_clip())
+                self.ui_.background_img_ = pg_.transform.scale(
+                    self.ui_.background_img_, (1280, 720))
+        except AttributeError:
+            print('Sprite has no cells!')
 
     def acquire_sprite_object(self, filename=None, return_value_=False):
         """ Loads a custom sprite object, and convert its Sprite.image_string
         data into an image format that can be handled by pygame. """
-        if filename:
-            load_file = open(filename, 'rb')
-            sprite = pickle.load(load_file)
-            load_file.close()
-            tmp_img = io.BytesIO(base64.b64decode(sprite.image_string_))
-            sprite.image_string_ = None
-            sprite.image_ = pg_.image.load(tmp_img)
-            if return_value_:
-                return sprite
-            else:
-                self.art_[sprite.name_] = sprite
+        try:
+            if filename:
+                load_file = open(filename, 'rb')
+                sprite = pickle.load(load_file)
+                load_file.close()
+                tmp_img = io.BytesIO(base64.b64decode(sprite.image_string_))
+                sprite.image_string_ = None
+                sprite.image_ = pg_.image.load(tmp_img)
+                if return_value_:
+                    return sprite
+                else:
+                    self.art_[sprite.name_] = sprite
+        except FileNotFoundError:
+            print('Sprite:'+filename+' - does not exist!')
 
     def save_user_data(self):
         """ Saves all user data to memory."""

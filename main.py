@@ -7,7 +7,7 @@ from spheretools import SphereMode
 
 
 #  ToDo:
-#    * Add pygame UI functionality.
+#    * Add pygame PGui functionality.
 #    * Add popup functionality.
 #    * Add Mode switching functionality.
 #    ---------------------------------
@@ -85,6 +85,7 @@ class MainGame:
         self.view.update()
 
     def check_mode(self):
+        # Not yet implemented.
         """ Check to see if the <self.mode_> wants to be
         destroyed and replaced with a different type of
         <MasterMode()> object. The mode will place a string,
