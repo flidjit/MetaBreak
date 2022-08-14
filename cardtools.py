@@ -17,6 +17,9 @@ class CardMakerMode(MasterMode):
             self.deck_select, bg='black', fg='white', text="Load Deck")
         self.load_butt.grid(column=1, row=0)
         self.deck_select.grid()
+        self.save_butt = tk_.Button(
+            self, bg='black', fg='white', text='Save Deck')
+        self.save_butt.grid(sticky='we')
         self.deck_name_lbl = tk_.Label(
             self, bg='black', fg='pink', text="(Select a Deck)")
         self.deck_name_lbl.grid(sticky='we')
@@ -24,9 +27,6 @@ class CardMakerMode(MasterMode):
             self, bg='black', fg='white', width=20, height=10,
             highlightcolor='pink', highlightbackground='purple')
         self.card_list.grid(sticky='we')
-        self.save_butt = tk_.Button(
-            self, bg='black', fg='white', text='Save Deck')
-        self.save_butt.grid(sticky='we')
 
     def take_input(self):
         print('take the input')
